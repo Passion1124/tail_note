@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='banner'>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image swiper_img" width="100%" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='recommend'>
+    <view class='list'>
+      <navigator open-type='navigate' url='/pages/list/list'>
+        <view>
+          <image class='img' mode='widthFix'></image>
+        </view>
+        <view>
+          <text class='title'>国内团队游</text>
+        </view>
+      </navigator>
+    </view>
+    <view class='list'>
+      <view>
+        <image class='img' mode='widthFix'></image>
+      </view>
+      <view>
+        <text class='title'>国内团队游</text>
+      </view>
+    </view>
+    <view class='list'>
+      <view>
+        <image class='img' mode='widthFix'></image>
+      </view>
+      <view>
+        <text class='title'>国内团队游</text>
+      </view>
+    </view>
+  </view>
+  <view class='custom'>客服</view>
+</view>

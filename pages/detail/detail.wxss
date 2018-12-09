@@ -1,0 +1,255 @@
+.banner{
+  width: 100%;
+}
+
+.banner .swiper_img{
+  width: 100%;
+}
+
+.info{
+  width: 100%;
+  padding: 0 12px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.info .info_title{
+  width: 100%;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.info .info_subtitle{
+  width: 100%;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.info .price_collect{
+  display: flex;
+  height: 40px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.info .price_collect .price{
+  width: 50%;
+}
+
+.info .price_collect .collect{
+  width: 50%;
+  text-align: center;
+}
+
+.detail{
+  padding: 0 12px;
+}
+
+.detail .detail_title{
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.detail .detail_interduce{
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.bottom_btn_group{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.bottom_btn_group .custom{
+  flex: 1;
+}
+
+.bottom_btn_group .shoping{
+  flex: 1;
+}
+
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .6);
+  transition: all .3s linear;
+  z-index: 99;
+}
+
+.open_mask{
+  display: block;
+}
+
+.close_mask{
+  display: none;
+}
+
+.order_info{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 0 12px;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: all .3s linear;
+  z-index: 100;
+}
+
+.open_popup{
+  transform: translateY(0);
+}
+
+.close_popup{
+  transform: translateY(100%);
+}
+
+.order_info .commodity_info{
+  display: flex;
+  width: 100%;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.order_info .commodity_info .img_row{
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  overflow: hidden;
+}
+
+.order_info .commodity_info .text_info{
+  flex: 1;
+  font-size: 12px;
+  color: gray;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.order_info .commodity_info .text_info .title{
+  margin-bottom: 8px;
+}
+
+.order_info .commodity_info .text_info .price{
+  font-size: 14px;
+}
+
+.order_info .trip{
+  width: 100%;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.order_info .trip view:first-of-type{
+  margin-bottom: 10px;
+}
+
+.order_info .trip view checkbox-group{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.order_info .trip view checkbox-group label{
+  padding: 5px 12px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  margin: 0 10px 10px 0;
+}
+
+.order_info .trip view checkbox-group label:last-of-type{
+  margin-bottom: 0;
+}
+
+.order_info .trip view checkbox-group label.checked{
+  border-color: red;
+}
+
+.order_info .trip view checkbox-group checkbox{
+  display: none;
+}
+
+.order_info .number, .order_info .telephone, .order_info .wechat{
+  display: flex;
+  width: 100%;
+  padding: 12px 0;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+
+.order_info .number>view:first-of-type, .order_info .telephone>view:first-of-type, .order_info .wechat>view:first-of-type{
+  font-size: 14px;
+  color: gray;
+}
+
+.order_info .number>view:last-of-type, .order_info .telephone>view:last-of-type, .order_info .wechat>view:last-of-type{
+  flex: 1;
+  font-size: 0;
+  text-align: right;
+}
+
+.order_info .number .stepper{
+  display: inline-block;
+    width: 80px;  
+    height: 26px;  
+    /*给主容器设一个边框*/  
+    border: 1px solid #ccc;  
+    border-radius: 3px;  
+    text-align: center;
+}
+
+.order_info .number .stepper text{
+    width: 19px;  
+    line-height: 26px;  
+    font-size: 16px;
+    text-align: center;  
+    float: left;  
+}
+
+/*数值*/  
+.order_info .number .stepper input{  
+    width: 40px;  
+    height: 26px;  
+    float: left;  
+    margin: 0 auto;  
+    text-align: center;  
+    font-size: 12px;  
+    /*给中间的input设置左右边框即可*/  
+    border-left: 1px solid #ccc;  
+    border-right: 1px solid #ccc;  
+} 
+
+/*普通样式*/  
+.order_info .number .stepper .normal{  
+    color: black;  
+}  
+  
+/*禁用样式*/  
+.order_info .number .stepper .disabled{  
+    color: #ccc;  
+} 
+
+.order_info .telephone>view:last-of-type input, .order_info .wechat>view:last-of-type input{
+  font-size: 16px;
+}
+
+.order_info .next{
+  margin: 12px 0;
+}
+
+.order_info .close{
+  position: absolute;
+  top: 0;
+  right: 5px;
+  font-size: 40px;
+  line-height: 40px;
+}

@@ -1,0 +1,110 @@
+<!-- detail.wxml -->
+<view class='container'>
+  <view class='banner'>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image swiper_img" width="100%" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='info'>
+    <view class='info_title'>
+      <text>商品名称商品名称商品名称商品名称商品名称商品名称</text>
+    </view>
+    <view class='info_subtitle'>
+      <text>标签内容/标签内容/标签内容/标签内容/标签内容</text>
+    </view>
+    <view class='price_collect'>
+      <view class='price'>
+        <text>￥313.00</text>
+      </view>
+      <view class='collect'>
+        <image></image>
+      </view>
+    </view>
+  </view>
+  <view class='detail'>
+    <view class='detail_title'>
+      <text>商品详情</text>
+    </view>
+    <view class='detail_interduce'>
+      <text>商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介</text>
+    </view>
+    <view class='detail_img'>
+      <image></image>
+    </view>
+  </view>
+  <view class='bottom_btn_group'>
+    <view class='custom'>
+      <button>客服</button>
+    </view>
+    <view class='shoping'>
+      <button bindtap='openMaskAndPopup'>立即购买</button>
+    </view>
+  </view>
+  <view class='mask {{ mask ? "open_mask" : "close_mask"}}'></view>
+  <view class='order_info {{ popup ? "open_popup" : "close_popup"}}'>
+    <view class='commodity_info'>
+      <view class='img_row'>
+        <image></image>
+      </view>
+      <view class='text_info'>
+        <view class='title'>
+          <text>商品名称商品名称商品名称名称商品名称商品名称商品名称</text>
+        </view>
+        <view class='price'>
+          <text>￥313.00</text>
+        </view>
+      </view>
+    </view>
+    <view class='trip'>
+      <view>
+        <text>出行日期</text>
+      </view>
+      <view>
+        <checkbox-group bindchange="checkboxChange">
+          <label wx:for='{{tripDate}}' class='checkbox {{ item.checked ? "checked" : ""}}'>
+            <checkbox value='{{ item.value }}' checked='{{ item.checked }}'></checkbox>
+            {{ item.name }}
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+    <view class='number'>
+      <view>
+        <text>数量</text>
+      </view>
+      <view>
+        <view class='stepper'>
+          <text class='{{ minusStatus }}' bindtap='bindMinus'>-</text>
+          <input type='number' bindchange='bindManual' value='{{ num }}'></input>
+          <text class='normal' bindtap='bindPlus'>+</text>
+        </view>
+      </view>
+    </view>
+    <view class='telephone'>
+      <view>
+        <text>手机号</text>
+      </view>
+      <view>
+        <input type='number' placeholder='请输入' maxlength='11'></input>
+      </view>
+    </view>
+    <view class='wechat'>
+      <view>
+        <text>微信</text>
+      </view>
+      <view>
+        <input type='text' placeholder='请输入'></input>
+      </view>
+    </view>
+    <view class='next'>
+      <button>下一步</button>
+    </view>
+    <view class='close' bindtap='closeMaskAndPopup'>
+      <text>×</text>
+    </view>
+  </view>
+</view>

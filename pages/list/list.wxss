@@ -1,0 +1,38 @@
+.commodity{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  border-bottom: 1px solid gray;
+}
+
+.commodity .image_text{
+  width: 120px;
+  margin-right: 15px;
+  text-align: center;
+  background-color: palevioletred;
+}
+
+.commodity .image_text .img{
+  width: 100%;
+  height: 80px;
+}
+
+.commodity .image_text .explain{
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.commodity .introduce{
+  flex: 1;
+  font-size: 14px;
+}
+
+.commodity .introduce .name{
+  margin: 10px 0 15px;
+}
+
+.commodity .introduce .money{
+  font-size: 16px;
+}

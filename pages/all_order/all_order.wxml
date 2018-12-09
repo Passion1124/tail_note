@@ -1,0 +1,45 @@
+<!-- all_order.wxml -->
+<view class='container'>
+  <scroll-view class='tab-h' scroll-with-animation="true" scroll-left="{{scrollLeft}}">
+    <view class='tab-item {{ currentTab === 0 ? "active" : ""}}' data-current='0' bindtap='swichNav'>全部订单</view>
+    <view class='tab-item {{ currentTab === 1 ? "active" : ""}}' data-current='1' bindtap='swichNav'>待付款</view>
+    <view class='tab-item {{ currentTab === 2 ? "active" : ""}}' data-current='2' bindtap='swichNav'>已付款</view>
+    <view class='tab-item {{ currentTab === 3 ? "active" : ""}}' data-current='3' bindtap='swichNav'>已完成</view>
+    <view class='tab-item {{ currentTab === 4 ? "active" : ""}}' data-current='4' bindtap='swichNav'>已取消</view>
+    <view class='tab-item {{ currentTab === 5 ? "active" : ""}}' data-current='5' bindtap='swichNav'>已退款</view>
+  </scroll-view>
+  <swiper class='tab-content' current='{{ currentTab }}' duration='300' bindchange='switchTab' style='height:{{winHeight}}rpx'>
+    <swiper-item wx:for="{{[0, 1, 2, 3, 4, 5]}}" wx:key="*this">
+      <scroll-view scroll-y="true" class='scoll-h'>
+        <block wx:for="{{[0, 1, 2, 3, 4, 5, 6, 7, 8]}}" wx:key="*this">
+          <view class='item-ans'>
+            <view class='item_info'>
+              <view class='info_name'>
+                <text>商品名称商品名称商品名称商品商品名称</text>
+              </view>
+              <view class='info_status'>
+                <text>待付款</text>
+              </view>
+            </view>
+            <view class='item_main'>
+              <view class='main_img'>
+                <image></image>
+              </view>
+              <view class='main_text'>
+                <view>
+                  <text class='trip_date'>7月17日(最迟7月5日报名)</text>
+                </view>
+                <view>
+                  <text class='price'>￥313.00</text>
+                </view>
+              </view>
+              <view class='main_num'>
+                <text>x1</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

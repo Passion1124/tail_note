@@ -1,0 +1,52 @@
+.banner{
+  width: 100%;
+}
+
+.banner .banner_img{
+  width: 100%;
+  height: 140px;
+}
+
+.classify{
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+
+.classify view{
+  flex: 1;
+  padding: 0 10px;
+}
+
+.classify view image{
+  width: 100%;
+  height: 40px;
+  background-color: red;
+}
+
+.classify view text{
+  font-size: 12px;
+}
+
+.list{
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+
+.list view{
+  flex: 1;
+}
+
+.list view:last-of-type{
+  text-align: right;
+}
+
+.list view image{
+  width: 20px;
+  height: 20px;
+}
