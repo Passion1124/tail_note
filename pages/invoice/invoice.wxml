@@ -1,0 +1,22 @@
+<!-- invoice.wxml -->
+<view class='container'>
+  <view class='company_name'>
+    <view>
+      <text>公司名称</text>
+    </view>
+    <view>
+      <input placeholder='请输入公司名称'></input>
+    </view>
+  </view>
+  <view class='company_duty_paragraph'>
+    <view>
+      <text>公司税号</text>
+    </view>
+    <view>
+      <input placeholder='请输入公司税号'></input>
+    </view>
+  </view>
+  <view class='sure'>
+    <button>确认</button>
+  </view>
+</view>

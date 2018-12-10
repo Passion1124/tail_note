@@ -1,0 +1,103 @@
+<!-- order_detail.wxml -->
+<view class='container'>
+  <view class='list commodity'>
+    <view class='img_row'>
+      <image></image>
+    </view>
+    <view class='commodity_center'>
+      <view class='name'>
+        <text>商品名称商品名称商品名称名称商品名称商品名称商品名称商…</text>
+      </view>
+      <view class='date'>
+        <text>7月17日(最迟7月5日报名)</text>
+      </view>
+    </view>
+    <view class='commodity_right'>
+      <view class='price'>
+        <text>￥313.00</text>
+      </view>
+      <view class='num'>
+        <text>x1</text>
+      </view>
+    </view>
+  </view>
+  <view class='list'>
+    <view>
+      <text>合计：</text>
+    </view>
+    <view>
+      <text>￥313.00</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view>
+      <text>手机号：</text>
+    </view>
+    <view>
+      <text>134 9999 0000</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view>
+      <text>微信：</text>
+    </view>
+    <view>
+      <text>小妖精</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view>
+      <text>订单号：</text>
+    </view>
+    <view>
+      <text>718991313</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view>
+      <text>下单时间：</text>
+    </view>
+    <view>
+      <text>2018-12-01 12:32</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view>
+      <text>付款方式：</text>
+    </view>
+    <view>
+      <text>微信</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view>
+      <text>付款时间：</text>
+    </view>
+    <view>
+      <text>2018-12-01 12:32</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view>
+      <text>发票</text>
+    </view>
+    <view>
+      <text>未开票</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view>
+      <text>发票</text>
+    </view>
+    <view>
+      <text>公司名称</text>
+    </view>
+  </view>
+  <view class='btn_group'>
+    <button>取消订单</button>
+    <button>去付款</button>
+  </view>
+  <view class='btn_group'>
+    <button>申请退款</button>
+  </view>
+</view>

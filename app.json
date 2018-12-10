@@ -6,6 +6,8 @@
     "pages/detail/detail",
     "pages/payment/payment",
     "pages/all_order/all_order",
+    "pages/order_detail/order_detail",
+    "pages/invoice/invoice",
     "pages/logs/logs"
   ],
   "window":{

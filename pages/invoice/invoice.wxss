@@ -1,0 +1,18 @@
+.container{
+  padding: 0 12px;
+}
+
+.company_name view:first-of-type, .company_duty_paragraph view:first-of-type{
+  font-size: 13px;
+  margin: 25px 0 15px;
+}
+
+.company_name view input, .company_duty_paragraph view input{
+  font-size: 14px;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.sure{
+  margin-top: 25px;
+}
