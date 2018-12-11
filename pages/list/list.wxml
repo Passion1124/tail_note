@@ -6,15 +6,66 @@
         <image class='img'></image>
       </view>
       <view>
-        <text class='explain'>图片说明</text>
+        <text class='explain'>s随时可退</text>
       </view>
     </view>
     <view class='introduce'>
       <view class='name'>
-        <text>商品名称商品名称商品名称商品名称商品名称</text>
+        <text>海南三亚5日4晚跟团游(5钻)·4万人的选择！自营纯玩明星线…</text>
       </view>
-      <view class='money'>
-        <text>￥313.00</text>
+      <view>
+        <view class='money'>
+          <text>￥313.00</text>
+        </view>
+        <view class='collect'>
+          <image src='../../img/collect32.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='commodity'>
+    <view class='image_text'>
+      <view>
+        <image class='img'></image>
+      </view>
+      <view>
+        <text class='explain'>可预定</text>
+      </view>
+    </view>
+    <view class='introduce'>
+      <view class='name'>
+        <text>三亚2-15日自由行·超级自由行冲16万人出游 | 1晚起住·海边撒旦开发商大家看法是点击返回就</text>
+      </view>
+      <view>
+        <view class='money'>
+          <text>￥313.00</text>
+        </view>
+        <view class='collect'>
+          <image src='../../img/collect32.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='commodity'>
+    <view class='image_text'>
+      <view>
+        <image class='img'></image>
+      </view>
+      <view>
+        <text class='explain'>s随时可退</text>
+      </view>
+    </view>
+    <view class='introduce'>
+      <view class='name'>
+        <text>海南三亚5日4晚跟团游(5钻)·4万人的选择！自营纯玩明星线…</text>
+      </view>
+      <view>
+        <view class='money'>
+          <text>￥313.00</text>
+        </view>
+        <view class='collect'>
+          <image src='../../img/collect32.png'></image>
+        </view>
       </view>
     </view>
   </view>

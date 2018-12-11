@@ -11,17 +11,18 @@
   </view>
   <view class='info'>
     <view class='info_title'>
-      <text>商品名称商品名称商品名称商品名称商品名称商品名称</text>
+      <text>海南三亚5日4晚跟团游(5钻)·4万人的选择！自营纯玩明星线…</text>
     </view>
-    <view class='info_subtitle'>
-      <text>标签内容/标签内容/标签内容/标签内容/标签内容</text>
+    <view class='info_tags'>
+      <view class='tag'>打卡胜地</view>
+      <view class='tag'>打卡胜地</view>
     </view>
     <view class='price_collect'>
       <view class='price'>
         <text>￥313.00</text>
       </view>
       <view class='collect'>
-        <image></image>
+        <image src='../../img/collect40.png'></image>
       </view>
     </view>
   </view>
@@ -30,15 +31,23 @@
       <text>商品详情</text>
     </view>
     <view class='detail_interduce'>
-      <text>商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介绍说明商品介</text>
+      <text>这衣服穿起来够骚，夜场泡妞，穿这衣服很容易泡到， 自从我买这衣服后，人自信了，心态也好了，上班也 认真了，午夜去酒吧!也跟上时代了，，，女同事也过 来勾哒我了，总之每个男人都舒要一件</text>
     </view>
     <view class='detail_img'>
-      <image></image>
+      <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+    </view>
+    <view class='detail_interduce'>
+      <text>你好，你的快递到了，尊敬的先生，请签收，反正我见中通快递很多，这小子真的够快，五星好评，下次再来买，看到评论的老铁，帮老板点个关注，双击评论666没毛病</text>
     </view>
   </view>
   <view class='bottom_btn_group'>
     <view class='custom'>
-      <button>客服</button>
+      <view>
+        <image src='../../img/custom.png'></image>
+      </view>
+      <view>
+        <text>客服</text>
+      </view>
     </view>
     <view class='shoping'>
       <button bindtap='openMaskAndPopup'>立即购买</button>
@@ -104,7 +113,7 @@
       <button>下一步</button>
     </view>
     <view class='close' bindtap='closeMaskAndPopup'>
-      <text>×</text>
+      <image src='../../img/close.png'></image>
     </view>
   </view>
 </view>

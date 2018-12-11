@@ -13,29 +13,65 @@
     <view class='list'>
       <navigator open-type='navigate' url='/pages/list/list'>
         <view>
-          <image class='img' mode='widthFix'></image>
+          <image class='img' mode='widthFix' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
         </view>
         <view>
-          <text class='title'>国内团队游</text>
+          <text class='title'>洛杉矶、拉斯维加斯…</text>
         </view>
       </navigator>
     </view>
     <view class='list'>
-      <view>
-        <image class='img' mode='widthFix'></image>
-      </view>
-      <view>
-        <text class='title'>国内团队游</text>
-      </view>
+      <navigator open-type='navigate' url='/pages/list/list'>
+        <view>
+          <image class='img' mode='widthFix' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+        </view>
+        <view>
+          <text class='title'>冲浪海滩旅行团</text>
+        </view>
+      </navigator>
     </view>
     <view class='list'>
-      <view>
-        <image class='img' mode='widthFix'></image>
-      </view>
-      <view>
-        <text class='title'>国内团队游</text>
-      </view>
+      <navigator open-type='navigate' url='/pages/list/list'>
+        <view>
+          <image class='img' mode='widthFix' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+        </view>
+        <view>
+          <text class='title'>洛克阿德峡谷旅行团</text>
+        </view>
+      </navigator>
+    </view>
+    <view class='list'>
+      <navigator open-type='navigate' url='/pages/list/list'>
+        <view>
+          <image class='img' mode='widthFix' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+        </view>
+        <view>
+          <text class='title'>吉朗彩色木偶</text>
+        </view>
+      </navigator>
+    </view>
+    <view class='list'>
+      <navigator open-type='navigate' url='/pages/list/list'>
+        <view>
+          <image class='img' mode='widthFix' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+        </view>
+        <view>
+          <text class='title'>阿波罗湾日出/日落</text>
+        </view>
+      </navigator>
+    </view>
+    <view class='list'>
+      <navigator open-type='navigate' url='/pages/list/list'>
+        <view>
+          <image class='img' mode='widthFix' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+        </view>
+        <view>
+          <text class='title'>奥特威树顶漫步</text>
+        </view>
+      </navigator>
     </view>
   </view>
-  <view class='custom'>客服</view>
+  <view class='custom'>
+    <image class='custom_img' src='../../img/custom.png'></image>
+  </view>
 </view>

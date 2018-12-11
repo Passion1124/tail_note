@@ -20,13 +20,19 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "img/index.png",
+        "selectedIconPath": "img/index_select.png"
       },
       {
         "pagePath": "pages/order/order",
-        "text": "我的订单"
+        "text": "我的订单",
+        "iconPath": "img/my_order.png",
+        "selectedIconPath": "img/my_order_select.png"
       }
     ],
+    "color": "#767676",
+    "selectedColor": "#23C2F7",
     "backgroundColor": "#fff"
   }
 }

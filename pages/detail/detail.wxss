@@ -1,59 +1,117 @@
+.container{
+  padding-bottom: 100rpx;
+}
+
 .banner{
   width: 100%;
+  height: 750rpx;
+}
+
+.banner swiper{
+  width: 100%;
+  height: 100%;
 }
 
 .banner .swiper_img{
   width: 100%;
+  height: 100%;
 }
 
 .info{
   width: 100%;
-  padding: 0 12px;
-  margin-bottom: 40px;
+  padding: 0 40rpx;
   box-sizing: border-box;
 }
 
 .info .info_title{
   width: 100%;
-  font-size: 18px;
-  margin-top: 15px;
+  font-size: 44rpx;
+  line-height: 62rpx;
+  color: #484848;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 48rpx;
 }
 
-.info .info_subtitle{
+.info .info_tags{
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  font-size: 14px;
-  margin-top: 10px;
+  margin-top: 24rpx;
+}
+
+.info .info_tags .tag{
+  font-size: 22rpx;
+  line-height: 30rpx;
+  padding: 5rpx 12rpx;
+  color: #23C2F7;
+  border: 1px solid #23C2F7;
+  border-radius: 4px;
+  margin-right: 16rpx;
+}
+
+.info .info_tags .tag:last-of-type{
+  margin-right: 0;
 }
 
 .info .price_collect{
   display: flex;
-  height: 40px;
+  height: 50rpx;
+  margin-top: 48rpx;
+  padding-bottom: 32rpx;
+  border-bottom: 1px solid #E0E0E0;
   align-items: center;
   overflow: hidden;
 }
 
 .info .price_collect .price{
-  width: 50%;
+  flex: 1;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #F97572;
 }
 
 .info .price_collect .collect{
-  width: 50%;
-  text-align: center;
+  line-height: 0;
+}
+
+.info .price_collect .collect image{
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .detail{
-  padding: 0 12px;
+  width: 100%;
+  padding: 0 40rpx;
+  margin-top: 64rpx;
+  box-sizing: border-box;
 }
 
 .detail .detail_title{
-  font-size: 20px;
-  margin-bottom: 15px;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #3C3C3C;
+  margin-bottom: 40rpx;
 }
 
 .detail .detail_interduce{
-  font-size: 13px;
-  margin-bottom: 10px;
-  color: #ccc;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-bottom: 40rpx;
+  color: #3C3C3C;
+}
+
+.detail .detail_img{
+  line-height: 0;
+  margin-bottom: 40rpx;
+}
+
+.detail .detail_img image{
+  width: 100%;
+  height: 476rpx;
 }
 
 .bottom_btn_group{
@@ -61,17 +119,48 @@
   bottom: 0;
   left: 0;
   display: flex;
+  align-items: center;
   width: 100%;
-  height: 40px;
+  height: 98rpx;
+  padding: 0 40rpx;
+  background-color: #fff;
+  box-shadow:0 -5rpx 10rpx 0 rgba(0,0,1,0.06);
   box-sizing: border-box;
 }
 
 .bottom_btn_group .custom{
   flex: 1;
+  text-align: center;
 }
 
-.bottom_btn_group .shoping{
-  flex: 1;
+.bottom_btn_group .custom view{
+  font-size: 0;
+  line-height: 0;
+}
+
+.bottom_btn_group .custom view:last-of-type{
+  margin-top: 5rpx;
+}
+
+.bottom_btn_group .custom image{
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.bottom_btn_group .custom text{
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #8C8C8C;
+}
+
+.bottom_btn_group .shoping button{
+  width: 540rpx;
+  height: 72rpx;
+  border-radius: 40rpx;
+  background-color: #F97572;
+  font-size: 28rpx;
+  color: #fff;
+  letter-spacing: 2rpx;
 }
 
 .mask{
@@ -98,7 +187,8 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 0 12px;
+  padding: 105rpx 40rpx 0;
+  border-radius:16rpx 16rpx 0px 0px;
   background-color: #fff;
   box-sizing: border-box;
   transition: all .3s linear;
@@ -116,41 +206,50 @@
 .order_info .commodity_info{
   display: flex;
   width: 100%;
-  padding: 12px 0;
-  border-bottom: 1px solid #ccc;
+  margin-bottom: 40rpx;
 }
 
 .order_info .commodity_info .img_row{
-  width: 60px;
-  height: 60px;
-  margin-right: 15px;
+  width: 164rpx;
+  height: 164rpx;
+  margin-right: 24rpx;
   overflow: hidden;
+}
+
+.order_info .commodity_info .img_row image{
+  width: 100%;
+  height: 100%;
 }
 
 .order_info .commodity_info .text_info{
   flex: 1;
-  font-size: 12px;
-  color: gray;
-  padding-right: 20px;
   box-sizing: border-box;
 }
 
 .order_info .commodity_info .text_info .title{
-  margin-bottom: 8px;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  color: #484848;
+  margin-bottom: 24rpx;
+  font-weight: bold;
 }
 
 .order_info .commodity_info .text_info .price{
-  font-size: 14px;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #F97572;
+  font-weight: bold;
 }
 
 .order_info .trip{
   width: 100%;
-  padding: 12px 0;
-  border-bottom: 1px solid #ccc;
 }
 
 .order_info .trip view:first-of-type{
-  margin-bottom: 10px;
+  margin-bottom: 24rpx;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  color: #3C3C3C;
 }
 
 .order_info .trip view checkbox-group{
@@ -159,18 +258,23 @@
 }
 
 .order_info .trip view checkbox-group label{
-  padding: 5px 12px;
-  border: 1px solid #ccc;
-  font-size: 12px;
-  margin: 0 10px 10px 0;
+  padding: 14rpx 48rpx;
+  border: 1px solid #B7B7B7;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  margin-bottom: 32rpx;
+  border-radius: 32rpx;
+  color: #666666;
 }
 
 .order_info .trip view checkbox-group label:last-of-type{
-  margin-bottom: 0;
+  margin-bottom: 40rpx;
 }
 
 .order_info .trip view checkbox-group label.checked{
-  border-color: red;
+  border-color: #23C2F7;
+  background-color: #23C2F7;
+  color: #fff;
 }
 
 .order_info .trip view checkbox-group checkbox{
@@ -180,76 +284,89 @@
 .order_info .number, .order_info .telephone, .order_info .wechat{
   display: flex;
   width: 100%;
-  padding: 12px 0;
+  padding: 24rpx 0;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  color: #3C3C3C;
   align-items: center;
   box-sizing: border-box;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #E0E0E0;
 }
 
-.order_info .number>view:first-of-type, .order_info .telephone>view:first-of-type, .order_info .wechat>view:first-of-type{
-  font-size: 14px;
-  color: gray;
+.order_info .number{
+  padding-top: 0;
 }
 
 .order_info .number>view:last-of-type, .order_info .telephone>view:last-of-type, .order_info .wechat>view:last-of-type{
   flex: 1;
-  font-size: 0;
+  /* font-size: 0; */
   text-align: right;
 }
 
 .order_info .number .stepper{
   display: inline-block;
-    width: 80px;  
-    height: 26px;  
+    width: 262rpx;  
+    height: 60rpx;  
     /*给主容器设一个边框*/  
-    border: 1px solid #ccc;  
-    border-radius: 3px;  
+    border: 1px solid #23C2F7;  
+    border-radius: 35rpx;  
     text-align: center;
 }
 
 .order_info .number .stepper text{
-    width: 19px;  
-    line-height: 26px;  
-    font-size: 16px;
+    width: 72rpx;  
+    line-height: 60rpx;  
+    font-size: 42rpx;
     text-align: center;  
     float: left;  
 }
 
 /*数值*/  
 .order_info .number .stepper input{  
-    width: 40px;  
-    height: 26px;  
+    width: 116rpx;  
+    height: 60rpx;  
     float: left;  
     margin: 0 auto;  
     text-align: center;  
-    font-size: 12px;  
+    font-size: 36rpx;  
     /*给中间的input设置左右边框即可*/  
-    border-left: 1px solid #ccc;  
-    border-right: 1px solid #ccc;  
+    color: #23C2F7;
+    border-left: 1px solid #23C2F7;  
+    border-right: 1px solid #23C2F7;  
 } 
 
 /*普通样式*/  
 .order_info .number .stepper .normal{  
-    color: black;  
+    color: #23C2F7;
 }  
   
 /*禁用样式*/  
 .order_info .number .stepper .disabled{  
     color: #ccc;  
-} 
-
-.order_info .telephone>view:last-of-type input, .order_info .wechat>view:last-of-type input{
-  font-size: 16px;
 }
 
 .order_info .next{
-  margin: 12px 0;
+  width: 560rpx;
+  height: 80rpx;
+  margin: 87rpx auto 64rpx;
+}
+
+.order_info .next button{
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 40rpx;
+  background-color: #F97572;
 }
 
 .order_info .close{
   position: absolute;
-  top: 0;
-  right: 5px;
-  font-size: 40px;
-  line-height: 40px;
+  top: 24rpx;
+  right: 34rpx;
+}
+
+.order_info .close image{
+  width: 44rpx;
+  height: 44rpx;
 }

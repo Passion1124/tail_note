@@ -1,10 +1,21 @@
 /**index.wxss**/
 .banner{
   width: 100%;
+  height: 280rpx;
+  padding: 0 36rpx;
+  box-sizing: border-box;
+}
+
+.banner swiper{
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+  overflow: hidden;
 }
 
 .banner .swiper_img{
   width: 100%;
+  height: 100%;
 }
 
 .recommend{
@@ -13,25 +24,54 @@
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  padding: 0 15px;
-  margin-top: 15px;
+  padding: 0 36rpx;
+  margin-top: 32rpx;
   box-sizing: border-box
 }
 
 .recommend .list{
-  width: 48%;
-  background-color: red;
-  margin-bottom: 15px;
-  text-align: center
+  width: 325rpx;
+  height: 300rpx;
+  background-color: #F5F5F5;
+  margin-bottom: 32rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  overflow: hidden;
 }
 
 .recommend .list .img{
   width: 100%;
-   height: 120px; 
+   height: 220rpx; 
 }
 
 .recommend .list .title{
-  font-size: 14px;
-  line-height: 30px;
+  display: inline-block;
+  width: 100%;
+  padding: 0 18rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
   color: #111;
+  box-sizing: border-box;
+  letter-spacing: 1rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.custom{
+  position: fixed;
+  right: 24rpx;
+  bottom: 70rpx;
+  width: 88rpx;
+  height: 88rpx;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow:0 0 10rpx 0 rgba(0,0,1,0.19);
+  background-color: #fff;
+}
+
+.custom image{
+  width: 44rpx;
+  height: 44rpx;
+  margin-top: 22rpx;
 }
