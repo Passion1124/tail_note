@@ -1,13 +1,14 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/order/order",
+    "pages/my_order/my_order",
     "pages/list/list",
     "pages/detail/detail",
     "pages/payment/payment",
     "pages/all_order/all_order",
     "pages/order_detail/order_detail",
     "pages/invoice/invoice",
+    "pages/user_info/user_info",
     "pages/logs/logs"
   ],
   "window":{
@@ -25,7 +26,7 @@
         "selectedIconPath": "img/index_select.png"
       },
       {
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/my_order/my_order",
         "text": "我的订单",
         "iconPath": "img/my_order.png",
         "selectedIconPath": "img/my_order_select.png"

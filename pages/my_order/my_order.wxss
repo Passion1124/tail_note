@@ -1,0 +1,92 @@
+.user_info{
+  margin: 64rpx 0 48rpx;
+  text-align: center;
+}
+
+.user_info .avatar{
+  width: 154rpx;
+  height: 154rpx;
+  margin: 0 auto 24rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user_info .avatar image{
+  width: 100%;
+  height: 100%;
+}
+
+.user_info .name{
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #3C3C3C;
+  font-weight: bold;
+  margin-bottom: 17rpx;
+}
+
+.user_info .telephone{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #8C8C8C;
+}
+
+.classify{
+  display: flex;
+  width: 670rpx;
+  height: 168rpx;
+  padding: 25rpx 0;
+  margin: 0 auto 24rpx;
+  background-color: #F5F5F5;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.classify>view{
+  flex: 1;
+  text-align: center;
+}
+
+.classify .icons{
+  line-height: 0;
+}
+
+.classify view image{
+  width: 54rpx;
+  height: 54rpx;
+  vertical-align: top;
+}
+
+.classify view .text{
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #3C3C3C;
+  margin-top: 30rpx;
+}
+
+.list{
+  display: flex;
+  width: 670rpx;
+  margin: 0 auto;
+  padding: 40rpx 0;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.list view{
+  flex: 1;
+}
+
+.list view:first-of-type{
+  font-size: 32rpx;
+  line-height: 45rpx;
+}
+
+.list view:last-of-type{
+  text-align: right;
+}
+
+.list view image{
+  width: 28rpx;
+  height: 28rpx;
+}

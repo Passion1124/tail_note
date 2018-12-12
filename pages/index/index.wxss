@@ -18,44 +18,130 @@
   height: 100%;
 }
 
-.recommend{
+.classify{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  padding: 0 36rpx;
-  margin-top: 32rpx;
+  padding: 0 40rpx;
+  margin: 72rpx 0;
+  box-sizing: border-box;
+}
+
+.classify view{
+  flex: 1;
+  text-align: center;
+}
+
+.classify view .icons{
+  line-height: 0;
+}
+
+.classify view image{
+  width: 54rpx;
+  height: 54rpx;
+  vertical-align: top;
+}
+
+.classify view .classify_text{
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #8C8C8C;
+  margin-top: 24rpx;
+}
+
+.tips{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #3C3C3C;
+  text-align: center;
+  margin-bottom: 8rpx;
+}
+
+.tips text{
+  position: relative;
+}
+
+.tips text::before, .tips text::after{
+  position: absolute;
+  top: 50%;
+  content: "";
+  width: 80rpx;
+  height: 2rpx;
+  border-radius: 1rpx;
+  transform: translateY(-50%);
+}
+
+.tips text::before{
+  left: 120%;
+  background:linear-gradient(90deg,rgba(249,117,114,1) 0%,rgba(249,117,114,0) 100%);
+}
+
+.tips text::after{
+  right: 120%;
+  background:linear-gradient(90deg,rgba(249,117,114,0) 0%,rgba(249,117,114,1) 100%);
+}
+
+.recommend{
+  width: 100%;
+  padding: 0 40rpx;
   box-sizing: border-box
 }
 
 .recommend .list{
-  width: 325rpx;
-  height: 300rpx;
-  background-color: #F5F5F5;
-  margin-bottom: 32rpx;
-  text-align: center;
-  border-radius: 8rpx;
-  overflow: hidden;
+  display: flex;
+  width: 100%;
+  padding: 40rpx 0;
+  border-bottom: 1px solid #E0E0E0;
 }
 
 .recommend .list .img{
-  width: 100%;
-   height: 220rpx; 
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  margin-right: 24rpx;
+  overflow: hidden; 
 }
 
-.recommend .list .title{
-  display: inline-block;
+.recommend .list .img image{
   width: 100%;
-  padding: 0 18rpx;
-  font-size: 28rpx;
-  line-height: 80rpx;
-  color: #111;
+  height: 100%;
+}
+
+.recommend .list .img view{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 35rpx;
+  font-size: 20rpx;
+  line-height: 35rpx;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.recommend .list .title_price{
+  flex: 1;
+  font-size: 32rpx;
+  line-height: 45rpx;
+}
+
+.recommend .list .title_price .title{
+  color: #3C3C3C;
   box-sizing: border-box;
+  vertical-align: top;
   letter-spacing: 1rpx;
   overflow: hidden;
   text-overflow:ellipsis;
-  white-space:nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 24rpx;
+}
+
+.recommend .list .title_price .price{
+  color: #F97572;
 }
 
 .custom{

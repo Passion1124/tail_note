@@ -26,6 +26,11 @@
   overflow: hidden;
 }
 
+.commodity .image_text view:first-of-type{
+  width: 100%;
+  height: 100%;
+}
+
 .commodity .image_text .img{
   width: 100%;
   height: 100%;

@@ -1,0 +1,40 @@
+.container{
+  padding: 133rpx 40rpx 0;
+}
+
+.list{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 40rpx 0;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  border-bottom: 1px solid #E0E0E0;
+  box-sizing: border-box;
+}
+
+.list .title{
+  color: #3C3C3C;
+}
+
+.list .input{
+  flex: 1;
+  color: #B7B7B7;
+  text-align: right;
+}
+
+.suer_change{
+  width: 100%;
+  padding: 0 55rpx;
+  margin-top: 334rpx;
+  box-sizing: border-box;
+}
+
+.suer_change button{
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background:linear-gradient(270deg,rgba(36,225,226,1) 0%,rgba(35,194,247,1) 100%);
+  box-shadow:0 8rpx 24rpx 0 rgba(181,239,242,1);
+  border-radius: 56rpx;
+}

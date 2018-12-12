@@ -1,12 +1,12 @@
 <!-- list.wsml -->
 <view class='container'>
-  <view class='commodity'>
+  <view class='commodity' bindtap='goToTheOrderDetail'>
     <view class='image_text'>
       <view>
-        <image class='img'></image>
+        <image class='img' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
       </view>
       <view>
-        <text class='explain'>s随时可退</text>
+        <text class='explain'>随时可退</text>
       </view>
     </view>
     <view class='introduce'>
@@ -23,10 +23,10 @@
       </view>
     </view>
   </view>
-  <view class='commodity'>
+  <view class='commodity' bindtap='goToTheOrderDetail'>
     <view class='image_text'>
       <view>
-        <image class='img'></image>
+        <image class='img' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
       </view>
       <view>
         <text class='explain'>可预定</text>
@@ -46,13 +46,13 @@
       </view>
     </view>
   </view>
-  <view class='commodity'>
+  <view class='commodity' bindtap='goToTheOrderDetail'>
     <view class='image_text'>
       <view>
-        <image class='img'></image>
+        <image class='img' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
       </view>
       <view>
-        <text class='explain'>s随时可退</text>
+        <text class='explain'>随时可退</text>
       </view>
     </view>
     <view class='introduce'>
@@ -64,7 +64,7 @@
           <text>￥313.00</text>
         </view>
         <view class='collect'>
-          <image src='../../img/collect32.png'></image>
+          <image src='../../img/uncollect32.png'></image>
         </view>
       </view>
     </view>

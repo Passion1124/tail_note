@@ -1,6 +1,6 @@
 <!-- all_order.wxml -->
 <view class='container'>
-  <scroll-view class='tab-h' scroll-with-animation="true" scroll-left="{{scrollLeft}}">
+  <scroll-view class='tab-h' scroll-x="true" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
     <view class='tab-item {{ currentTab === 0 ? "active" : ""}}' data-current='0' bindtap='swichNav'>全部订单</view>
     <view class='tab-item {{ currentTab === 1 ? "active" : ""}}' data-current='1' bindtap='swichNav'>待付款</view>
     <view class='tab-item {{ currentTab === 2 ? "active" : ""}}' data-current='2' bindtap='swichNav'>已付款</view>
@@ -12,18 +12,18 @@
     <swiper-item wx:for="{{[0, 1, 2, 3, 4, 5]}}" wx:key="*this">
       <scroll-view scroll-y="true" class='scoll-h'>
         <block wx:for="{{[0, 1, 2, 3, 4, 5, 6, 7, 8]}}" wx:key="*this">
-          <view class='item-ans'>
+          <view class='item-ans' bindtap='goToTheOrderDetail'>
             <view class='item_info'>
               <view class='info_name'>
                 <text>商品名称商品名称商品名称商品商品名称</text>
               </view>
-              <view class='info_status'>
+              <view class='info_status {{ item <= 2 ? "pengding" : ""}}'>
                 <text>待付款</text>
               </view>
             </view>
             <view class='item_main'>
               <view class='main_img'>
-                <image></image>
+                <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
               </view>
               <view class='main_text'>
                 <view>

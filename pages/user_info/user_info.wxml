@@ -1,0 +1,22 @@
+<!-- user_info.wxml -->
+<view class='container'>
+  <view class='list'>
+    <view class='title'>
+      <text>昵称</text>
+    </view>
+    <view class='input'>
+      <input placeholder='请输入' value='妖小花'></input>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='title'>
+      <text>手机号</text>
+    </view>
+    <view class='input'>
+      <input type='number' placeholder='请输入' value='13881937833'></input>
+    </view>
+  </view>
+  <view class='suer_change' bindtap='handleSureChangeUserInfo'>
+    <button>确认修改</button>
+  </view>
+</view>

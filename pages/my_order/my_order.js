@@ -1,3 +1,4 @@
+
 Page({
 
   /**
@@ -62,9 +63,19 @@ Page({
   onShareAppMessage: function () {
     
   },
-  goToTheOrderDetail: function () {
+  goToTheAllOrder: function () {
     wx.navigateTo({
-      url: '../detail/detail',
+      url: '../all_order/all_order',
+    })
+  },
+  goToTheCollect: function () {
+    wx.navigateTo({
+      url: '../list/list',
+    })
+  },
+  goToTheUserInfo: function () {
+    wx.navigateTo({
+      url: '../user_info/user_info',
     })
   }
 })

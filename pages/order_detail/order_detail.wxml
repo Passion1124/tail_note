@@ -2,26 +2,23 @@
 <view class='container'>
   <view class='list commodity'>
     <view class='img_row'>
-      <image></image>
+      <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
     </view>
-    <view class='commodity_center'>
-      <view class='name'>
-        <text>商品名称商品名称商品名称名称商品名称商品名称商品名称商…</text>
+    <view class='commodity_content'>
+      <view class='commodity_name'>
+        <text>海南三亚5日4晚跟团游(5钻)·4万人的选择！自营纯玩明星线…</text>
       </view>
-      <view class='date'>
-        <text>7月17日(最迟7月5日报名)</text>
-      </view>
-    </view>
-    <view class='commodity_right'>
-      <view class='price'>
-        <text>￥313.00</text>
-      </view>
-      <view class='num'>
-        <text>x1</text>
+      <view class='date_num'>
+        <view class='date'>
+          <text>7月17日(最迟7月5日报名)</text>
+        </view>
+        <view class='num'>
+          <text>x1</text>
+        </view>
       </view>
     </view>
   </view>
-  <view class='list'>
+  <view class='list total'>
     <view>
       <text>合计：</text>
     </view>
@@ -29,75 +26,87 @@
       <text>￥313.00</text>
     </view>
   </view>
-  <view class='list'>
+  <view class='list single refund'>
     <view>
-      <text>手机号：</text>
+      <text>退款金额：￥313.00</text>    
     </view>
     <view>
-      <text>134 9999 0000</text>
-    </view>
-  </view>
-  <view class='list'>
-    <view>
-      <text>微信：</text>
-    </view>
-    <view>
-      <text>小妖精</text>
+      <text class='pending'>已退款</text>
     </view>
   </view>
-  <view class='list'>
+  <view class='list order_info'>
     <view>
-      <text>订单号：</text>
+      <view>
+        <text>手机号：</text>
+      </view>
+      <view>
+        <text>134 9999 0000</text>
+      </view>
     </view>
     <view>
-      <text>718991313</text>
-    </view>
-  </view>
-  <view class='list'>
-    <view>
-      <text>下单时间：</text>
-    </view>
-    <view>
-      <text>2018-12-01 12:32</text>
-    </view>
-  </view>
-  <view class='list'>
-    <view>
-      <text>付款方式：</text>
+      <view>
+        <text>微信：</text>
+      </view>
+      <view>
+        <text>小妖精</text>
+      </view>
     </view>
     <view>
-      <text>微信</text>
-    </view>
-  </view>
-  <view class='list'>
-    <view>
-      <text>付款时间：</text>
-    </view>
-    <view>
-      <text>2018-12-01 12:32</text>
-    </view>
-  </view>
-  <view class='list'>
-    <view>
-      <text>发票</text>
+      <view>
+        <text>订单号：</text>
+      </view>
+      <view>
+        <text>718991313</text>
+      </view>
     </view>
     <view>
-      <text>未开票</text>
+      <view>
+        <text>下单时间：</text>
+      </view>
+      <view>
+        <text>2018-12-01 12:32</text>
+      </view>
     </view>
   </view>
-  <view class='list'>
+  <view class='list order_info'>
     <view>
-      <text>发票</text>
+      <view>
+        <text>付款方式：</text>
+      </view>
+      <view>
+        <text>微信</text>
+      </view>
     </view>
     <view>
-      <text>公司名称</text>
+      <view>
+        <text>付款时间：</text>
+      </view>
+      <view>
+        <text>2018-12-01 12:32</text>
+      </view>
+    </view>
+  </view>
+  <view class='list single'>
+    <view>
+      <text>发票：</text><text>未开票</text>
+    </view>
+    <view>
+      <image src='../../img/more.png'></image>
+    </view>
+  </view>
+  <view class='list single'>
+    <view>
+      <text>发票：</text><text>公司名称</text>
+    </view>
+    <view>
+      <image src='../../img/more.png'></image>
     </view>
   </view>
   <view class='btn_group'>
     <button>取消订单</button>
     <button>去付款</button>
   </view>
-  <view class='btn_group'>
+  <!-- <view class='btn_group apply'>
     <button>申请退款</button>
-  </view>
+  </view> -->
 </view>

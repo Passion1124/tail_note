@@ -147,5 +147,10 @@ Page({
       mask: true,
       popup: true
     })
+  },
+  goToThePayMent: function () {
+    wx.navigateTo({
+      url: '../payment/payment',
+    })
   }
 })

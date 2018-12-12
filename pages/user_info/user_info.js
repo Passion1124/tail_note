@@ -1,4 +1,3 @@
-
 Page({
 
   /**
@@ -62,5 +61,10 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  handleSureChangeUserInfo: function () {
+    wx.navigateBack({
+      delta: 1
+    })
   }
 })

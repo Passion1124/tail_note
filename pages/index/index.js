@@ -59,5 +59,10 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  goToTheList: function () {
+    wx.navigateTo({
+      url: '../list/list',
+    })
   }
 })

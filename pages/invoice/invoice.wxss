@@ -1,18 +1,32 @@
 .container{
-  padding: 0 12px;
+  padding: 0 40rpx;
 }
 
 .company_name view:first-of-type, .company_duty_paragraph view:first-of-type{
-  font-size: 13px;
-  margin: 25px 0 15px;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin: 40rpx 0 32rpx;
+  color: #3C3C3C;
 }
 
 .company_name view input, .company_duty_paragraph view input{
-  font-size: 14px;
-  padding: 5px 0;
-  border-bottom: 1px solid #ccc;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 1px solid #E0E0E0;
 }
 
 .sure{
-  margin-top: 25px;
+  padding: 0 55rpx;
+  margin-top: 110rpx;
+}
+
+.sure button{
+  width: 100%;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background:linear-gradient(270deg,rgba(36,225,226,1) 0%,rgba(35,194,247,1) 100%);
+  box-shadow:0 8rpx 24rpx 0 rgba(181,239,242,1);
+  border-radius: 56rpx;
 }

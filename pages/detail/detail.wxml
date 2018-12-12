@@ -110,7 +110,7 @@
       </view>
     </view>
     <view class='next'>
-      <button>下一步</button>
+      <button bindtap='goToThePayMent'>下一步</button>
     </view>
     <view class='close' bindtap='closeMaskAndPopup'>
       <image src='../../img/close.png'></image>
