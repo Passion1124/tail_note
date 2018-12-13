@@ -60,6 +60,7 @@
 }
 
 .commodity .introduce .name{
+  height: 90rpx;
   margin-bottom: 24rpx;
   font-size: 32rpx;
   line-height: 45rpx;

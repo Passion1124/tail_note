@@ -2,7 +2,7 @@
 <view class='container'>
   <view class='banner'>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}">
+      <block wx:for="{{goods.pics}}">
         <swiper-item>
           <image src="{{item}}" class="slide-image swiper_img" width="100%" height="150" />
         </swiper-item>
@@ -11,15 +11,14 @@
   </view>
   <view class='info'>
     <view class='info_title'>
-      <text>海南三亚5日4晚跟团游(5钻)·4万人的选择！自营纯玩明星线…</text>
+      <text>{{goods.name}}</text>
     </view>
     <view class='info_tags'>
-      <view class='tag'>打卡胜地</view>
-      <view class='tag'>打卡胜地</view>
+      <view class='tag' wx:for="{{goods.tags}}">{{item}}</view>
     </view>
     <view class='price_collect'>
       <view class='price'>
-        <text>￥313.00</text>
+        <text>{{goods.priceDesc}}</text>
       </view>
       <view class='collect'>
         <image src='../../img/collect40.png'></image>
@@ -57,11 +56,11 @@
   <view class='order_info {{ popup ? "open_popup" : "close_popup"}}'>
     <view class='commodity_info'>
       <view class='img_row'>
-        <image></image>
+        <image src='{{goods.poster}}'></image>
       </view>
       <view class='text_info'>
         <view class='title'>
-          <text>商品名称商品名称商品名称名称商品名称商品名称商品名称</text>
+          <text>{{ goods.priceDesc}}</text>
         </view>
         <view class='price'>
           <text>￥313.00</text>
@@ -99,14 +98,6 @@
       </view>
       <view>
         <input type='number' placeholder='请输入' maxlength='11'></input>
-      </view>
-    </view>
-    <view class='wechat'>
-      <view>
-        <text>微信</text>
-      </view>
-      <view>
-        <input type='text' placeholder='请输入'></input>
       </view>
     </view>
     <view class='next'>

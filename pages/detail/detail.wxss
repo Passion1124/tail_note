@@ -213,6 +213,7 @@
   width: 164rpx;
   height: 164rpx;
   margin-right: 24rpx;
+  border-radius: 16rpx;
   overflow: hidden;
 }
 
@@ -227,6 +228,7 @@
 }
 
 .order_info .commodity_info .text_info .title{
+  height: 90rpx;
   font-size: 32rpx;
   line-height: 45rpx;
   color: #484848;

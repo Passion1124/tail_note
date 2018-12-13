@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
 
   /**
@@ -22,14 +24,20 @@ Page({
     num: 1,
     minusStatus: 'disabled',
     mask: false,
-    popup: false
+    popup: false,
+    gid: '',
+    goods: {},
+    goodsItems: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      gid: options.gid
+    });
+    this.getGoodDetail();
   },
 
   /**
@@ -79,6 +87,22 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  getGoodDetail: function () {
+    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.GoodsDetailApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
+    let body = { auth: app.globalData.auth, uid: app.globalData.uid, gid: this.data.gid }
+    app.request(app.dataFormat(query), body, (res) => {
+      console.log(res);
+      wx.setNavigationBarTitle({
+        title: res.goods.name,
+      })
+      this.setData({
+        goods: res.goods,
+        goodsItems: res.goodsItems
+      })
+    }, function (res) {
+      console.log(res);
+    })
   },
   checkboxChange: function(e) {
     console.log(e);

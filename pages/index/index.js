@@ -16,7 +16,11 @@ Page({
     indicatorDots: true,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    category: [],
+    page: 1,
+    size: 10,
+    foodsList: []
   },
   //事件处理函数
   bindViewTap: function() {
@@ -25,6 +29,7 @@ Page({
     })
   },
   onLoad: function () {
+    this.login();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -51,6 +56,7 @@ Page({
         }
       })
     }
+    console.log(app);
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -60,9 +66,64 @@ Page({
       hasUserInfo: true
     })
   },
-  goToTheList: function () {
+  goToTheList: function (e) {
     wx.navigateTo({
-      url: '../list/list',
+      url: '../list/list?category=' + e.currentTarget.dataset.category,
+    })
+  },
+  goToTheOrderDetail: function (e) {
+    wx.navigateTo({
+      url: '../detail/detail?gid=' + e.currentTarget.dataset.gid,
+    })
+  },
+  login: function () {
+    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.LoginApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime()};
+    let body = { openId: 'openId', nickname: '', avatar: '', unionid: 'unionid', sex: '', province: '', city: '', country: '', regUid: ''}
+    app.request(app.dataFormat(query), body, (res) => {
+      console.log(res);
+      app.globalData.auth = res.auth;
+      app.globalData.uid = res.user.uuid;
+      this.getBanner();
+      this.getCategoryList();
+      this.getGoodList();
+    }, function(res){
+      console.log(res);
+    })
+  },
+  getBanner: function () {
+    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.BannerListApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
+    let body = { auth: app.globalData.auth, uid: app.globalData.uid}
+    app.request(app.dataFormat(query), body, (res) => {
+      console.log(res);
+      this.setData({
+        imgUrls: res.bannerList
+      })
+    }, function (res) {
+      console.log(res);
+    })
+  },
+  getCategoryList: function () {
+    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.CategoryListApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
+    let body = { auth: app.globalData.auth, uid: app.globalData.uid }
+    app.request(app.dataFormat(query), body, (res) => {
+      console.log(res);
+      this.setData({
+        category: res.categoryList
+      })
+    }, function (res) {
+      console.log(res);
+    })
+  },
+  getGoodList: function () {
+    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.GoodsListApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
+    let body = { auth: app.globalData.auth, uid: app.globalData.uid, page: this.data.page, size: this.data.size }
+    app.request(app.dataFormat(query), body, (res) => {
+      console.log(res);
+      this.setData({
+        foodsList: res.goods
+      })
+    }, function (res) {
+      console.log(res);
     })
   }
 })

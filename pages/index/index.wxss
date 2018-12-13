@@ -20,6 +20,7 @@
 
 .classify{
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   width: 100%;
   padding: 0 40rpx;
@@ -28,7 +29,8 @@
 }
 
 .classify view{
-  flex: 1;
+  /* flex: 1; */
+  width: 167.5rpx;
   text-align: center;
 }
 
@@ -94,6 +96,10 @@
   border-bottom: 1px solid #E0E0E0;
 }
 
+.recommend .list:last-of-type{
+  border-bottom: 0;
+}
+
 .recommend .list .img{
   position: relative;
   width: 160rpx;
@@ -128,6 +134,7 @@
 }
 
 .recommend .list .title_price .title{
+  height: 90rpx;
   color: #3C3C3C;
   box-sizing: border-box;
   vertical-align: top;

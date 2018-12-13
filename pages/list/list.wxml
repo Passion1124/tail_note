@@ -1,70 +1,25 @@
 <!-- list.wsml -->
 <view class='container'>
-  <view class='commodity' bindtap='goToTheOrderDetail'>
+<view class='commodity' wx:for="{{goodsList}}" wx:key="{{index}}" data-gid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
     <view class='image_text'>
       <view>
-        <image class='img' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+        <image class='img' src='{{item.poster}}'></image>
       </view>
       <view>
-        <text class='explain'>随时可退</text>
+        <text class='explain'>{{item.info}}</text>
       </view>
     </view>
     <view class='introduce'>
       <view class='name'>
-        <text>海南三亚5日4晚跟团游(5钻)·4万人的选择！自营纯玩明星线…</text>
+        <text>{{item.name}}</text>
       </view>
       <view>
         <view class='money'>
-          <text>￥313.00</text>
+          <text>{{item.priceDesc}}</text>
         </view>
-        <view class='collect'>
-          <image src='../../img/collect32.png'></image>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class='commodity' bindtap='goToTheOrderDetail'>
-    <view class='image_text'>
-      <view>
-        <image class='img' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
-      </view>
-      <view>
-        <text class='explain'>可预定</text>
-      </view>
-    </view>
-    <view class='introduce'>
-      <view class='name'>
-        <text>三亚2-15日自由行·超级自由行冲16万人出游 | 1晚起住·海边撒旦开发商大家看法是点击返回就</text>
-      </view>
-      <view>
-        <view class='money'>
-          <text>￥313.00</text>
-        </view>
-        <view class='collect'>
-          <image src='../../img/collect32.png'></image>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class='commodity' bindtap='goToTheOrderDetail'>
-    <view class='image_text'>
-      <view>
-        <image class='img' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
-      </view>
-      <view>
-        <text class='explain'>随时可退</text>
-      </view>
-    </view>
-    <view class='introduce'>
-      <view class='name'>
-        <text>海南三亚5日4晚跟团游(5钻)·4万人的选择！自营纯玩明星线…</text>
-      </view>
-      <view>
-        <view class='money'>
-          <text>￥313.00</text>
-        </view>
-        <view class='collect'>
-          <image src='../../img/uncollect32.png'></image>
+        <view class='collect' wx:if="{{item.collect}}">
+          <image wx:if="{{item.collect === 'yes' }}" src='../../img/collect32.png' data-gid='{{item.uuid}}' data-index='{{index}}' catchtap='handleGoodUnFavor'></image>
+          <image wx:if="{{item.collect === 'no' }}" src='../../img/uncollect32.png' data-gid='{{item.uuid}}' data-index='{{index}}' catchtap='handleGoodFavor'></image>
         </view>
       </view>
     </view>
