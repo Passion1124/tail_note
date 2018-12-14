@@ -128,6 +128,9 @@ Page({
       goodsList[e.currentTarget.dataset.index].collect = 'yes';
       this.setData({
         goodsList: goodsList
+      });
+      wx.showToast({
+        title: '收藏成功',
       })
     }, function (res) {
       console.log(res);
@@ -142,6 +145,9 @@ Page({
       goodsList[e.currentTarget.dataset.index].collect = 'no';
       this.setData({
         goodsList: goodsList
+      })
+      wx.showToast({
+        title: '已取消收藏',
       })
     }, function (res) {
       console.log(res);

@@ -1,3 +1,5 @@
+@import "../../wxParse/wxParse.wxss"
+
 .container{
   padding-bottom: 100rpx;
 }
@@ -87,6 +89,7 @@
   width: 100%;
   padding: 0 40rpx;
   margin-top: 64rpx;
+  margin-bottom: 40rpx;
   box-sizing: border-box;
 }
 
@@ -234,6 +237,11 @@
   color: #484848;
   margin-bottom: 24rpx;
   font-weight: bold;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .order_info .commodity_info .text_info .price{
@@ -254,12 +262,12 @@
   color: #3C3C3C;
 }
 
-.order_info .trip view checkbox-group{
+.order_info .trip view radio-group{
   display: flex;
   flex-wrap: wrap;
 }
 
-.order_info .trip view checkbox-group label{
+.order_info .trip view radio-group label{
   padding: 14rpx 48rpx;
   border: 1px solid #B7B7B7;
   font-size: 24rpx;
@@ -269,17 +277,17 @@
   color: #666666;
 }
 
-.order_info .trip view checkbox-group label:last-of-type{
+.order_info .trip view radio-group label:last-of-type{
   margin-bottom: 40rpx;
 }
 
-.order_info .trip view checkbox-group label.checked{
+.order_info .trip view radio-group label.checked{
   border-color: #23C2F7;
   background-color: #23C2F7;
   color: #fff;
 }
 
-.order_info .trip view checkbox-group checkbox{
+.order_info .trip view radio-group radio{
   display: none;
 }
 
@@ -360,6 +368,10 @@
   color: #fff;
   border-radius: 40rpx;
   background-color: #F97572;
+}
+
+.order_info .next button.disabled{
+  background-color: #E0E0E0;
 }
 
 .order_info .close{

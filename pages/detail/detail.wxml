@@ -1,8 +1,9 @@
 <!-- detail.wxml -->
+<import src="../../wxParse/wxParse.wxml"/>
 <view class='container'>
   <view class='banner'>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{goods.pics}}">
+      <block wx:for="{{goods.pics}}" wx:key="{{index}}">
         <swiper-item>
           <image src="{{item}}" class="slide-image swiper_img" width="100%" height="150" />
         </swiper-item>
@@ -14,14 +15,15 @@
       <text>{{goods.name}}</text>
     </view>
     <view class='info_tags'>
-      <view class='tag' wx:for="{{goods.tags}}">{{item}}</view>
+      <view class='tag' wx:for="{{goods.tags}}" wx:key="{{index}}">{{item}}</view>
     </view>
     <view class='price_collect'>
       <view class='price'>
         <text>{{goods.priceDesc}}</text>
       </view>
       <view class='collect'>
-        <image src='../../img/collect40.png'></image>
+        <image wx:if="{{goods.collect === 'yes'}}" src='../../img/collect40.png' bindtap='handleGoodUnFavor'></image>
+        <image wx:if="{{goods.collect === 'no'}}" src='../../img/uncollect32.png' bindtap='handleGoodFavor'></image>
       </view>
     </view>
   </view>
@@ -29,7 +31,10 @@
     <view class='detail_title'>
       <text>商品详情</text>
     </view>
-    <view class='detail_interduce'>
+    <view class='wx_parse'>
+      <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
+    </view>
+    <!-- <view class='detail_interduce'>
       <text>这衣服穿起来够骚，夜场泡妞，穿这衣服很容易泡到， 自从我买这衣服后，人自信了，心态也好了，上班也 认真了，午夜去酒吧!也跟上时代了，，，女同事也过 来勾哒我了，总之每个男人都舒要一件</text>
     </view>
     <view class='detail_img'>
@@ -37,7 +42,7 @@
     </view>
     <view class='detail_interduce'>
       <text>你好，你的快递到了，尊敬的先生，请签收，反正我见中通快递很多，这小子真的够快，五星好评，下次再来买，看到评论的老铁，帮老板点个关注，双击评论666没毛病</text>
-    </view>
+    </view> -->
   </view>
   <view class='bottom_btn_group'>
     <view class='custom'>
@@ -60,10 +65,10 @@
       </view>
       <view class='text_info'>
         <view class='title'>
-          <text>{{ goods.priceDesc}}</text>
+          <text>{{ goods.name}}</text>
         </view>
         <view class='price'>
-          <text>￥313.00</text>
+          <text>{{price}}</text>
         </view>
       </view>
     </view>
@@ -72,12 +77,12 @@
         <text>出行日期</text>
       </view>
       <view>
-        <checkbox-group bindchange="checkboxChange">
-          <label wx:for='{{tripDate}}' class='checkbox {{ item.checked ? "checked" : ""}}'>
-            <checkbox value='{{ item.value }}' checked='{{ item.checked }}'></checkbox>
-            {{ item.name }}
+        <radio-group bindchange="radioChange">
+          <label wx:for='{{goodsItems}}' wx:key="{{index}}" class='radio {{ item.checked ? "checked" : ""}}'>
+            <radio value='{{item.uuid}}' checked='{{item.checked}}'></radio>
+            {{item.name}}
           </label>
-        </checkbox-group>
+        </radio-group>
       </view>
     </view>
     <view class='number'>
@@ -88,7 +93,7 @@
         <view class='stepper'>
           <text class='{{ minusStatus }}' bindtap='bindMinus'>-</text>
           <input type='number' bindchange='bindManual' value='{{ num }}'></input>
-          <text class='normal' bindtap='bindPlus'>+</text>
+          <text class='{{ maxusStatus }}' bindtap='bindPlus'>+</text>
         </view>
       </view>
     </view>
@@ -97,11 +102,11 @@
         <text>手机号</text>
       </view>
       <view>
-        <input type='number' placeholder='请输入' maxlength='11'></input>
+        <input type='number' placeholder='请输入' maxlength='11' value='{{telephone}}' bindinput='bindTelePhone'></input>
       </view>
     </view>
     <view class='next'>
-      <button bindtap='goToThePayMent'>下一步</button>
+      <button class='{{ nextDisabled ? "disabled" : ""}}' bindtap='goToThePayMent' disabled='{{nextDisabled}}'>下一步</button>
     </view>
     <view class='close' bindtap='closeMaskAndPopup'>
       <image src='../../img/close.png'></image>
