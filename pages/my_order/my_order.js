@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    userInfo: {}
   },
 
   /**
@@ -63,14 +63,14 @@ Page({
   onShareAppMessage: function () {
     
   },
-  goToTheAllOrder: function () {
+  goToTheAllOrder: function (e) {
     wx.navigateTo({
-      url: '../all_order/all_order',
+      url: '../all_order/all_order?currentTab=' + e.currentTarget.dataset.currenttab,
     })
   },
   goToTheCollect: function () {
     wx.navigateTo({
-      url: '../list/list',
+      url: '../list/list?source=my_collection&category=我的收藏',
     })
   },
   goToTheUserInfo: function () {

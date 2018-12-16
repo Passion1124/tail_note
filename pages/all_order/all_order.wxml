@@ -10,8 +10,8 @@
   </scroll-view>
   <swiper class='tab-content' current='{{ currentTab }}' duration='300' bindchange='switchTab' style='height:{{winHeight}}rpx'>
     <swiper-item wx:for="{{[0, 1, 2, 3, 4, 5]}}" wx:key="*this">
-      <scroll-view scroll-y="true" class='scoll-h'>
-        <block wx:for="{{[0, 1, 2, 3, 4, 5, 6, 7, 8]}}" wx:key="*this">
+      <scroll-view scroll-y="true" class='scoll-h' bindscrolltolower="scrolltolower">
+        <block wx:for="{{[0]}}" wx:key="*this">
           <view class='item-ans' bindtap='goToTheOrderDetail'>
             <view class='item_info'>
               <view class='info_name'>

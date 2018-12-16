@@ -36,15 +36,17 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseUrl: 'http://47.99.131.137:8080/gateway',
+    baseUrl: 'http://47.99.131.137:8080/gateway?',
     auth: null,
     uid: null,
   },
   request: function(query, data, success, fail) {
     wx.request({
-      url: 'http://47.99.131.137:8080/gateway?' + query,
+      url: this.globalData.baseUrl + query,
       data: data,
-      header: {},
+      header: {
+        "api": '123'
+      },
       method: 'POST',
       dataType: 'json',
       responseType: 'text',
@@ -72,6 +74,13 @@ App({
     s[8] = s[13] = s[18] = s[23] = "-";
     var uuid = s.join("");
     return uuid;
+  },
+  query: function (api) {
+    let query = { appid: 'ZenithTail', api: api, version: '1.0', nonce: this.uuid(), timestamp: new Date().getTime() };
+    return this.dataFormat(query);
+  },
+  commonBody: function () {
+    return { auth: this.globalData.auth, uid: this.globalData.uid }
   },
   dataFormat: function(data) {
       let text = '';

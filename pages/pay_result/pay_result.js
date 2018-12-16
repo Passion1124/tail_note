@@ -4,8 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    company_name: '',
-    taxNumber: ''
+    
   },
 
   /**
@@ -62,17 +61,5 @@ Page({
    */
   onShareAppMessage: function () {
     
-  },
-  goToTheInvoice: function (e) {
-    // console.log(e);
-    wx.navigateTo({
-      url: '../invoice/invoice?title=' + e.currentTarget.dataset.title + '&taxNumber=' + e.currentTarget.dataset.taxnumber,
-    })
-  },
-  changeCompany: function (name, number) {
-    this.setData({
-      company_name: name,
-      taxNumber: number
-    });
   }
 })

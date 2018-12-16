@@ -17,9 +17,11 @@
   z-index: 99;
 }
 
-.tab-h::-webkit-scrollbar{
+/*隐藏滚动条*/
+::-webkit-scrollbar {
   width: 0;
   height: 0;
+  color: transparent;
 }
 
 .tab-item {

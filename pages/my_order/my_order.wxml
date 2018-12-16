@@ -13,7 +13,7 @@
     </view>
   </view>
   <view class='classify'>
-    <view class='all_order' bindtap='goToTheAllOrder'>
+    <view class='all_order' data-currentTab='0' bindtap='goToTheAllOrder'>
       <view class='icons'>
         <image src='../../img/all_order.png'></image>
       </view>
@@ -21,7 +21,7 @@
         <text>全部订单</text>
       </view>
     </view>
-    <view class='pending' bindtap='goToTheAllOrder'>
+    <view class='pending' data-currentTab='1' bindtap='goToTheAllOrder'>
       <view class='icons'>
         <image src='../../img/pending.png'></image>
       </view>
@@ -29,16 +29,24 @@
         <text>待付款</text>
       </view>
     </view>
-    <view class='use' bindtap='goToTheAllOrder'>
+    <view class='completed' data-currentTab='3' bindtap='goToTheAllOrder'>
       <view class='icons'>
         <image src='../../img/use.png'></image>
       </view>
       <view class='text'>
-        <text>待使用</text>
+        <text>已完成</text>
+      </view>
+    </view>
+    <view class='refund' data-currentTab='5' bindtap='goToTheAllOrder'>
+      <view class='icons'>
+        <image src='../../img/refund.png'></image>
+      </view>
+      <view class='text'>
+        <text>已退款</text>
       </view>
     </view>
   </view>
-  <view class='list' bindtap='goToTheAllOrder'>
+  <view class='list' data-currentTab='0' bindtap='goToTheAllOrder'>
     <view>
       <text>全部订单</text>
     </view>

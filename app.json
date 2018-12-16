@@ -5,6 +5,7 @@
     "pages/list/list",
     "pages/detail/detail",
     "pages/payment/payment",
+    "pages/pay_result/pay_result",
     "pages/all_order/all_order",
     "pages/order_detail/order_detail",
     "pages/invoice/invoice",

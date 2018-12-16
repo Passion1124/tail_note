@@ -87,9 +87,9 @@ Page({
     
   },
   getGoodDetail: function () {
-    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.GoodsDetailApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
-    let body = { auth: app.globalData.auth, uid: app.globalData.uid, gid: this.data.gid }
-    app.request(app.dataFormat(query), body, (res) => {
+    let query = app.query('com.zenith.api.apis.GoodsDetailApiService');
+    let body = Object.assign(app.commonBody(), { gid: this.data.gid });
+    app.request(query, body, (res) => {
       console.log(res);
       WxParse.wxParse('article', 'html', res.goods.info, this, 5);
       wx.setNavigationBarTitle({
@@ -110,9 +110,9 @@ Page({
     })
   },
   getFavorCheck: function () {
-    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.FavorCheckApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
-    let body = { auth: app.globalData.auth, uid: app.globalData.uid, ids: [this.data.goods.uuid] }
-    app.request(app.dataFormat(query), body, (res) => {
+    let query = app.query('com.zenith.api.apis.FavorCheckApiService');
+    let body = Object.assign(app.commonBody(), { ids: [this.data.goods.uuid] });
+    app.request(query, body, (res) => {
       console.log(res);
       let goods = this.data.goods;
       goods.collect = res.favorIds.indexOf(goods.uuid) !== -1 ? 'yes' : 'no';
@@ -124,9 +124,9 @@ Page({
     })
   },
   handleGoodFavor: function () {
-    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.FavorApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
-    let body = { auth: app.globalData.auth, uid: app.globalData.uid, gid: this.data.goods.uuid }
-    app.request(app.dataFormat(query), body, (res) => {
+    let query = app.query('com.zenith.api.apis.FavorApiService');
+    let body = Object.assign(app.commonBody(), { gid: this.data.goods.uuid });
+    app.request(query, body, (res) => {
       console.log(res);
       let goods = this.data.goods;
       goods.collect = 'yes';
@@ -141,9 +141,9 @@ Page({
     })
   },
   handleGoodUnFavor: function () {
-    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.UnFavorApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
-    let body = { auth: app.globalData.auth, uid: app.globalData.uid, gid: this.data.goods.uuid }
-    app.request(app.dataFormat(query), body, (res) => {
+    let query = app.query('com.zenith.api.apis.UnFavorApiService');
+    let body = Object.assign(app.commonBody(), { gid: this.data.goods.uuid });
+    app.request(query, body, (res) => {
       console.log(res);
       let goods = this.data.goods;
       goods.collect = 'no';

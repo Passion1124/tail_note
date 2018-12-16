@@ -7,13 +7,12 @@ Page({
     winHeight: "", //窗口高度
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
-    expertList: [{ //假数据
-      img: "avatar.png",
-      name: "欢顔",
-      tag: "知名情感博主",
-      answer: 134,
-      listen: 2234
-    }]
+    all_order: [], // 全部订单
+    pending_order: [], //待付款订单
+    paid_order: [], // 已付款订单
+    completed_order: [], // 已完成订单
+    cancelled_order: [], // 已取消订单
+    refunded_order: [] // 已退款订单
   },
 
   /**
@@ -21,6 +20,9 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+    this.setData({
+      currentTab: Number(options.currentTab)
+    })
     //  高度自适应
     wx.getSystemInfo({
       success: function(res) {
@@ -28,7 +30,6 @@ Page({
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
         var calc = clientHeight * rpxR - 80;
-        console.log(calc)
         that.setData({
           winHeight: calc
         });
@@ -113,6 +114,19 @@ Page({
         scrollLeft: 0
       })
     }
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '所有订单',
+      path: '/pages/index/index'
+    }
+  },
+  // 滚动条触发事件
+  scrolltolower: function () {
+    console.log(123);
   },
   goToTheOrderDetail: function () {
     wx.navigateTo({

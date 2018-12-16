@@ -56,7 +56,29 @@ Page({
         }
       })
     }
-    console.log(app);
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '首页呀',
+      path: '/pages/index/index'
+    }
+  },
+  /**
+   * 拨打电话
+   */
+  callPhone: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: '15708449685',
+      success: function () {
+        console.log('拨打成功');
+      },
+      fail: function () {
+        console.log('拨打失败');
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -77,9 +99,9 @@ Page({
     })
   },
   login: function () {
-    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.LoginApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime()};
+    let query = app.query('com.zenith.api.apis.LoginApiService');
     let body = { openId: 'openId', nickname: '', avatar: '', unionid: 'unionid', sex: '', province: '', city: '', country: '', regUid: ''}
-    app.request(app.dataFormat(query), body, (res) => {
+    app.request(query, body, (res) => {
       console.log(res);
       app.globalData.auth = res.auth;
       app.globalData.uid = res.user.uuid;
@@ -91,9 +113,9 @@ Page({
     })
   },
   getBanner: function () {
-    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.BannerListApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
-    let body = { auth: app.globalData.auth, uid: app.globalData.uid}
-    app.request(app.dataFormat(query), body, (res) => {
+    let query = app.query('com.zenith.api.apis.BannerListApiService');
+    let body = app.commonBody();
+    app.request(query, body, (res) => {
       console.log(res);
       this.setData({
         imgUrls: res.bannerList
@@ -103,9 +125,9 @@ Page({
     })
   },
   getCategoryList: function () {
-    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.CategoryListApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
-    let body = { auth: app.globalData.auth, uid: app.globalData.uid }
-    app.request(app.dataFormat(query), body, (res) => {
+    let query = app.query('com.zenith.api.apis.CategoryListApiService');
+    let body = app.commonBody();
+    app.request(query, body, (res) => {
       console.log(res);
       this.setData({
         category: res.categoryList
@@ -115,9 +137,9 @@ Page({
     })
   },
   getGoodList: function () {
-    let query = { appid: 'ZenithTail', api: 'com.zenith.api.apis.GoodsListApiService', version: '1.0', nonce: app.uuid(), timestamp: new Date().getTime() };
-    let body = { auth: app.globalData.auth, uid: app.globalData.uid, page: this.data.page, size: this.data.size }
-    app.request(app.dataFormat(query), body, (res) => {
+    let query = app.query('com.zenith.api.apis.GoodsListApiService');
+    let body = Object.assign(app.commonBody(), { page: this.data.page, size: this.data.size });
+    app.request(query, body, (res) => {
       console.log(res);
       this.setData({
         foodsList: res.goods

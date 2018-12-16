@@ -2,6 +2,10 @@
   padding: 0 40rpx;
 }
 
+.company_name{
+  position: relative;
+}
+
 .company_name view:first-of-type, .company_duty_paragraph view:first-of-type{
   font-size: 28rpx;
   line-height: 40rpx;
@@ -14,6 +18,23 @@
   line-height: 50rpx;
   padding-bottom: 40rpx;
   border-bottom: 1px solid #E0E0E0;
+}
+
+.company_name .invoice_title{
+  position: absolute;
+  right: 0;
+  bottom: 40rpx;
+  width: 189rpx;
+  height: 50rpx;
+  line-height: 48rpx;
+  font-size: 22rpx;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid #23C2F7;
+  color: #23C2F7;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 99;
 }
 
 .sure{

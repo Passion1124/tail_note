@@ -45,14 +45,6 @@
     </view>
     <view>
       <view>
-        <text>微信：</text>
-      </view>
-      <view>
-        <text>小妖精</text>
-      </view>
-    </view>
-    <view>
-      <view>
         <text>订单号：</text>
       </view>
       <view>
@@ -86,7 +78,7 @@
       </view>
     </view>
   </view>
-  <view class='list single'>
+  <view class='list single' bindtap='goToTheInvoice' wx:if="{{!company_name}}">
     <view>
       <text>发票：</text><text>未开票</text>
     </view>
@@ -94,9 +86,9 @@
       <image src='../../img/more.png'></image>
     </view>
   </view>
-  <view class='list single'>
+  <view class='list single' data-title='{{company_name}}' data-taxNumber='{{taxNumber}}' bindtap='goToTheInvoice' wx:else>
     <view>
-      <text>发票：</text><text>公司名称</text>
+      <text>发票：</text><text>{{company_name}}</text>
     </view>
     <view>
       <image src='../../img/more.png'></image>
