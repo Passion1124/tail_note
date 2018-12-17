@@ -1,0 +1,41 @@
+var orderStatusFormat = function (status) {
+  console.log(typeof status);
+  // let arrays = [
+  //   { value: 0, text: '待付款' },
+  //   { value: 1, text: '已付款' },
+  //   { value: 2, text: '退款中' },
+  //   { value: 3, text: '已退款' },
+  //   { value: 4, text: '已取消' },
+  //   { value: 5, text: '已完成' },
+  // ];
+  let text = '';
+  switch (status) {
+    case 0:
+      text = '待付款';
+      break;
+    case 1: 
+      text = '已付款';
+      break;
+    case 2:
+      text = '退款中';
+      break;
+    case 3:
+      text = '已退款';
+      break;
+    case 4:
+      text = '已取消';
+      break;
+    case 5:
+      text = '已完成';
+      break;
+  }
+  return text;
+}
+
+/**
+ * 导出
+ */
+
+module.exports = {
+  orderStatusFormat: orderStatusFormat
+}

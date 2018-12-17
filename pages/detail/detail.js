@@ -167,12 +167,13 @@ Page({
     let amount = good.amount;
     let maxNum = good.num;
     this.setData({
-      price: '￥' + (amount / 100),
+      price: '￥' + (amount * this.data.num / 100),
       maxNum: maxNum,
       checkDate: checkDate,
       goodsItems: goodsItems
     });
     this.changeNextButtonStatus();
+    this.bindManual({ detail: { value: this.data.num } })
   },
   // 点击减号
   bindMinus: function () {
@@ -192,6 +193,7 @@ Page({
       maxusStatus: maxusStatus
     });
     this.changeNextButtonStatus();
+    this.changeGoodItemPrice();
   },
   // 点击加号
   bindPlus: function () {
@@ -210,16 +212,27 @@ Page({
       maxusStatus: maxusStatus
     });  
     this.changeNextButtonStatus();
+    this.changeGoodItemPrice();
   },
   // 输入框事件
   bindManual: function (e) {
     var num = e.detail.value;
     var minusStatus = num < 1 ? 'disabled' : 'normal';
+    // 只有小于库存的时候，才能normal状态，否则disable状态  
+    var maxusStatus = num < this.data.maxNum ? 'normal' : 'disabled';
+    if (num > this.data.maxNum) {
+      num = this.data.maxNum;
+    }
+    if (num < 1) {
+      num = 1;
+    }
     this.setData({
       num: num,
-      minusStatus: minusStatus
+      minusStatus: minusStatus,
+      maxusStatus: maxusStatus
     }); 
     this.changeNextButtonStatus();
+    this.changeGoodItemPrice();
   },
   // 关闭弹窗事件
   closeMaskAndPopup: function () {
@@ -246,9 +259,51 @@ Page({
       nextDisabled: disabled
     })
   },
+  // 修改商品价格
+  changeGoodItemPrice: function () {
+    if (this.data.checkDate) {
+      let good = this.data.goodsItems.find(item => item.uuid === this.data.checkDate);
+      let amount = good.amount;
+      this.setData({
+        price: '￥' + (amount * this.data.num / 100)
+      })
+    }
+  },
   goToThePayMent: function () {
-    wx.navigateTo({
-      url: '../payment/payment',
+    let data = this.data;
+    // let toastTitle = '';
+    // if (!data.giid) {
+    //   toastTitle = '请选择出行日期';
+    // } else if (!data.num) {
+    //   toastTitle = '请输入数量';
+    // } else if (!data.telephone) {
+    //   toastTitle = '请输入手机号';
+    // }
+    // if (toastTitle) {
+    //   wx.showToast({
+    //     title: toastTitle,
+    //     icon: 'none'
+    //   });
+    //   return false;
+    // }
+    wx.showLoading({
+      title: '正在生成订单中',
+    });
+    let query = app.query('com.zenith.api.apis.OrderApiService');
+    let body = Object.assign(app.commonBody(), { gid: data.gid, giid: data.checkDate, phone: data.telephone, num: data.num, sn: app.uuid() } );
+    app.request(query, body, (res) => {
+      console.log(res);
+      wx.navigateTo({
+        url: '../payment/payment?orderId=' + res.order.uuid,
+      })
+      wx.hideLoading();
+    }, (err) => {
+      console.error(err);
+      wx.hideLoading();
+      wx.showToast({
+        title: '订单生成失败！！',
+        icon: 'none'
+      })
     })
   },
   bindTelePhone: function (e) {

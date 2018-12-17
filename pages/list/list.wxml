@@ -6,7 +6,7 @@
         <image class='img' src='{{item.poster}}'></image>
       </view>
       <view>
-        <text class='explain'>{{item.info}}</text>
+        <text class='explain'>{{item.subInfo}}</text>
       </view>
     </view>
     <view class='introduce'>

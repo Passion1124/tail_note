@@ -55,6 +55,7 @@ App({
           success(res.data);
         } else{
           console.log(res.data.ret_msg);
+          fail(res.data);
         }
       },
       fail: function(res) {

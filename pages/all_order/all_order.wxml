@@ -1,4 +1,5 @@
 <!-- all_order.wxml -->
+<!-- <wxs module="filter" src="../../utils/filter.wxs"></wxs> -->
 <view class='container'>
   <scroll-view class='tab-h' scroll-x="true" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
     <view class='tab-item {{ currentTab === 0 ? "active" : ""}}' data-current='0' bindtap='swichNav'>全部订单</view>
@@ -9,32 +10,198 @@
     <view class='tab-item {{ currentTab === 5 ? "active" : ""}}' data-current='5' bindtap='swichNav'>已退款</view>
   </scroll-view>
   <swiper class='tab-content' current='{{ currentTab }}' duration='300' bindchange='switchTab' style='height:{{winHeight}}rpx'>
-    <swiper-item wx:for="{{[0, 1, 2, 3, 4, 5]}}" wx:key="*this">
-      <scroll-view scroll-y="true" class='scoll-h' bindscrolltolower="scrolltolower">
-        <block wx:for="{{[0]}}" wx:key="*this">
-          <view class='item-ans' bindtap='goToTheOrderDetail'>
+    <swiper-item>
+      <scroll-view scroll-y="true" class='scoll-h' data-current='0' bindscrolltolower="scrolltolower">
+        <block wx:for="{{all_order}}" wx:key="*this">
+          <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
             <view class='item_info'>
               <view class='info_name'>
-                <text>商品名称商品名称商品名称商品商品名称</text>
+                <text>{{item.desc}}</text>
               </view>
               <view class='info_status {{ item <= 2 ? "pengding" : ""}}'>
-                <text>待付款</text>
+                <!-- <text>{{filter.orderStatusFormat(item.statusAt)}}</text> -->
+                <text>{{item.statusText}}</text>
               </view>
             </view>
             <view class='item_main'>
               <view class='main_img'>
-                <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+                <image src='{{item.poster}}'></image>
               </view>
               <view class='main_text'>
                 <view>
-                  <text class='trip_date'>7月17日(最迟7月5日报名)</text>
+                  <text class='trip_date'>{{item.itemName}}</text>
                 </view>
                 <view>
-                  <text class='price'>￥313.00</text>
+                  <text class='price'>￥{{item.totalAmount / 100}}</text>
                 </view>
               </view>
               <view class='main_num'>
-                <text>x1</text>
+                <text>x{{item.num}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class='scoll-h' data-current='1' bindscrolltolower="scrolltolower">
+        <block wx:for="{{pending_order}}" wx:key="*this">
+          <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
+            <view class='item_info'>
+              <view class='info_name'>
+                <text>{{item.desc}}</text>
+              </view>
+              <view class='info_status {{ item <= 2 ? "pengding" : ""}}'>
+                <!-- <text>{{filter.orderStatusFormat(item.statusAt)}}</text> -->
+                <text>{{item.statusText}}</text>
+              </view>
+            </view>
+            <view class='item_main'>
+              <view class='main_img'>
+                <image src='{{item.poster}}'></image>
+              </view>
+              <view class='main_text'>
+                <view>
+                  <text class='trip_date'>{{item.itemName}}</text>
+                </view>
+                <view>
+                  <text class='price'>￥{{item.totalAmount / 100}}</text>
+                </view>
+              </view>
+              <view class='main_num'>
+                <text>x{{item.num}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class='scoll-h' data-current='2' bindscrolltolower="scrolltolower">
+        <block wx:for="{{paid_order}}" wx:key="*this">
+          <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
+            <view class='item_info'>
+              <view class='info_name'>
+                <text>{{item.desc}}</text>
+              </view>
+              <view class='info_status {{ item <= 2 ? "pengding" : ""}}'>
+                <!-- <text>{{filter.orderStatusFormat(item.statusAt)}}</text> -->
+                <text>{{item.statusText}}</text>
+              </view>
+            </view>
+            <view class='item_main'>
+              <view class='main_img'>
+                <image src='{{item.poster}}'></image>
+              </view>
+              <view class='main_text'>
+                <view>
+                  <text class='trip_date'>{{item.itemName}}</text>
+                </view>
+                <view>
+                  <text class='price'>￥{{item.totalAmount / 100}}</text>
+                </view>
+              </view>
+              <view class='main_num'>
+                <text>x{{item.num}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class='scoll-h' data-current='3' bindscrolltolower="scrolltolower">
+        <block wx:for="{{completed_order}}" wx:key="*this">
+          <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
+            <view class='item_info'>
+              <view class='info_name'>
+                <text>{{item.desc}}</text>
+              </view>
+              <view class='info_status {{ item <= 2 ? "pengding" : ""}}'>
+                <!-- <text>{{filter.orderStatusFormat(item.statusAt)}}</text> -->
+                <text>{{item.statusText}}</text>
+              </view>
+            </view>
+            <view class='item_main'>
+              <view class='main_img'>
+                <image src='{{item.poster}}'></image>
+              </view>
+              <view class='main_text'>
+                <view>
+                  <text class='trip_date'>{{item.itemName}}</text>
+                </view>
+                <view>
+                  <text class='price'>￥{{item.totalAmount / 100}}</text>
+                </view>
+              </view>
+              <view class='main_num'>
+                <text>x{{item.num}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class='scoll-h' data-current='4' bindscrolltolower="scrolltolower">
+        <block wx:for="{{cancelled_order}}" wx:key="*this">
+          <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
+            <view class='item_info'>
+              <view class='info_name'>
+                <text>{{item.desc}}</text>
+              </view>
+              <view class='info_status {{ item <= 2 ? "pengding" : ""}}'>
+                <!-- <text>{{filter.orderStatusFormat(item.statusAt)}}</text> -->
+                <text>{{item.statusText}}</text>
+              </view>
+            </view>
+            <view class='item_main'>
+              <view class='main_img'>
+                <image src='{{item.poster}}'></image>
+              </view>
+              <view class='main_text'>
+                <view>
+                  <text class='trip_date'>{{item.itemName}}</text>
+                </view>
+                <view>
+                  <text class='price'>￥{{item.totalAmount / 100}}</text>
+                </view>
+              </view>
+              <view class='main_num'>
+                <text>x{{item.num}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class='scoll-h' data-current='5' bindscrolltolower="scrolltolower">
+        <block wx:for="{{refunded_order}}" wx:key="*this">
+          <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
+            <view class='item_info'>
+              <view class='info_name'>
+                <text>{{item.desc}}</text>
+              </view>
+              <view class='info_status {{ item <= 2 ? "pengding" : ""}}'>
+                <!-- <text>{{filter.orderStatusFormat(item.statusAt)}}</text> -->
+                <text>{{item.statusText}}</text>
+              </view>
+            </view>
+            <view class='item_main'>
+              <view class='main_img'>
+                <image src='{{item.poster}}'></image>
+              </view>
+              <view class='main_text'>
+                <view>
+                  <text class='trip_date'>{{item.itemName}}</text>
+                </view>
+                <view>
+                  <text class='price'>￥{{item.totalAmount / 100}}</text>
+                </view>
+              </view>
+              <view class='main_num'>
+                <text>x{{item.num}}</text>
               </view>
             </view>
           </view>

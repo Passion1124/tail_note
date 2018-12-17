@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
 
   /**
@@ -12,7 +14,52 @@ Page({
     paid_order: [], // 已付款订单
     completed_order: [], // 已完成订单
     cancelled_order: [], // 已取消订单
-    refunded_order: [] // 已退款订单
+    refunded_order: [], // 已退款订单
+    all_order_body: {
+      page: 1,
+      size: 10
+    },
+    pending_order_body: {
+      page: 1,
+      size: 10,
+      orderStatus: [0]
+    },
+    paid_order_body: {
+      page: 1,
+      size: 10,
+      orderStatus: [1, 2]
+    },
+    completed_order_body: {
+      page: 1,
+      size: 10,
+      orderStatus: [5]
+    },
+    cancelled_order_body: {
+      page: 1,
+      size: 10,
+      orderStatus: [4]
+    },
+    refunded_order_body: {
+      page: 1,
+      size: 10,
+      orderStatus: [3]
+    },
+    loading: {
+      all_order: false,
+      pending_order: false,
+      paid_order: false,
+      completed_order: false,
+      cancelled_order: false,
+      refunded_order: false
+    },
+    max: {
+      all_order: false,
+      pending_order: false,
+      paid_order: false,
+      completed_order: false,
+      cancelled_order: false,
+      refunded_order: false
+    }
   },
 
   /**
@@ -22,7 +69,23 @@ Page({
     var that = this;
     this.setData({
       currentTab: Number(options.currentTab)
+    });
+    wx.showLoading({
+      title: '加载中'
     })
+    if (Number(options.currentTab) === 0) {
+      this.handleAllOrderList();
+    } else if (Number(options.currentTab) === 1) {
+      this.handlePendingOrderList();
+    } else if (Number(options.currentTab) === 2) {
+      this.handlePaidOrderList();
+    } else if (Number(options.currentTab) === 3) {
+      this.handleCompletedOrderList();
+    } else if (Number(options.currentTab) === 4) {
+      this.handleCancelledOrderList();
+    } else if (Number(options.currentTab) === 5) {
+      this.handleRefundedOrderList();
+    }
     //  高度自适应
     wx.getSystemInfo({
       success: function(res) {
@@ -85,12 +148,179 @@ Page({
   onShareAppMessage: function() {
 
   },
+  // 获取全部订单
+  handleAllOrderList: function () {
+    let query = app.query('com.zenith.api.apis.OrderListApiService');
+    let body = Object.assign(app.commonBody(), this.data.all_order_body);
+    app.request(query, body, (res) => {
+      console.log(res);
+      let all_order = this.data.all_order.concat(res.orders.map(item => {
+        item.statusText = this.orderStatusFormat(item.statusAt);
+        return item;
+      }));
+      let max = this.data.max;
+      max.all_order = res.orders.length === this.data.all_order_body.size ? false : true;
+      this.setData({
+        all_order: all_order,
+        max: max
+      });
+      wx.hideLoading();
+    }, (err) => {
+      wx.hideLoading();
+      wx.showToast('接口有误');
+      console.error(err);
+    })
+  },
+  // 获取待付款订单
+  handlePendingOrderList: function () {
+    let query = app.query('com.zenith.api.apis.OrderListApiService');
+    let body = Object.assign(app.commonBody(), this.data.pending_order_body);
+    app.request(query, body, (res) => {
+      console.log(res);
+      let pending_order = this.data.pending_order.concat(res.orders.map(item => {
+        item.statusText = this.orderStatusFormat(item.statusAt);
+        return item;
+      }));
+      let max = this.data.max;
+      max.pending_order = res.orders.length === this.data.pending_order_body.size ? false : true;
+      this.setData({
+        pending_order: pending_order,
+        max: max
+      });
+      wx.hideLoading();
+    }, (err) => {
+      wx.hideLoading();
+      wx.showToast('接口有误');
+      console.error(err);
+    })
+  },
+  // 获取已付款订单
+  handlePaidOrderList: function () {
+    let query = app.query('com.zenith.api.apis.OrderListApiService');
+    let body = Object.assign(app.commonBody(), this.data.paid_order_body);
+    app.request(query, body, (res) => {
+      console.log(res);
+      let paid_order = this.data.paid_order.concat(res.orders.map(item => {
+        item.statusText = this.orderStatusFormat(item.statusAt);
+        return item;
+      }));
+      let max = this.data.max;
+      max.paid_order = res.orders.length === this.data.paid_order_body.size ? false : true;
+      this.setData({
+        paid_order: paid_order,
+        max: max
+      });
+      wx.hideLoading();
+    }, (err) => {
+      wx.hideLoading();
+      wx.showToast('接口有误');
+      console.error(err);
+    })
+  },
+  // 获取已完成订单
+  handleCompletedOrderList: function () {
+    let query = app.query('com.zenith.api.apis.OrderListApiService');
+    let body = Object.assign(app.commonBody(), this.data.completed_order_body);
+    app.request(query, body, (res) => {
+      console.log(res);
+      let completed_order = this.data.completed_order.concat(res.orders.map(item => {
+        item.statusText = this.orderStatusFormat(item.statusAt);
+        return item;
+      }));
+      let max = this.data.max;
+      max.completed_order = res.orders.length === this.data.completed_order_body.size ? false : true;
+      this.setData({
+        completed_order: completed_order,
+        max: max
+      });
+      wx.hideLoading();
+    }, (err) => {
+      wx.hideLoading();
+      wx.showToast('接口有误');
+      console.error(err);
+    })
+  },
+  // 获取已取消订单
+  handleCancelledOrderList: function () {
+    let query = app.query('com.zenith.api.apis.OrderListApiService');
+    let body = Object.assign(app.commonBody(), this.data.cancelled_order_body);
+    app.request(query, body, (res) => {
+      console.log(res);
+      let cancelled_order = this.data.cancelled_order.concat(res.orders.map(item => {
+        item.statusText = this.orderStatusFormat(item.statusAt);
+        return item;
+      }));
+      let max = this.data.max;
+      max.cancelled_order = res.orders.length === this.data.cancelled_order_body.size ? false : true;
+      this.setData({
+        cancelled_order: cancelled_order,
+        max: max
+      });
+      wx.hideLoading();
+    }, (err) => {
+      wx.hideLoading();
+      wx.showToast('接口有误');
+      console.error(err);
+    })
+  },
+  // 获取已退款订单
+  handleRefundedOrderList: function () {
+    let query = app.query('com.zenith.api.apis.OrderListApiService');
+    let body = Object.assign(app.commonBody(), this.data.refunded_order_body);
+    app.request(query, body, (res) => {
+      console.log(res);
+      let refunded_order = this.data.refunded_order.concat(res.orders.map(item => {
+        item.statusText = this.orderStatusFormat(item.statusAt);
+        return item;
+      }));
+      let max = this.data.max;
+      max.refunded_order = res.orders.length === this.data.refunded_order_body.size ? false : true;
+      this.setData({
+        refunded_order: refunded_order,
+        max: max
+      });
+      wx.hideLoading();
+    }, (err) => {
+      wx.hideLoading();
+      wx.showToast('接口有误');
+      console.error(err);
+    })
+  },
+  // 左右滑动的时候判断当前tab是否获取了数据
+  handleGetOrderList: function () {
+    if (this.data.currentTab === 0 && !this.data.all_order.length) {
+      this.handleAllOrderList();
+    } else if (this.data.currentTab === 1 && !this.data.pending_order.length) {
+      this.handlePendingOrderList();
+    } else if (this.data.currentTab === 2 && !this.data.paid_order.length) {
+      this.handlePaidOrderList();
+    } else if (this.data.currentTab === 3 && !this.data.completed_order.length) {
+      this.handleCompletedOrderList();
+    } else if (this.data.currentTab === 4 && !this.data.cancelled_order.length) {
+      this.handleCancelledOrderList();
+    } else if (this.data.currentTab === 5 && !this.data.refunded_order.length) {
+      this.handleRefundedOrderList();
+    }
+  },
+  orderStatusFormat: function (status) {
+    let array = [
+      { value: 0, text: '待付款' },
+      { value: 1, text: '已付款' },
+      { value: 2, text: '退款中' },
+      { value: 3, text: '已退款' },
+      { value: 4, text: '已取消' },
+      { value: 5, text: '已完成' }
+    ];
+    let item = array.find(item => item.value === status);
+    return item.text;
+  },
   // 滚动切换标签样式
   switchTab: function(e) {
     this.setData({
       currentTab: e.detail.current
     });
     this.checkCor();
+    this.handleGetOrderList();
   },
   // 点击标题切换当前页时改变样式
   swichNav: function(e) {
@@ -102,6 +332,7 @@ Page({
         currentTab: cur
       })
     }
+    this.handleGetOrderList();
   },
   //判断当前滚动超过一屏时，设置tab标题滚动条。
   checkCor: function() {
@@ -125,12 +356,55 @@ Page({
     }
   },
   // 滚动条触发事件
-  scrolltolower: function () {
-    console.log(123);
+  scrolltolower: function (e) {
+    console.log(e);
+    if (e.currentTarget.dataset.current === '0' && !this.data.max.all_order && !this.data.loading.all_order) {
+      let all_order_body = this.data.all_order_body;
+      all_order_body.page++;
+      this.setData({
+        all_order_body: all_order_body
+      })
+      this.handleAllOrderList();
+    } else if (e.currentTarget.dataset.current === '1' && !this.data.max.pending_order && !this.data.loading.pending_order) {
+      let pending_order_body = this.data.pending_order_body;
+      pending_order_body.page++;
+      this.setData({
+        pending_order_body: pending_order_body
+      })
+      this.handlePendingOrderList();
+    } else if (e.currentTarget.dataset.current === '2' && !this.data.max.paid_order && !this.data.loading.paid_order) {
+      let paid_order_body = this.data.paid_order_body;
+      paid_order_body.page++;
+      this.setData({
+        paid_order_body: paid_order_body
+      })
+      this.handlePaidOrderList();
+    } else if (e.currentTarget.dataset.current === '3' && !this.data.max.completed_order && !this.data.loading.completed_order) {
+      let completed_order_body = this.data.completed_order_body;
+      completed_order_body.page++;
+      this.setData({
+        completed_order_body: completed_order_body
+      })
+      this.handleCompletedOrderList();
+    } else if (e.currentTarget.dataset.current === '4' && !this.data.max.cancelled_order && !this.data.loading.cancelled_order) {
+      let cancelled_order_body = this.data.cancelled_order_body;
+      cancelled_order_body.page++;
+      this.setData({
+        cancelled_order_body: cancelled_order_body
+      })
+      this.handleCancelledOrderList();
+    } else if (e.currentTarget.dataset.current === '5' && !this.data.max.refunded_order && !this.data.loading.refunded_order) {
+      let refunded_order_body = this.data.refunded_order_body;
+      refunded_order_body.page++;
+      this.setData({
+        refunded_order_body: refunded_order_body
+      })
+      this.handleRefundedOrderList();
+    }
   },
-  goToTheOrderDetail: function () {
+  goToTheOrderDetail: function (e) {
     wx.navigateTo({
-      url: '../order_detail/order_detail',
+      url: '../order_detail/order_detail?orderid=' + e.currentTarget.dataset.orderid,
     })
   }
 })

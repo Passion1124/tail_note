@@ -10,7 +10,9 @@ Page({
     page: 1,
     size: 10,
     goodsList: [],
-    loading: false
+    loading: false,
+    max: false,
+    source: ''
   },
 
   /**
@@ -21,10 +23,11 @@ Page({
       title: options.category,
     })
     this.setData({
-      category: options.category
+      category: options.category,
+      source: options.source
     });
     if (options.source === 'my_collection') {
-      
+      this.handleFavorList();
     } else {
       this.getGoodList();
     }
@@ -69,9 +72,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.loading) return false;
+    if (this.data.loading || this.data.max) return false;
     this.data.page++;
-    this.getGoodList();
+    if (this.data.source === 'my_collection') {
+      this.handleFavorList();
+    } else{
+      this.getGoodList();
+    }
   },
 
   /**
@@ -92,8 +99,10 @@ Page({
     app.request(query, body, (res) => {
       console.log(res);
       let goodsList = this.data.goodsList.concat(res.goods);
+      let max = res.goods.length === this.data.size ? false : true;
       this.setData({
-        goodsList: goodsList
+        goodsList: goodsList,
+        max: max
       });
       this.data.loading = false;
       this.getFavorCheck();
@@ -155,6 +164,28 @@ Page({
       })
     }, function (res) {
       console.log(res);
+    })
+  },
+  handleFavorList: function () {
+    let query = app.query('com.zenith.api.apis.FavorListApiService');
+    let body = Object.assign(app.commonBody(), { page: this.data.page, size: this.data.size });
+    this.data.loading = true;
+    app.request(query, body, (res) => {
+      console.log(res);
+      let goodsList = this.data.goodsList.concat(res.goodsList.map(item => {
+        item.collect = 'yes';
+        return item;
+      }));
+      let max = res.goodsList.length === this.data.size ? false : true;
+      this.setData({
+        goodsList: goodsList,
+        max: max
+      });
+      this.data.loading = false;
+    }, (err) => {
+      console.error(err);
+      this.data.loading = false;
+      this.data.page--;
     })
   }
 })

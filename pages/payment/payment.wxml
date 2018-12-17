@@ -3,18 +3,18 @@
   <view class='commodity_info'>
     <view class='info'>
       <view class='img_row'>
-        <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+        <image src='{{detail.poster}}'></image>
       </view>
       <view class='info_text'>
         <view class='name'>
-          <text>海南三亚5日4晚跟团游(5钻)·4万人的选择！自营纯玩明星线XXXXXX</text>
+          <text>{{detail.desc}}</text>
         </view>
         <view class='date_num'>
           <view class='date'>
-            <text>7月17日(最迟7月5日报名)</text>
+            <text>{{detail.itemName}}</text>
           </view>
           <view class='num'>
-            <text>x1</text>
+            <text>x{{detail.num}}</text>
           </view>
         </view>
       </view>
@@ -24,14 +24,14 @@
         <text>合计</text>
       </view>
       <view>
-        <text>￥313.00</text>
+        <text>￥{{detail.totalAmount / 100}}</text>
       </view>
     </view>
   </view>
   <view class='price_pay'>
     <view class='price'>
       <text>合计</text>
-      <text>￥313.00</text>
+      <text>￥{{detail.totalAmount / 100}}</text>
     </view>
     <view class='pay'>
       <button>去付款</button>

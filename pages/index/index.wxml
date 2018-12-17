@@ -59,7 +59,7 @@
       <view class='img'>
         <image src='{{item.poster}}'></image>
         <view>
-          <text>{{item.info}}</text>
+          <text>{{item.subInfo}}</text>
         </view>
       </view>
       <view class='title_price'>

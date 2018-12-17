@@ -1,17 +1,23 @@
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    detail: {},
+    orderId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      orderId: options.orderId
+    });
+    this.handleOrderDetail();
   },
 
   /**
@@ -61,5 +67,17 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  handleOrderDetail: function () {
+    let query = app.query('com.zenith.api.apis.OrderDetailApiService');
+    let body = Object.assign(app.commonBody(), { orderId: this.data.orderId });
+    app.request(query, body, (res) => {
+      console.log(res);
+      this.setData({
+        detail: res.order
+      })
+    }, err => {
+      console.error(err);
+    })
   }
 })
