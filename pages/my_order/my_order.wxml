@@ -1,15 +1,18 @@
 <!-- order.wxml -->
 
 <view class='container'>
-  <view class='user_info' bindtap='goToTheUserInfo'>
+  <view class='user_info' data-nickname='{{userInfo.nickname}}' data-phone='{{userInfo.phone}}' bindtap='goToTheUserInfo'>
     <view class='avatar'>
-      <image src='../../img/avatar.png'></image>
+      <!-- <image src='../../img/avatar.png'></image> -->
+      <image src='{{ userInfo.avatar || "../../img/avatar.png" }}'></image>
     </view>
     <view class='name'>
-      <text>妖小花</text>
+      <!-- <text>妖小花</text> -->
+      <text>{{ userInfo.nickname }}</text>
     </view>
     <view class='telephone'>
-      <text>13881937828</text>
+      <!-- <text>13881937828</text> -->
+      <text>{{userInfo.phone}}</text>
     </view>
   </view>
   <view class='classify'>

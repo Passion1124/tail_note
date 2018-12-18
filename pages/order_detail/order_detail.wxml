@@ -26,12 +26,12 @@
       <text>￥{{detail.totalAmount / 100}}</text>
     </view>
   </view>
-  <view class='list single refund' wx:if="{{detail.statusAt === 2 || detail.statusAt === 3}}">
+  <view class='list single refund' wx:if="{{detail.orderStatus === 2 || detail.orderStatus === 3}}">
     <view>
       <text>退款金额：￥{{detail.totalAmount / 100}}</text>    
     </view>
     <view>
-      <text class='{{detail.statusAt === 2 ? "pending" : ""}}'>{{ detail.statusAt === 2 ? '退款中' : '已退款'}}</text>
+      <text class='{{detail.orderStatus === 2 ? "pending" : ""}}'>{{ detail.orderStatus === 2 ? '退款中' : '已退款'}}</text>
     </view>
   </view>
   <view class='list order_info'>
@@ -60,7 +60,7 @@
       </view>
     </view>
   </view>
-  <view class='list order_info'>
+  <view class='list order_info' wx:if="{{detail.orderStatus !== 0 && detail.orderStatus !== 4}}">
     <view>
       <view>
         <text>付款方式：</text>
@@ -78,27 +78,45 @@
       </view>
     </view>
   </view>
-  <view class='list single' bindtap='goToTheInvoice' wx:if="{{detail.statusAt === 5 && orderInvoice && orderInvoice.invoiceStatus === 0}}">
+  <view class='list single' bindtap='goToTheInvoice' wx:if="{{detail.orderStatus === 5 && !orderInvoice}}">
     <view>
-      <text>发票：</text><text>未开票</text>
+      <text>发票：</text><text>未申请开票</text>
     </view>
     <view>
       <image src='../../img/more.png'></image>
     </view>
   </view>
-  <view class='list single' data-title='{{company_name}}' data-taxNumber='{{taxNumber}}' bindtap='goToTheInvoice' wx:if="{{detail.statusAt === 5 && orderInvoice && orderInvoice.invoiceStatus === 1}}">
+  <view class='list order_info' wx:if="{{ detail.orderStatus === 5 && orderInvoice }}">
     <view>
-      <text>发票：</text><text>{{company_name}}</text>
+      <view>
+        <text>公司名称：</text>
+      </view>
+      <view>
+        <text>{{orderInvoice.body}}</text>
+      </view>
     </view>
     <view>
-      <image src='../../img/more.png'></image>
+      <view>
+        <text>税号：</text>
+      </view>
+      <view>
+        <text>{{orderInvoice.header}}</text>
+      </view>
+    </view>
+    <view>
+      <view>
+        <text>发票状态：</text>
+      </view>
+      <view>
+        <text>{{orderInvoice.invoiceStatus === 0 ? '未开' : '已开'}}</text>
+      </view>
     </view>
   </view>
-  <view class='btn_group' wx:if="{{detail.statusAt === 0}}">
-    <button>取消订单</button>
+  <view class='btn_group' wx:if="{{detail.orderStatus === 0}}">
+    <button bindtap='handleOrderCancel'>取消订单</button>
     <button>去付款</button>
   </view>
-  <view class='btn_group apply' wx:if="{{detail.statusAt === 1}}">
-    <button>申请退款</button>
+  <view class='btn_group apply' wx:if="{{detail.orderStatus === 1}}">
+    <button bindtap='handleOrderRefund'>申请退款</button>
   </view>
 </view>

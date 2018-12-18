@@ -23,6 +23,9 @@ Page({
     this.setData({
       orderId: options.orderid
     });
+    wx.showLoading({
+      title: '加载中',
+    })
     this.handleOrderDetail();
   },
 
@@ -79,14 +82,44 @@ Page({
     let body = Object.assign(app.commonBody(), { orderId: this.data.orderId });
     app.request(query, body, (res) => {
       console.log(res);
-      this.orderStatusFormat(res.order.statusAt);
+      this.orderStatusFormat(res.order.orderStatus);
       this.setData({
         detail: res.order,
         orderInvoice: res.orderInvoice,
         orderTime: util.formatTime(new Date(res.order.orderTime)),
         payTime: util.formatTime(new Date(res.order.payTime))
-      })
+      });
+      wx.hideLoading();
     }, (err) => {
+      console.error(err);
+      wx.hideLoading();
+    })
+  },
+  // 取消订单
+  handleOrderCancel: function () {
+    let query = app.query('com.zenith.api.apis.OrderCancelApiService');
+    let body = Object.assign(app.commonBody(), { orderId: this.data.orderId });
+    app.request(query, body, (res) => {
+      console.log(res);
+      wx.showToast({
+        title: '订单取消成功',
+      });
+      this.handleOrderDetail();
+    }, err => {
+      console.error(err);
+    })
+  },
+  // 申请退款
+  handleOrderRefund: function () {
+    let query = app.query('com.zenith.api.apis.OrderRefundApiService');
+    let body = Object.assign(app.commonBody(), { orderId: this.data.orderId });
+    app.request(query, body, (res) => {
+      console.log(res);
+      wx.showToast({
+        title: '申请退款成功',
+      });
+      this.handleOrderDetail();
+    }, err => {
       console.error(err);
     })
   },
@@ -107,13 +140,16 @@ Page({
   goToTheInvoice: function (e) {
     // console.log(e);
     wx.navigateTo({
-      url: '../invoice/invoice?title=' + e.currentTarget.dataset.title + '&taxNumber=' + e.currentTarget.dataset.taxnumber,
+      url: '../invoice/invoice?oid='+ this.data.orderId +'&body=' + e.currentTarget.dataset.title + '&header=' + e.currentTarget.dataset.taxnumber,
     })
   },
-  changeCompany: function (name, number) {
+  changeCompany: function (body, header) {
+    let orderInvoice = this.data.orderInvoice || {};
+    orderInvoice.body = body;
+    orderInvoice.header = header;
     this.setData({
-      company_name: name,
-      taxNumber: number
+      orderInvoice: orderInvoice
     });
+    this.handleOrderDetail();
   }
 })

@@ -1,17 +1,24 @@
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    phone: '',
+    nickname: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(options);
+    this.setData({
+      nickname: options.nickname,
+      phone: options.phone
+    })
   },
 
   /**
@@ -62,9 +69,33 @@ Page({
   onShareAppMessage: function () {
     
   },
+  handleUserUpdate: function () {
+    let data = this.data;
+    let query = app.query('com.zenith.api.apis.UserUpdateApiService');
+    let body = Object.assign(app.commonBody(), { nickname: data.nickname, phone: data.phone });
+    app.request(query, body, res => {
+      console.log(res);
+      this.handleSureChangeUserInfo();
+    }, err => {
+      console.error(err);
+    })
+  },
   handleSureChangeUserInfo: function () {
-    wx.navigateBack({
-      delta: 1
+    var pages = getCurrentPages();
+    if (pages.length > 1) {
+      var prePage = pages[pages.length - 2];
+      prePage.changeNicknameAndPhone(this.data.nickname, this.data.phone);
+      wx.navigateBack()
+    }
+  },
+  nicknameInput: function (e) {
+    this.setData({
+      nickname: e.detail.value
+    })
+  },
+  phoneInput: function (e) {
+    this.setData({
+      phone: e.detail.value
     })
   }
 })

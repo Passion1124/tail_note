@@ -1,11 +1,14 @@
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    title: '',
-    taxNumber: '',
+    oid: '',
+    body: '',
+    header: '',
     disabled: false
   },
 
@@ -14,13 +17,16 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    if (options.title !== 'undefined' && options.taxNumber !== 'undefined') {
+    if (options.body !== 'undefined' && options.header !== 'undefined') {
       this.setData({
-        title: options.title,
-        taxNumber: options.taxNumber,
+        body: options.body,
+        header: options.header,
         disabled: true
       })
-    }
+    };
+    this.setData({
+      oid: options.oid
+    })
   },
 
   /**
@@ -76,8 +82,8 @@ Page({
       success: (res) => {
         console.log(res);
         this.setData({
-          title: res.title,
-          taxNumber: res.taxNumber
+          body: res.title,
+          header: res.taxNumber
         })
       },
       fail: function (res) {
@@ -88,21 +94,30 @@ Page({
   },
   changeCompanyName: function (e) {
     this.setData({
-      title: e.detail.value
+      body: e.detail.value
     })
   },
   changeCompanyTaxNumber: function (e) {
     this.setData({
-      taxNumber: e.detail.value
+      header: e.detail.value
     })
   },
   confirmRevision: function () {
-    var pages = getCurrentPages();
-    // console.log(pages);
-    if (pages.length > 1) {
-      var prePage = pages[pages.length - 2];
-      prePage.changeCompany(this.data.title, this.data.taxNumber);
-      wx.navigateBack()
-    }
+    let query = app.query('com.zenith.api.apis.OrderInvoiceApiService');
+    let body = Object.assign(app.commonBody(), { oid: this.data.oid, body: this.data.body, header: this.data.header });
+    app.request(query, body, res => {
+      console.log(res);
+      wx.showToast({
+        title: '发票信息保存成功',
+      });
+      var pages = getCurrentPages();
+      if (pages.length > 1) {
+        var prePage = pages[pages.length - 2];
+        prePage.changeCompany(this.data.body, this.data.header);
+        wx.navigateBack()
+      }
+    }, err => {
+      console.error(err);
+    })
   }
 })

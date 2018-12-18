@@ -155,7 +155,7 @@ Page({
     app.request(query, body, (res) => {
       console.log(res);
       let all_order = this.data.all_order.concat(res.orders.map(item => {
-        item.statusText = this.orderStatusFormat(item.statusAt);
+        item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
       let max = this.data.max;
@@ -178,7 +178,7 @@ Page({
     app.request(query, body, (res) => {
       console.log(res);
       let pending_order = this.data.pending_order.concat(res.orders.map(item => {
-        item.statusText = this.orderStatusFormat(item.statusAt);
+        item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
       let max = this.data.max;
@@ -201,7 +201,7 @@ Page({
     app.request(query, body, (res) => {
       console.log(res);
       let paid_order = this.data.paid_order.concat(res.orders.map(item => {
-        item.statusText = this.orderStatusFormat(item.statusAt);
+        item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
       let max = this.data.max;
@@ -224,7 +224,7 @@ Page({
     app.request(query, body, (res) => {
       console.log(res);
       let completed_order = this.data.completed_order.concat(res.orders.map(item => {
-        item.statusText = this.orderStatusFormat(item.statusAt);
+        item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
       let max = this.data.max;
@@ -247,7 +247,7 @@ Page({
     app.request(query, body, (res) => {
       console.log(res);
       let cancelled_order = this.data.cancelled_order.concat(res.orders.map(item => {
-        item.statusText = this.orderStatusFormat(item.statusAt);
+        item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
       let max = this.data.max;
@@ -270,7 +270,7 @@ Page({
     app.request(query, body, (res) => {
       console.log(res);
       let refunded_order = this.data.refunded_order.concat(res.orders.map(item => {
-        item.statusText = this.orderStatusFormat(item.statusAt);
+        item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
       let max = this.data.max;

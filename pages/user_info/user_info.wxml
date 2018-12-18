@@ -5,7 +5,7 @@
       <text>昵称</text>
     </view>
     <view class='input'>
-      <input placeholder='请输入' value='妖小花'></input>
+      <input placeholder='请输入' value='{{nickname}}' bindinput='nicknameInput'></input>
     </view>
   </view>
   <view class='list'>
@@ -13,10 +13,10 @@
       <text>手机号</text>
     </view>
     <view class='input'>
-      <input type='number' placeholder='请输入' value='13881937833'></input>
+      <input type='number' placeholder='请输入' value='{{phone}}' bindinput='phoneInput'></input>
     </view>
   </view>
-  <view class='suer_change' bindtap='handleSureChangeUserInfo'>
-    <button>确认修改</button>
+  <view class='suer_change'>
+    <button bindtap='handleUserUpdate'>确认修改</button>
   </view>
 </view>

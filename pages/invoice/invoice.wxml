@@ -5,7 +5,7 @@
       <text>公司名称</text>
     </view>
     <view>
-      <input value='{{title}}' disabled='{{disabled}}' placeholder='请输入公司名称' bindinput='changeCompanyName'></input>
+      <input value='{{body}}' disabled='{{disabled}}' placeholder='请输入公司名称' bindinput='changeCompanyName'></input>
     </view>
     <view class='invoice_title' wx:if="{{!disabled}}" bindtap='chooseInvoiceTitle'>获取发票抬头</view>
   </view>
@@ -14,7 +14,7 @@
       <text>公司税号</text>
     </view>
     <view>
-      <input value='{{taxNumber}}' disabled='{{disabled}}' placeholder='请输入公司税号' bindinput='changeCompanyTaxNumber'></input>
+      <input value='{{header}}' disabled='{{disabled}}' placeholder='请输入公司税号' bindinput='changeCompanyTaxNumber'></input>
     </view>
   </view>
   <view class='sure' wx:if="{{!disabled}}">

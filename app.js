@@ -11,6 +11,9 @@ App({
       success: res => {
         console.log(res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if (res.code) {
+          this.handleWxLogin(res.code);
+        }
       }
     })
     // 获取用户信息
@@ -39,6 +42,8 @@ App({
     baseUrl: 'http://47.99.131.137:8080/gateway?',
     auth: null,
     uid: null,
+    openId: null,
+    sessionKey: null
   },
   request: function(query, data, success, fail) {
     wx.request({
@@ -62,6 +67,17 @@ App({
         fail(res);
       },
       complete: function(res) {},
+    })
+  },
+  handleWxLogin: function (code) {
+    let query = this.query('com.zenith.api.apis.WXLoginApiService');
+    let body = { code: code };
+    this.request(query, body, res => {
+      console.log(res);
+      this.globalData.openId = res.openId;
+      this.globalData.sessionKey = res.sessionKey;
+    }, err => {
+      console.error(err);
     })
   },
   uuid: function() {
