@@ -43,7 +43,8 @@ App({
     auth: null,
     uid: null,
     openId: null,
-    sessionKey: null
+    sessionKey: null,
+    pollingNum: 5
   },
   request: function(query, data, success, fail) {
     wx.request({
@@ -76,6 +77,10 @@ App({
       console.log(res);
       this.globalData.openId = res.openId;
       this.globalData.sessionKey = res.sessionKey;
+      setTimeout(() => {
+        let pages = getCurrentPages();
+        pages[0].login();
+      }, 500)
     }, err => {
       console.error(err);
     })

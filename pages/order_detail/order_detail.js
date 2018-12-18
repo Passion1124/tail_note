@@ -25,6 +25,9 @@ Page({
     });
     wx.showLoading({
       title: '加载中',
+    });
+    wx.showLoading({
+      title: '拼命加载中'
     })
     this.handleOrderDetail();
   },
@@ -77,6 +80,7 @@ Page({
   onShareAppMessage: function () {
     
   },
+  // 订单详情
   handleOrderDetail: function () {
     let query = app.query('com.zenith.api.apis.OrderDetailApiService');
     let body = Object.assign(app.commonBody(), { orderId: this.data.orderId });
@@ -121,6 +125,61 @@ Page({
       this.handleOrderDetail();
     }, err => {
       console.error(err);
+    })
+  },
+  // 预下单接口
+  handlePrePay: function () {
+    let query = app.query('com.zenith.api.apis.PrePayApiService');
+    let body = Object.assign(app.commonBody(), { orderId: this.data.orderId });
+    app.request(query, body, res => {
+      console.log(res);
+      this.handlePaySycnStatus(1);
+    }, err => {
+      console.error(err);
+    })
+  },
+  // 查询订单状态
+  handlePaySycnStatus: function (num) {
+    let query = app.query('com.zenith.api.apis.PaySyncApiService');
+    let body = Object.assign(app.commonBody(), { orderId: this.data.orderId });
+    app.request(query, body, res => {
+      console.log(res);
+      wx.navigateTo({
+        url: '../pay_result/pay_result?result=success&orderId=' + this.data.orderId,
+      })
+    }, err => {
+      if (num <= app.globalData.pollingNum) {
+        this.handlePaySycnStatus(num + 1);
+      } else {
+        wx.navigateTo({
+          url: '../pay_result/pay_result?result=fail&orderId=' + this.data.orderId,
+        })
+      }
+      console.error(err);
+    })
+  },
+  // 订单取消二次确认
+  handleOrderCancelConfirm: function () {
+    wx.showModal({
+      title: '提示',
+      content: '是否确认取消订单？',
+      success: res => {
+        if (res.confirm) {
+          this.handleOrderCancel();
+        }
+      }
+    })
+  },
+  // 申请退款二次确认
+  handleOrderRefundConfirm: function () {
+    wx.showModal({
+      title: '提示',
+      content: '是否发起退款申请？',
+      success: res => {
+        if (res.confirm) {
+          this.handleOrderRefund();
+        }
+      }
     })
   },
   orderStatusFormat: function (status) {

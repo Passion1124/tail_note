@@ -113,10 +113,10 @@
     </view>
   </view>
   <view class='btn_group' wx:if="{{detail.orderStatus === 0}}">
-    <button bindtap='handleOrderCancel'>取消订单</button>
-    <button>去付款</button>
+    <button bindtap='handleOrderCancelConfirm'>取消订单</button>
+    <button bindtap='handlePrePay'>去付款</button>
   </view>
   <view class='btn_group apply' wx:if="{{detail.orderStatus === 1}}">
-    <button bindtap='handleOrderRefund'>申请退款</button>
+    <button bindtap='handleOrderRefundConfirm'>申请退款</button>
   </view>
 </view>

@@ -34,7 +34,7 @@
       <text>￥{{detail.totalAmount / 100}}</text>
     </view>
     <view class='pay'>
-      <button>去付款</button>
+      <button bindtap='handlePrePay'>去付款</button>
     </view>
   </view>
 </view>

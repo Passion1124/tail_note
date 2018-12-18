@@ -1,6 +1,6 @@
 <!-- pay_result.wxml -->
 <view class='container'>
-  <view class='success'>
+  <view class='success' wx:if="{{result === 'success'}}">
     <view class='title'>
       <view class='img_row'>
         <image src='../../img/success.png'></image>
@@ -13,10 +13,10 @@
       <text>将在<text>8</text>小时内确认您的订单</text>
     </view>
     <view class='btn'>
-      <button>再次购买</button>
+      <button bindtap='handleSeeOrder'>查看订单</button>
     </view>
   </view>
-  <view class='fail'>
+  <view class='fail'  wx:if="{{result === 'fail'}}">
     <view class='title'>
       <view class='img_row'>
         <image src='../../img/fail.png'></image>
@@ -29,8 +29,8 @@
       <text>请在 <text>30</text> 分钟内完成付款, 否则订单会被系统自动取消</text>
     </view>
     <view class='btn'>
-      <button>查看订单</button>
-      <button>重新付款</button>
+      <button bindtap='handleSeeOrder'>查看订单</button>
+      <button bindtap='handlePrePay'>重新付款</button>
     </view>
   </view>
 </view>

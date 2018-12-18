@@ -95,7 +95,10 @@ Page({
   getGoodList: function () {
     let query = app.query('com.zenith.api.apis.GoodsListApiService');
     let body = Object.assign(app.commonBody(), { category: this.data.category, page: this.data.page, size: this.data.size });
-    this.data.loading = true;
+    this.changeLoadingValue(true);
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     app.request(query, body, (res) => {
       console.log(res);
       let goodsList = this.data.goodsList.concat(res.goods);
@@ -104,12 +107,14 @@ Page({
         goodsList: goodsList,
         max: max
       });
-      this.data.loading = false;
+      this.changeLoadingValue(false);
       this.getFavorCheck();
+      wx.hideLoading();
     }, function (res) {
-      this.data.loading = false;
+      this.changeLoadingValue(false);
       this.data.page--;
-      console.log(res);
+      wx.hideLoading();
+      console.error(res);
     })
   },
   getFavorCheck: function () {
@@ -167,9 +172,12 @@ Page({
     })
   },
   handleFavorList: function () {
+    wx.showLoading({
+      title: '拼命加载中'
+    });
     let query = app.query('com.zenith.api.apis.FavorListApiService');
     let body = Object.assign(app.commonBody(), { page: this.data.page, size: this.data.size });
-    this.data.loading = true;
+    this.changeLoadingValue(true);
     app.request(query, body, (res) => {
       console.log(res);
       let goodsList = this.data.goodsList.concat(res.goodsList.map(item => {
@@ -181,11 +189,18 @@ Page({
         goodsList: goodsList,
         max: max
       });
-      this.data.loading = false;
+      this.changeLoadingValue(false);
+      wx.hideLoading();
     }, (err) => {
       console.error(err);
-      this.data.loading = false;
+      wx.hideLoading();
+      this.changeLoadingValue(false);
       this.data.page--;
+    })
+  },
+  changeLoadingValue: function (value) {
+    this.setData({
+      loading: value
     })
   }
 })

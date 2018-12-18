@@ -70,9 +70,6 @@ Page({
     this.setData({
       currentTab: Number(options.currentTab)
     });
-    wx.showLoading({
-      title: '加载中'
-    })
     if (Number(options.currentTab) === 0) {
       this.handleAllOrderList();
     } else if (Number(options.currentTab) === 1) {
@@ -150,6 +147,9 @@ Page({
   },
   // 获取全部订单
   handleAllOrderList: function () {
+    wx.showLoading({
+      title: '拼命加载中'
+    })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.all_order_body);
     app.request(query, body, (res) => {
@@ -173,6 +173,9 @@ Page({
   },
   // 获取待付款订单
   handlePendingOrderList: function () {
+    wx.showLoading({
+      title: '拼命加载中'
+    })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.pending_order_body);
     app.request(query, body, (res) => {
@@ -196,6 +199,9 @@ Page({
   },
   // 获取已付款订单
   handlePaidOrderList: function () {
+    wx.showLoading({
+      title: '拼命加载中'
+    })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.paid_order_body);
     app.request(query, body, (res) => {
@@ -219,6 +225,9 @@ Page({
   },
   // 获取已完成订单
   handleCompletedOrderList: function () {
+    wx.showLoading({
+      title: '拼命加载中'
+    })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.completed_order_body);
     app.request(query, body, (res) => {
@@ -242,6 +251,9 @@ Page({
   },
   // 获取已取消订单
   handleCancelledOrderList: function () {
+    wx.showLoading({
+      title: '拼命加载中'
+    })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.cancelled_order_body);
     app.request(query, body, (res) => {
@@ -265,6 +277,9 @@ Page({
   },
   // 获取已退款订单
   handleRefundedOrderList: function () {
+    wx.showLoading({
+      title: '拼命加载中'
+    })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.refunded_order_body);
     app.request(query, body, (res) => {

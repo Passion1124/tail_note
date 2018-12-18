@@ -87,6 +87,9 @@ Page({
     
   },
   getGoodDetail: function () {
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     let query = app.query('com.zenith.api.apis.GoodsDetailApiService');
     let body = Object.assign(app.commonBody(), { gid: this.data.gid });
     app.request(query, body, (res) => {
@@ -105,8 +108,10 @@ Page({
         goodsItems: goodsItems
       });
       this.getFavorCheck();
+      wx.hideLoading();
     }, function (res) {
-      console.log(res);
+      console.error(res);
+      wx.hideLoading();
     })
   },
   getFavorCheck: function () {

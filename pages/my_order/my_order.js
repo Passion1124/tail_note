@@ -13,6 +13,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     this.handleUserDetail();
   },
 
@@ -72,6 +75,7 @@ Page({
       this.setData({
         userInfo: res.user
       });
+      wx.hideLoading();
     }, err => {
       console.error(err);
     })

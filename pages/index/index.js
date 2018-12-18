@@ -34,7 +34,6 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       });
-      this.login();
     } else if (this.data.canIUse){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
@@ -43,7 +42,6 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         });
-        this.login();
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -54,7 +52,6 @@ Page({
             userInfo: res.userInfo,
             hasUserInfo: true
           });
-          this.login();
         }
       })
     }
@@ -103,8 +100,12 @@ Page({
   login: function () {
     let query = app.query('com.zenith.api.apis.LoginApiService');
     let userInfo = this.data.userInfo;
-    console.log(userInfo);
     let body = { openId: app.globalData.openId, nickname: userInfo.nickName, avatar: userInfo.avatarUrl, sex: userInfo.gender, province: userInfo.province, city: userInfo.city, country: userInfo.country, regUid: userInfo.regUid }
+    if (this.data.hasUserInfo) {
+      wx.showLoading({
+        title: '拼命加载中',
+      })
+    }
     app.request(query, body, (res) => {
       console.log(res);
       app.globalData.auth = res.auth;
@@ -112,8 +113,10 @@ Page({
       this.getBanner();
       this.getCategoryList();
       this.getGoodList();
+      wx.hideLoading();
     }, function(res){
       console.log(res);
+      wx.hideLoading();
     })
   },
   getBanner: function () {
