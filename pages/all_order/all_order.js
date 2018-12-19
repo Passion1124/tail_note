@@ -259,6 +259,7 @@ Page({
       });
       this.data.update.completed_order = false;
       wx.hideLoading();
+      console.log(this.data);
     }, (err) => {
       wx.hideLoading();
       wx.showToast('接口有误');
