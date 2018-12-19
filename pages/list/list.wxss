@@ -90,3 +90,11 @@
   width: 32rpx;
   height: 32rpx;
 }
+
+.tips{
+  font-size: 32rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background-color: #e6e6e6;
+  padding:20rpx 0;
+}

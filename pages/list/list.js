@@ -19,9 +19,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '拼命加载中',
+    });
     wx.setNavigationBarTitle({
       title: options.category,
-    })
+    });
     this.setData({
       category: options.category,
       source: options.source
@@ -65,7 +68,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    this.data.page = 1;
+    if (this.data.source === 'my_collection') {
+      this.handleFavorList('down');
+    } else {
+      this.getGoodList('down');
+    }
   },
 
   /**
@@ -75,9 +83,9 @@ Page({
     if (this.data.loading || this.data.max) return false;
     this.data.page++;
     if (this.data.source === 'my_collection') {
-      this.handleFavorList();
+      this.handleFavorList('up');
     } else{
-      this.getGoodList();
+      this.getGoodList('up');
     }
   },
 
@@ -92,16 +100,14 @@ Page({
       url: '../detail/detail?gid=' + e.currentTarget.dataset.gid,
     })
   },
-  getGoodList: function () {
+  getGoodList: function (type) {
     let query = app.query('com.zenith.api.apis.GoodsListApiService');
     let body = Object.assign(app.commonBody(), { category: this.data.category, page: this.data.page, size: this.data.size });
     this.changeLoadingValue(true);
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     app.request(query, body, (res) => {
       console.log(res);
-      let goodsList = this.data.goodsList.concat(res.goods);
+      let arr = type === 'down' ? [] : this.data.goodsList;
+      let goodsList = arr.concat(res.goods);
       let max = res.goods.length === this.data.size ? false : true;
       this.setData({
         goodsList: goodsList,
@@ -110,10 +116,12 @@ Page({
       this.changeLoadingValue(false);
       this.getFavorCheck();
       wx.hideLoading();
+      wx.stopPullDownRefresh();
     }, function (res) {
       this.changeLoadingValue(false);
-      this.data.page--;
+      if (this.data.page > 1) this.data.page--;
       wx.hideLoading();
+      wx.stopPullDownRefresh();
       console.error(res);
     })
   },
@@ -171,16 +179,14 @@ Page({
       console.log(res);
     })
   },
-  handleFavorList: function () {
-    wx.showLoading({
-      title: '拼命加载中'
-    });
+  handleFavorList: function (type) {
     let query = app.query('com.zenith.api.apis.FavorListApiService');
     let body = Object.assign(app.commonBody(), { page: this.data.page, size: this.data.size });
     this.changeLoadingValue(true);
     app.request(query, body, (res) => {
       console.log(res);
-      let goodsList = this.data.goodsList.concat(res.goodsList.map(item => {
+      let arr = type === 'down' ? [] : this.data.goodsList;
+      let goodsList = arr.concat(res.goodsList.map(item => {
         item.collect = 'yes';
         return item;
       }));
@@ -191,11 +197,13 @@ Page({
       });
       this.changeLoadingValue(false);
       wx.hideLoading();
+      wx.stopPullDownRefresh();
     }, (err) => {
       console.error(err);
       wx.hideLoading();
+      wx.stopPullDownRefresh();
       this.changeLoadingValue(false);
-      this.data.page--;
+      if (this.data.page > 1) this.data.page--;
     })
   },
   changeLoadingValue: function (value) {

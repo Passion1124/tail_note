@@ -89,7 +89,7 @@ Page({
   },
   goToTheList: function (e) {
     wx.navigateTo({
-      url: '../list/list?category=' + e.currentTarget.dataset.category,
+      url: '../list/list?category=' + e.currentTarget.dataset.category + '&source=index',
     })
   },
   goToTheOrderDetail: function (e) {

@@ -59,6 +59,14 @@ Page({
       completed_order: false,
       cancelled_order: false,
       refunded_order: false
+    },
+    update: {
+      all_order: false,
+      pending_order: false,
+      paid_order: false,
+      completed_order: false,
+      cancelled_order: false,
+      refunded_order: false
     }
   },
 
@@ -154,7 +162,8 @@ Page({
     let body = Object.assign(app.commonBody(), this.data.all_order_body);
     app.request(query, body, (res) => {
       console.log(res);
-      let all_order = this.data.all_order.concat(res.orders.map(item => {
+      let arr = this.data.update.all_order ? [] : this.data.all_order;
+      let all_order = arr.concat(res.orders.map(item => {
         item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
@@ -164,6 +173,7 @@ Page({
         all_order: all_order,
         max: max
       });
+      this.data.update.all_order = false;
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
@@ -180,7 +190,8 @@ Page({
     let body = Object.assign(app.commonBody(), this.data.pending_order_body);
     app.request(query, body, (res) => {
       console.log(res);
-      let pending_order = this.data.pending_order.concat(res.orders.map(item => {
+      let arr = this.data.update.pending_order ? [] : this.data.pending_order;
+      let pending_order = arr.concat(res.orders.map(item => {
         item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
@@ -190,6 +201,7 @@ Page({
         pending_order: pending_order,
         max: max
       });
+      this.data.update.pending_order = false;
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
@@ -206,7 +218,8 @@ Page({
     let body = Object.assign(app.commonBody(), this.data.paid_order_body);
     app.request(query, body, (res) => {
       console.log(res);
-      let paid_order = this.data.paid_order.concat(res.orders.map(item => {
+      let arr = this.data.update.paid_order ? [] : this.data.paid_order;
+      let paid_order = arr.concat(res.orders.map(item => {
         item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
@@ -216,6 +229,7 @@ Page({
         paid_order: paid_order,
         max: max
       });
+      this.data.update.paid_order = false;
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
@@ -232,7 +246,8 @@ Page({
     let body = Object.assign(app.commonBody(), this.data.completed_order_body);
     app.request(query, body, (res) => {
       console.log(res);
-      let completed_order = this.data.completed_order.concat(res.orders.map(item => {
+      let arr = this.data.update.completed_order ? [] : this.data.completed_order;
+      let completed_order = arr.concat(res.orders.map(item => {
         item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
@@ -242,6 +257,7 @@ Page({
         completed_order: completed_order,
         max: max
       });
+      this.data.update.completed_order = false;
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
@@ -258,7 +274,8 @@ Page({
     let body = Object.assign(app.commonBody(), this.data.cancelled_order_body);
     app.request(query, body, (res) => {
       console.log(res);
-      let cancelled_order = this.data.cancelled_order.concat(res.orders.map(item => {
+      let arr = this.data.update.cancelled_order ? [] : this.data.cancelled_order;
+      let cancelled_order = arr.concat(res.orders.map(item => {
         item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
@@ -268,6 +285,7 @@ Page({
         cancelled_order: cancelled_order,
         max: max
       });
+      this.data.update.cancelled_order = false;
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
@@ -284,7 +302,8 @@ Page({
     let body = Object.assign(app.commonBody(), this.data.refunded_order_body);
     app.request(query, body, (res) => {
       console.log(res);
-      let refunded_order = this.data.refunded_order.concat(res.orders.map(item => {
+      let arr = this.data.update.refunded_order ? [] : this.data.refunded_order;
+      let refunded_order = arr.concat(res.orders.map(item => {
         item.statusText = this.orderStatusFormat(item.orderStatus);
         return item;
       }));
@@ -294,6 +313,7 @@ Page({
         refunded_order: refunded_order,
         max: max
       });
+      this.data.update.refunded_order = false;
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
@@ -303,17 +323,23 @@ Page({
   },
   // 左右滑动的时候判断当前tab是否获取了数据
   handleGetOrderList: function () {
-    if (this.data.currentTab === 0 && !this.data.all_order.length) {
+    if (this.data.currentTab === 0 && (!this.data.all_order.length || this.data.update.all_order)) {
+      if (this.data.update.all_order) this.data.all_order_body.page = 1;
       this.handleAllOrderList();
-    } else if (this.data.currentTab === 1 && !this.data.pending_order.length) {
+    } else if (this.data.currentTab === 1 && (!this.data.pending_order.length || this.data.update.pending_order)) {
+      if (this.data.update.pending_order) this.data.pending_order_body.page = 1;
       this.handlePendingOrderList();
-    } else if (this.data.currentTab === 2 && !this.data.paid_order.length) {
+    } else if (this.data.currentTab === 2 && (!this.data.paid_order.length || this.data.update.paid_order)) {
+      if (this.data.update.paid_order) this.data.paid_order_body.page = 1;
       this.handlePaidOrderList();
-    } else if (this.data.currentTab === 3 && !this.data.completed_order.length) {
+    } else if (this.data.currentTab === 3 && (!this.data.completed_order.length || this.data.update.completed_order)) {
+      if (this.data.update.completed_order) this.data.completed_order_body.page = 1;
       this.handleCompletedOrderList();
-    } else if (this.data.currentTab === 4 && !this.data.cancelled_order.length) {
+    } else if (this.data.currentTab === 4 && (!this.data.cancelled_order.length || this.data.update.cancelled_order)) {
+      if (this.data.update.cancelled_order) this.data.cancelled_order_body.page = 1;
       this.handleCancelledOrderList();
-    } else if (this.data.currentTab === 5 && !this.data.refunded_order.length) {
+    } else if (this.data.currentTab === 5 && (!this.data.refunded_order.length || this.data.update.refunded_order)) {
+      if (this.data.update.refunded_order) this.data.refunded_order_body.page = 1;
       this.handleRefundedOrderList();
     }
   },
@@ -416,6 +442,20 @@ Page({
       })
       this.handleRefundedOrderList();
     }
+  },
+  changeUpdateValue: function () {
+    let update = {
+      all_order: true,
+      pending_order: true,
+      paid_order: true,
+      completed_order: true,
+      cancelled_order: true,
+      refunded_order: true
+    };
+    this.setData({
+      update: update
+    });
+    this.handleGetOrderList();
   },
   goToTheOrderDetail: function (e) {
     wx.navigateTo({

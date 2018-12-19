@@ -80,7 +80,7 @@ App({
       setTimeout(() => {
         let pages = getCurrentPages();
         pages[0].login();
-      }, 500)
+      }, 300)
     }, err => {
       console.error(err);
     })

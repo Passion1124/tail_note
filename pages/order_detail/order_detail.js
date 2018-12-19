@@ -24,11 +24,8 @@ Page({
       orderId: options.orderid
     });
     wx.showLoading({
-      title: '加载中',
-    });
-    wx.showLoading({
       title: '拼命加载中'
-    })
+    });
     this.handleOrderDetail();
   },
 
@@ -57,7 +54,13 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+    let pages = getCurrentPages();
+    if (pages.length > 1) {
+      let prePage = pages[pages.length - 2];
+      if (prePage.route === 'pages/all_order/all_order') {
+        prePage.changeUpdateValue();
+      }
+    }
   },
 
   /**
@@ -210,5 +213,8 @@ Page({
       orderInvoice: orderInvoice
     });
     this.handleOrderDetail();
+  },
+  changeAllOrderList: function () {
+
   }
 })
