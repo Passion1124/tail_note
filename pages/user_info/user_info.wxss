@@ -2,6 +2,10 @@
   padding: 133rpx 40rpx 0;
 }
 
+::-webkit-input-placeholder{
+  color: #B7B7B7;
+}
+
 .list{
   display: flex;
   align-items: center;
@@ -9,7 +13,7 @@
   padding: 40rpx 0;
   font-size: 32rpx;
   line-height: 45rpx;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1rpx solid #E0E0E0;
   box-sizing: border-box;
 }
 
@@ -19,7 +23,7 @@
 
 .list .input{
   flex: 1;
-  color: #B7B7B7;
+  color: #3C3C3C;
   text-align: right;
 }
 

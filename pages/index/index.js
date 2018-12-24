@@ -89,12 +89,12 @@ Page({
   },
   goToTheList: function (e) {
     wx.navigateTo({
-      url: '../list/list?category=' + e.currentTarget.dataset.category + '&source=index',
+      url: '/pages/list/list?category=' + e.currentTarget.dataset.category + '&source=index',
     })
   },
   goToTheOrderDetail: function (e) {
     wx.navigateTo({
-      url: '../detail/detail?gid=' + e.currentTarget.dataset.gid,
+      url: '/pages/detail/detail?gid=' + e.currentTarget.dataset.gid,
     })
   },
   login: function () {

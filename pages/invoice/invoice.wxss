@@ -2,6 +2,10 @@
   padding: 0 40rpx;
 }
 
+::-webkit-input-placeholder{
+  color: #B7B7B7;
+}
+
 .company_name{
   position: relative;
 }
@@ -17,7 +21,8 @@
   font-size: 36rpx;
   line-height: 50rpx;
   padding-bottom: 40rpx;
-  border-bottom: 1px solid #E0E0E0;
+  color: #3C3C3C;
+  border-bottom: 1rpx solid #E0E0E0;
 }
 
 .company_name .invoice_title{

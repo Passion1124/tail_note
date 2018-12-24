@@ -25,9 +25,15 @@
     </view>
   </view>
 </view>
-<view class='tips' hidden="{{!loading && max}}">
-  <view>正在加载中...</view>
+<view hidden='{{page === 1}}'>
+  <view class='tips' hidden='{{!loading && max}}'>
+    <view class='img_row'>
+      <image src='../../img/loading.png'></image>
+    </view>
+    <view class='text'>正在加载中...</view>
+  </view>
+  <view class='tips' hidden='{{!max}}'>
+    <text class='text'>没有更多商品了</text>
+  </view>
 </view>
-<view class='tips' hidden="{{!max}}">
-  <text>没有更多商品了</text>
-</view>
+<view class='tips' hidden='{{page !== 1}}'></view>

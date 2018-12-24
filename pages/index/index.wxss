@@ -93,7 +93,7 @@
   display: flex;
   width: 100%;
   padding: 40rpx 0;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1rpx solid #E0E0E0;
 }
 
 .recommend .list:last-of-type{

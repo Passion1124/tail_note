@@ -101,9 +101,9 @@ Page({
     })
   },
   getGoodList: function (type) {
+    this.changeLoadingValue(true);
     let query = app.query('com.zenith.api.apis.GoodsListApiService');
     let body = Object.assign(app.commonBody(), { category: this.data.category, page: this.data.page, size: this.data.size });
-    this.changeLoadingValue(true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = type === 'down' ? [] : this.data.goodsList;
@@ -118,10 +118,10 @@ Page({
       wx.hideLoading();
       wx.stopPullDownRefresh();
     }, function (res) {
-      this.changeLoadingValue(false);
       if (this.data.page > 1) this.data.page--;
       wx.hideLoading();
       wx.stopPullDownRefresh();
+      this.changeLoadingValue(false);
       console.error(res);
     })
   },
@@ -208,7 +208,8 @@ Page({
   },
   changeLoadingValue: function (value) {
     this.setData({
-      loading: value
+      loading: value,
+      page: this.data.page
     })
   }
 })

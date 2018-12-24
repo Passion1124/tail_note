@@ -109,7 +109,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    // wx.showLoading({
+    //   title: '拼命加载中...',
+    // })
   },
 
   /**
@@ -160,6 +162,7 @@ Page({
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.all_order_body);
+    this.changeLoadingData('all_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.all_order ? [] : this.data.all_order;
@@ -174,9 +177,11 @@ Page({
         max: max
       });
       this.data.update.all_order = false;
+      this.changeLoadingData('all_order', false);
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
+      this.changeLoadingData('all_order', false);
       wx.showToast('接口有误');
       console.error(err);
     })
@@ -188,6 +193,7 @@ Page({
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.pending_order_body);
+    this.changeLoadingData('pending_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.pending_order ? [] : this.data.pending_order;
@@ -202,9 +208,11 @@ Page({
         max: max
       });
       this.data.update.pending_order = false;
+      this.changeLoadingData('pending_order', false);
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
+      this.changeLoadingData('pending_order', false);
       wx.showToast('接口有误');
       console.error(err);
     })
@@ -216,6 +224,7 @@ Page({
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.paid_order_body);
+    this.changeLoadingData('paid_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.paid_order ? [] : this.data.paid_order;
@@ -230,9 +239,11 @@ Page({
         max: max
       });
       this.data.update.paid_order = false;
+      this.changeLoadingData('paid_order', false);
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
+      this.changeLoadingData('paid_order', false);
       wx.showToast('接口有误');
       console.error(err);
     })
@@ -244,6 +255,7 @@ Page({
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.completed_order_body);
+    this.changeLoadingData('completed_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.completed_order ? [] : this.data.completed_order;
@@ -258,10 +270,11 @@ Page({
         max: max
       });
       this.data.update.completed_order = false;
+      this.changeLoadingData('completed_order', false);
       wx.hideLoading();
-      console.log(this.data);
     }, (err) => {
       wx.hideLoading();
+      this.changeLoadingData('completed_order', false);
       wx.showToast('接口有误');
       console.error(err);
     })
@@ -273,6 +286,7 @@ Page({
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.cancelled_order_body);
+    this.changeLoadingData('cancelled_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.cancelled_order ? [] : this.data.cancelled_order;
@@ -287,9 +301,11 @@ Page({
         max: max
       });
       this.data.update.cancelled_order = false;
+      this.changeLoadingData('cancelled_order', false);
       wx.hideLoading();
     }, (err) => {
       wx.hideLoading();
+      this.changeLoadingData('cancelled_order', false);
       wx.showToast('接口有误');
       console.error(err);
     })
@@ -301,6 +317,7 @@ Page({
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.refunded_order_body);
+    this.changeLoadingData('refunded_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.refunded_order ? [] : this.data.refunded_order;
@@ -316,8 +333,11 @@ Page({
       });
       this.data.update.refunded_order = false;
       wx.hideLoading();
+      this.changeLoadingData('refunded_order', false);
     }, (err) => {
       wx.hideLoading();
+      if (this.data.refunded_order_body.page > 1) this.data.refunded_order_body.page--;
+      this.changeLoadingData('refunded_order', false);
       wx.showToast('接口有误');
       console.error(err);
     })
@@ -443,6 +463,13 @@ Page({
       })
       this.handleRefundedOrderList();
     }
+  },
+  changeLoadingData (files, value) {
+    let loading = this.data.loading;
+    loading[files] = value;
+    this.setData({
+      loading: loading
+    })
   },
   changeUpdateValue: function () {
     let update = {
