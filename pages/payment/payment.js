@@ -92,7 +92,20 @@ Page({
     let body = Object.assign(app.commonBody(), { orderId: this.data.orderId });
     app.request(query, body, res => {
       console.log(res);
-      this.handlePaySycnStatus(1);
+      wx.requestPayment({
+        timeStamp: res.timeStamp,
+        nonceStr: res.nonceStr,
+        package: 'prepay_id=' + res.prepayId,
+        signType: res.signType,
+        paySign: res.paySign,
+        success(res) {
+          console.log(res);
+          this.handlePaySycnStatus(1);
+        },
+        fail(res) {
+          console.error(res);
+        }
+      })
     }, err => {
       console.error(err);
     })
