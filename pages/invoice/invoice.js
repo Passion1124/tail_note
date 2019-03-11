@@ -17,6 +17,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
+    wx.hideShareMenu();
     if (options.body !== 'undefined' && options.header !== 'undefined') {
       this.setData({
         body: options.body,

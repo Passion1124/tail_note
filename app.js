@@ -1,6 +1,13 @@
 //app.js
 App({
-  onLaunch: function() {},
+  onLaunch: function() {
+    var authority = wx.getStorageSync('authority') || '';
+    if (authority) {
+      this.globalData.auth = authority.auth;
+      this.globalData.uid = authority.uid;
+      this.globalData.openId = authority.openId;
+    }
+  },
   globalData: {
     userInfo: null,
     baseUrl: 'http://47.99.131.137:8080/gateway?',
@@ -8,9 +15,11 @@ App({
     uid: null,
     openId: null,
     sessionKey: null,
-    pollingNum: 5
+    pollingNum: 5,
+    fUid: ''
   },
   request: function(query, data, success, fail) {
+    if (this.globalData.fUid) data.fUid = this.globalData.fUid;
     wx.request({
       url: this.globalData.baseUrl + query,
       data: data,

@@ -18,10 +18,10 @@ const userIsLogin = _ => {
   return new Promise((resolve, reject) => {
     let user = wx.getStorageSync('user') || '';
     if (user) {
-      resolve();
+      resolve('success');
     } else {
       navigateTo('/pages/login/login');
-      reject();
+      reject('fail');
     }
   })
 }

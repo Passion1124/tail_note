@@ -35,6 +35,9 @@ Page({
     this.setData({
       gid: options.gid
     });
+    if (options.fUid) {
+      app.globalData.fUid = options.fUid;
+    };
     this.getGoodDetail();
   },
 
@@ -84,7 +87,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+    let user = wx.getStorageSync('user') || '';
+    let fUid = user ? user.uuid : '';
+    let query = fUid ? '?fUid=' + fUid : '';
+    let path = '/page/list/list' + query;
+    let obj = {
+      title: this.data.category,
+      path
+    }
+    return obj;
   },
   getGoodDetail: function () {
     wx.showLoading({

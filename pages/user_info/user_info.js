@@ -15,6 +15,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
+    wx.hideShareMenu();
     this.setData({
       nickname: options.nickname,
       phone: options.phone

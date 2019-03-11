@@ -17,6 +17,7 @@ Page({
     wx.showLoading({
       title: '拼命加载中'
     });
+    wx.hideShareMenu();
     this.setData({
       orderId: options.orderId
     });

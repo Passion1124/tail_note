@@ -23,6 +23,7 @@ Page({
     foodsList: []
   },
   onLoad: function () {
+    wx.hideShareMenu();
     this.getBanner();
     this.getCategoryList();
     this.getGoodList();

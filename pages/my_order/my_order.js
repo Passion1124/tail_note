@@ -1,3 +1,5 @@
+import utils from '../../utils/util.js'
+
 const app = getApp();
 
 Page({
@@ -15,8 +17,13 @@ Page({
   onLoad: function (options) {
     wx.showLoading({
       title: '拼命加载中',
-    })
-    this.handleUserDetail();
+    });
+    wx.hideShareMenu();
+    utils.userIsLogin().then(_ => {
+      console.log('用户已经登录');
+    }).catch(_ => {
+      wx.hideLoading();
+    });
   },
 
   /**
@@ -30,7 +37,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    let user = wx.getStorageSync('user') || '';
+    if (user) this.handleUserDetail();
   },
 
   /**
@@ -90,19 +98,25 @@ Page({
     })
   },
   goToTheAllOrder: function (e) {
-    wx.navigateTo({
-      url: '../all_order/all_order?currentTab=' + e.currentTarget.dataset.currenttab,
-    })
+    utils.userIsLogin().then(_ => {
+      wx.navigateTo({
+        url: '../all_order/all_order?currentTab=' + e.currentTarget.dataset.currenttab,
+      })
+    });
   },
   goToTheCollect: function () {
-    wx.navigateTo({
-      url: '../list/list?source=my_collection&category=我的收藏',
-    })
+    utils.userIsLogin().then(_ => {
+      wx.navigateTo({
+        url: '../list/list?source=my_collection&category=我的收藏',
+      })
+    });
   },
   goToTheUserInfo: function (e) {
     let data = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: '../user_info/user_info?nickname=' + data.nickname + '&phone=' + data.phone,
-    })
+    utils.userIsLogin().then(_ => {
+      wx.navigateTo({
+        url: '../user_info/user_info?nickname=' + data.nickname + '&phone=' + data.phone,
+      })
+    });
   }
 })

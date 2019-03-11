@@ -18,6 +18,7 @@ Page({
       result: options.result,
       orderId: options.orderId
     });
+    wx.hideShareMenu();
   },
 
   /**
