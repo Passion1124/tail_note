@@ -14,6 +14,35 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const userIsLogin = _ => {
+  return new Promise((resolve, reject) => {
+    let user = wx.getStorageSync('user') || '';
+    if (user) {
+      resolve();
+    } else {
+      navigateTo('/pages/login/login');
+      reject();
+    }
+  })
+}
+
+const navigateTo = url => {
+  wx.navigateTo({
+    url: url,
+  })
+}
+
+const showMessage = (message, icon) => {
+  wx.showToast({
+    title: message,
+    duration: 1500,
+    icon: icon ? icon : 'none'
+  })
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  userIsLogin: userIsLogin,
+  navigateTo: navigateTo,
+  showMessage: showMessage
 }

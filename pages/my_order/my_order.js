@@ -78,6 +78,7 @@ Page({
       wx.hideLoading();
     }, err => {
       console.error(err);
+      wx.hideLoading();
     })
   },
   changeNicknameAndPhone: function (nickname, phone) {

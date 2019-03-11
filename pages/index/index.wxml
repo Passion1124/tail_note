@@ -75,5 +75,5 @@
   <view class='custom'>
     <image class='custom_img' src='../../img/custom.png'></image>
   </view>
-  <button type='primary' open-type="getUserInfo" bindgetuserinfo='getUserInfo' wx:if="{{!hasUserInfo}}">授权登录</button>
+  <!-- <button type='primary' open-type="getUserInfo" bindgetuserinfo='getUserInfo' wx:if="{{!hasUserInfo}}">授权登录</button> -->
 </view>

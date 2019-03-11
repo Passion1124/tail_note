@@ -10,12 +10,12 @@
     "pages/order_detail/order_detail",
     "pages/invoice/invoice",
     "pages/user_info/user_info",
-    "pages/logs/logs"
+    "pages/login/login"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
