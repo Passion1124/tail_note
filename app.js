@@ -1,4 +1,7 @@
 //app.js
+
+const debug = false;
+
 App({
   onLaunch: function() {
     var authority = wx.getStorageSync('authority') || '';
@@ -10,7 +13,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseUrl: 'http://47.99.131.137:8080/gateway?',
+    baseUrl: debug ? 'http://47.99.131.137:8080/gateway?' : 'https://api.zmstour.com/gateway?',
     auth: null,
     uid: null,
     openId: null,

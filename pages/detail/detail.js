@@ -1,3 +1,5 @@
+import utils from '../../utils/util.js'
+
 const app = getApp();
 
 var WxParse = require('../../wxParse/wxParse.js');
@@ -140,37 +142,41 @@ Page({
     })
   },
   handleGoodFavor: function () {
-    let query = app.query('com.zenith.api.apis.FavorApiService');
-    let body = Object.assign(app.commonBody(), { gid: this.data.goods.uuid });
-    app.request(query, body, (res) => {
-      console.log(res);
-      let goods = this.data.goods;
-      goods.collect = 'yes';
-      this.setData({
-        goods: goods
-      });
-      wx.showToast({
-        title: '收藏成功',
+    utils.userIsLogin().then(_ => {
+      let query = app.query('com.zenith.api.apis.FavorApiService');
+      let body = Object.assign(app.commonBody(), { gid: this.data.goods.uuid });
+      app.request(query, body, (res) => {
+        console.log(res);
+        let goods = this.data.goods;
+        goods.collect = 'yes';
+        this.setData({
+          goods: goods
+        });
+        wx.showToast({
+          title: '收藏成功',
+        })
+      }, function (res) {
+        console.log(res);
       })
-    }, function (res) {
-      console.log(res);
     })
   },
   handleGoodUnFavor: function () {
-    let query = app.query('com.zenith.api.apis.UnFavorApiService');
-    let body = Object.assign(app.commonBody(), { gid: this.data.goods.uuid });
-    app.request(query, body, (res) => {
-      console.log(res);
-      let goods = this.data.goods;
-      goods.collect = 'no';
-      this.setData({
-        goods: goods
+    utils.userIsLogin().then(_ => {
+      let query = app.query('com.zenith.api.apis.UnFavorApiService');
+      let body = Object.assign(app.commonBody(), { gid: this.data.goods.uuid });
+      app.request(query, body, (res) => {
+        console.log(res);
+        let goods = this.data.goods;
+        goods.collect = 'no';
+        this.setData({
+          goods: goods
+        })
+        wx.showToast({
+          title: '已取消收藏',
+        })
+      }, function (res) {
+        console.log(res);
       })
-      wx.showToast({
-        title: '已取消收藏',
-      })
-    }, function (res) {
-      console.log(res);
     })
   },
   radioChange: function (e) {
@@ -286,39 +292,26 @@ Page({
     }
   },
   goToThePayMent: function () {
-    let data = this.data;
-    // let toastTitle = '';
-    // if (!data.giid) {
-    //   toastTitle = '请选择出行日期';
-    // } else if (!data.num) {
-    //   toastTitle = '请输入数量';
-    // } else if (!data.telephone) {
-    //   toastTitle = '请输入手机号';
-    // }
-    // if (toastTitle) {
-    //   wx.showToast({
-    //     title: toastTitle,
-    //     icon: 'none'
-    //   });
-    //   return false;
-    // }
-    wx.showLoading({
-      title: '正在生成订单中',
-    });
-    let query = app.query('com.zenith.api.apis.OrderApiService');
-    let body = Object.assign(app.commonBody(), { gid: data.gid, giid: data.checkDate, phone: data.telephone, num: data.num, sn: app.uuid() } );
-    app.request(query, body, (res) => {
-      console.log(res);
-      wx.navigateTo({
-        url: '../payment/payment?orderId=' + res.order.uuid,
-      })
-      wx.hideLoading();
-    }, (err) => {
-      console.error(err);
-      wx.hideLoading();
-      wx.showToast({
-        title: '订单生成失败！！',
-        icon: 'none'
+    utils.userIsLogin().then(_ => {
+      let data = this.data;
+      wx.showLoading({
+        title: '正在生成订单中',
+      });
+      let query = app.query('com.zenith.api.apis.OrderApiService');
+      let body = Object.assign(app.commonBody(), { gid: data.gid, giid: data.checkDate, phone: data.telephone, num: data.num, sn: app.uuid() });
+      app.request(query, body, (res) => {
+        console.log(res);
+        wx.navigateTo({
+          url: '../payment/payment?orderId=' + res.order.uuid,
+        })
+        wx.hideLoading();
+      }, (err) => {
+        console.error(err);
+        wx.hideLoading();
+        wx.showToast({
+          title: '订单生成失败！！',
+          icon: 'none'
+        })
       })
     })
   },

@@ -34,15 +34,6 @@
     <view class='wx_parse'>
       <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
     </view>
-    <!-- <view class='detail_interduce'>
-      <text>这衣服穿起来够骚，夜场泡妞，穿这衣服很容易泡到， 自从我买这衣服后，人自信了，心态也好了，上班也 认真了，午夜去酒吧!也跟上时代了，，，女同事也过 来勾哒我了，总之每个男人都舒要一件</text>
-    </view>
-    <view class='detail_img'>
-      <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
-    </view>
-    <view class='detail_interduce'>
-      <text>你好，你的快递到了，尊敬的先生，请签收，反正我见中通快递很多，这小子真的够快，五星好评，下次再来买，看到评论的老铁，帮老板点个关注，双击评论666没毛病</text>
-    </view> -->
   </view>
   <view class='bottom_btn_group'>
     <view class='custom'>
