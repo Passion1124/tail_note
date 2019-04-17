@@ -1,4 +1,4 @@
-@import "../../wxParse/wxParse.wxss";
+/* @import "../../wxParse/wxParse.wxss"; */
 
 .container{
   padding-bottom: 100rpx;
@@ -68,6 +68,7 @@
 
 .info .price_collect{
   display: flex;
+  justify-content: space-between;
   height: 50rpx;
   margin-top: 48rpx;
   padding-bottom: 32rpx;
@@ -77,10 +78,14 @@
 }
 
 .info .price_collect .price{
+  max-width: 480rpx;
   flex: 1;
   font-size: 36rpx;
   line-height: 50rpx;
   color: #F97572;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 
 .info .price_collect .collect{
@@ -234,6 +239,7 @@
 }
 
 .order_info .commodity_info .text_info{
+  max-width: 476rpx;
   flex: 1;
   box-sizing: border-box;
 }
@@ -256,6 +262,9 @@
   line-height: 50rpx;
   color: #F97572;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 
 .order_info .trip{
@@ -280,12 +289,14 @@
   font-size: 24rpx;
   line-height: 33rpx;
   margin-bottom: 32rpx;
+  margin-right: 10rpx;
   border-radius: 32rpx;
   color: #666666;
 }
 
+
 .order_info .trip view radio-group label:last-of-type{
-  margin-bottom: 40rpx;
+  /* margin-bottom: 40rpx; */
 }
 
 .order_info .trip view radio-group label.checked{

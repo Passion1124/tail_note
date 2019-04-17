@@ -18,38 +18,6 @@
         <text class='classify_text'>{{item.name}}</text>
       </view>
     </view>
-    <!-- <view>
-      <view class='icons'>
-        <image src='../../img/all_order.png'></image>
-      </view>
-      <view>
-        <text class='classify_text'>马尔大夫</text>
-      </view>
-    </view>
-    <view>
-      <view class='icons'>
-        <image src='../../img/all_order.png'></image>
-      </view>
-      <view>
-        <text class='classify_text'>自由行</text>
-      </view>
-    </view>
-    <view>
-      <view class='icons'>
-        <image src='../../img/all_order.png'></image>
-      </view>
-      <view>
-        <text class='classify_text'>邮轮</text>
-      </view>
-    </view>
-    <view>
-      <view class='icons'>
-        <image src='../../img/all_order.png'></image>
-      </view>
-      <view>
-        <text class='classify_text'>酒店</text>
-      </view>
-    </view> -->
   </view>
   <view class='tips'>
     <text>尾单特价</text>

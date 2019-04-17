@@ -103,6 +103,7 @@
 .recommend .list .img{
   position: relative;
   width: 160rpx;
+  min-width: 160rpx;
   height: 160rpx;
   border-radius: 8rpx;
   margin-right: 24rpx;
@@ -112,6 +113,7 @@
 .recommend .list .img image{
   width: 100%;
   height: 100%;
+  vertical-align: top
 }
 
 .recommend .list .img view{
@@ -129,11 +131,13 @@
 
 .recommend .list .title_price{
   flex: 1;
+  max-width: 480rpx;
   font-size: 32rpx;
   line-height: 45rpx;
 }
 
 .recommend .list .title_price .title{
+  width: 100%;
   height: 90rpx;
   color: #3C3C3C;
   box-sizing: border-box;
@@ -148,7 +152,11 @@
 }
 
 .recommend .list .title_price .price{
+  width: 100%;
   color: #F97572;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 
 .custom{
