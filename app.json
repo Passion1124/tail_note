@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/my_order/my_order",
     "pages/list/list",
@@ -12,11 +12,11 @@
     "pages/user_info/user_info",
     "pages/login/login"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
@@ -36,5 +36,6 @@
     "color": "#767676",
     "selectedColor": "#23C2F7",
     "backgroundColor": "#fff"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

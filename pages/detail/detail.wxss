@@ -351,7 +351,7 @@
 
 /*数值*/  
 .order_info .number .stepper input{  
-    width: 116rpx;  
+    width: 114rpx;  
     height: 60rpx;  
     float: left;  
     margin: 0 auto;  

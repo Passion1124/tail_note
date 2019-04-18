@@ -96,5 +96,14 @@ Page({
     }, function (res) {
       console.log(res);
     })
+  },
+  goThTheDetailPage (e) {
+    let link = e.currentTarget.dataset.link;
+    wx.navigateTo({
+      url: link,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    });
   }
 })

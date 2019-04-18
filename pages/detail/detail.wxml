@@ -5,7 +5,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{goods.pics}}" wx:key="{{index}}">
         <swiper-item>
-          <image src="{{item}}" class="slide-image swiper_img" width="100%" height="150" />
+          <image mode='aspectFill' src="{{item}}" class="slide-image swiper_img" width="100%" height="150" />
         </swiper-item>
       </block>
     </swiper>
@@ -52,7 +52,7 @@
   <view class='order_info {{ popup ? "open_popup" : "close_popup"}}'>
     <view class='commodity_info'>
       <view class='img_row'>
-        <image src='{{goods.poster}}'></image>
+        <image mode='aspectFill' src='{{goods.poster}}'></image>
       </view>
       <view class='text_info'>
         <view class='title'>
