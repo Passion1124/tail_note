@@ -25,7 +25,7 @@
               </view>
               <view class='item_main'>
                 <view class='main_img'>
-                  <image src='{{item.poster}}'></image>
+                  <image mode='aspectFill' src='{{item.poster}}'></image>
                 </view>
                 <view class='main_text'>
                   <view>
@@ -70,7 +70,7 @@
               </view>
               <view class='item_main'>
                 <view class='main_img'>
-                  <image src='{{item.poster}}'></image>
+                  <image mode='aspectFill' src='{{item.poster}}'></image>
                 </view>
                 <view class='main_text'>
                   <view>
@@ -115,7 +115,7 @@
               </view>
               <view class='item_main'>
                 <view class='main_img'>
-                  <image src='{{item.poster}}'></image>
+                  <image mode='aspectFill' src='{{item.poster}}'></image>
                 </view>
                 <view class='main_text'>
                   <view>
@@ -160,7 +160,7 @@
               </view>
               <view class='item_main'>
                 <view class='main_img'>
-                  <image src='{{item.poster}}'></image>
+                  <image mode='aspectFill' src='{{item.poster}}'></image>
                 </view>
                 <view class='main_text'>
                   <view>
@@ -205,7 +205,7 @@
               </view>
               <view class='item_main'>
                 <view class='main_img'>
-                  <image src='{{item.poster}}'></image>
+                  <image mode='aspectFill' src='{{item.poster}}'></image>
                 </view>
                 <view class='main_text'>
                   <view>
@@ -250,7 +250,7 @@
               </view>
               <view class='item_main'>
                 <view class='main_img'>
-                  <image src='{{item.poster}}'></image>
+                  <image mode='aspectFill' src='{{item.poster}}'></image>
                 </view>
                 <view class='main_text'>
                   <view>

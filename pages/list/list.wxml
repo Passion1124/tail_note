@@ -3,7 +3,7 @@
   <view class='commodity' wx:for="{{goodsList}}" wx:key="{{index}}" data-gid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
     <view class='image_text'>
       <view>
-        <image class='img' src='{{item.poster}}'></image>
+        <image mode='aspectFill' class='img' src='{{item.poster}}'></image>
       </view>
       <view>
         <text class='explain'>{{item.subInfo}}</text>

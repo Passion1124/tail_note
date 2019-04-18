@@ -3,7 +3,7 @@
   <view class='commodity_info'>
     <view class='info'>
       <view class='img_row'>
-        <image src='{{detail.poster}}'></image>
+        <image mode='aspectFill' src='{{detail.poster}}'></image>
       </view>
       <view class='info_text'>
         <view class='name'>

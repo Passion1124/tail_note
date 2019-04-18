@@ -70,16 +70,21 @@
 
 .commodity .introduce view:last-of-type{
   display: flex;
+  justify-content: space-between;
   height: 45rpx;
   align-items: center;
 }
 
 .commodity .introduce view:last-of-type .money{
+  max-width: 440rpx;
   flex: 1;
   font-size: 32rpx;
   line-height: 33rpx;
   font-weight: 500;
   color: #F97572;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 
 .commodity .introduce view:last-of-type .collect image{

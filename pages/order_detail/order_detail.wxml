@@ -2,7 +2,7 @@
 <view class='container'>
   <view class='list commodity'>
     <view class='img_row'>
-      <image src='{{detail.poster}}'></image>
+      <image mode='aspectFill' src='{{detail.poster}}'></image>
     </view>
     <view class='commodity_content'>
       <view class='commodity_name'>
