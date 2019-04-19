@@ -145,6 +145,7 @@
 }
 
 .bottom_btn_group .custom{
+  display: none;
   flex: 1;
   text-align: center;
 }
@@ -167,6 +168,10 @@
   font-size: 24rpx;
   line-height: 33rpx;
   color: #8C8C8C;
+}
+
+.bottom_btn_group .shoping{
+  margin: 0 auto;
 }
 
 .bottom_btn_group .shoping button{

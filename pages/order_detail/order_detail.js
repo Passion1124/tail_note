@@ -133,6 +133,7 @@ Page({
   handlePrePay: function () {
     let query = app.query('com.zenith.api.apis.PrePayApiService');
     let body = Object.assign(app.commonBody(), { orderId: this.data.orderId });
+    let _this = this;
     app.request(query, body, res => {
       console.log(res);
       wx.requestPayment({
@@ -143,7 +144,7 @@ Page({
         paySign: res.paySign,
         success(res) {
           console.log(res);
-          this.handlePaySycnStatus(1);
+          _this.handlePaySycnStatus(1);
         },
         fail(res) {
           console.error(res);

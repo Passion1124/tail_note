@@ -160,6 +160,7 @@
 }
 
 .custom{
+  display: none;
   position: fixed;
   right: 24rpx;
   bottom: 70rpx;

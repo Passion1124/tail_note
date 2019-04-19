@@ -92,11 +92,12 @@ Page({
     let user = wx.getStorageSync('user') || '';
     let fUid = user ? user.uuid : '';
     let query = fUid ? '?fUid=' + fUid : '';
-    let path = '/page/list/list' + query;
+    let path = '/pages/detail/detail' + query + '&gid=' + this.data.gid;
     let obj = {
       title: this.data.category,
       path
     }
+    console.log(path);
     return obj;
   },
   getGoodDetail: function () {

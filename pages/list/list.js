@@ -37,6 +37,9 @@ Page({
     if (options.fUid) {
       app.globalData.fUid = options.fUid;
     }
+    if (this.data.source !== 'index') {
+      wx.hideShareMenu();
+    }
   },
 
   /**
@@ -99,7 +102,7 @@ Page({
     let user = wx.getStorageSync('user') || '';
     let fUid = user ? user.uuid : '';
     let query = fUid ? '?fUid=' + fUid : '';
-    let path = '/page/list/list' + query;
+    let path = '/page/list/list' + query + '&category='+ this.data.category +'&source=index';
     let obj = {
       title: this.data.category,
       path
