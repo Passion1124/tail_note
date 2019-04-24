@@ -20,7 +20,7 @@
     </view>
   </view>
   <view class='tips'>
-    <text>尾单特价</text>
+    <text>特价</text>
   </view>
   <view class='recommend'>
     <view class='list' wx:for="{{foodsList}}" wx:key="{{index}}" data-gid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
