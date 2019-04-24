@@ -272,6 +272,12 @@
   white-space: nowrap;
 }
 
+.order_info .commodity_info .text_info .price .damount{
+  font-weight: normal;
+  color: #ACACAC;
+  margin-left: 10px;
+}
+
 .order_info .trip{
   width: 100%;
 }

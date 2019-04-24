@@ -60,6 +60,7 @@
         </view>
         <view class='price'>
           <text>{{price}}</text>
+          <text class='damount' wx:if='{{disPrice}}'>{{disPrice}}</text>
         </view>
       </view>
     </view>

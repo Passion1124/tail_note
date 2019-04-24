@@ -19,6 +19,7 @@ Page({
     telephone: '',
     checkedDate: '',
     price: '',
+    disPrice: '',
     maxNum: 1,
     minusStatus: 'disabled',
     maxusStatus: 'normal',
@@ -188,13 +189,15 @@ Page({
     });
     let good = this.data.goodsItems.find(item => item.uuid === checkDate);
     let amount = good.amount;
+    let damount = good.damount;
     let maxNum = good.num;
-    this.setData({
-      price: '￥' + (amount * this.data.num / 100),
-      maxNum: maxNum,
-      checkDate: checkDate,
-      goodsItems: goodsItems
-    });
+    let s_data = {};
+    s_data.maxNum = maxNum;
+    s_data.checkDate = checkDate;
+    s_data.goodsItems = goodsItems;
+    s_data.price = damount > 0 ? '参考价：￥' + (amount * this.data.num / 100) : '￥' + (amount * this.data.num / 100);
+    s_data.disPrice = damount > 0 ? '同行价：￥' + (damount * this.data.nun / 100) : 0;
+    this.setData(s_data);
     this.changeNextButtonStatus();
     this.bindManual({ detail: { value: this.data.num } })
   },
@@ -287,9 +290,11 @@ Page({
     if (this.data.checkDate) {
       let good = this.data.goodsItems.find(item => item.uuid === this.data.checkDate);
       let amount = good.amount;
-      this.setData({
-        price: '￥' + (amount * this.data.num / 100)
-      })
+      let damount = good.damount;
+      let s_data = {};
+      s_data.price = damount > 0 ? '参考价：￥' + (amount * this.data.num / 100) : '￥' + (amount * this.data.num / 100);
+      s_data.disPrice = damount > 0 ? '同行价：￥' + (damount * this.data.nun / 100) : 0;
+      this.setData(s_data)
     }
   },
   goToThePayMent: function () {
