@@ -65,7 +65,7 @@
     </view>
     <view class='trip'>
       <view>
-        <text>出行日期</text>
+        <text>请选择</text>
       </view>
       <view>
         <radio-group bindchange="radioChange">
