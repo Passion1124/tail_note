@@ -113,6 +113,10 @@
   margin-bottom: 40rpx;
 }
 
+.detail .wx_parse image{
+  max-width: 100%;
+}
+
 .detail .detail_interduce{
   font-size: 28rpx;
   line-height: 40rpx;
