@@ -59,8 +59,8 @@
           <text>{{ goods.name}}</text>
         </view>
         <view class='price'>
-          <text>{{price}}</text>
-          <text class='damount' wx:if='{{disPrice}}'>{{disPrice}}</text>
+          <view>{{price}}</view>
+          <view class='damount' wx:if='{{disPrice}}'>{{disPrice}}</view>
         </view>
       </view>
     </view>

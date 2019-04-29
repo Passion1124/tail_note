@@ -265,17 +265,19 @@
 .order_info .commodity_info .text_info .price{
   font-size: 36rpx;
   line-height: 50rpx;
-  color: #F97572;
+  color: #ACACAC;
   font-weight: bold;
+}
+
+.order_info .commodity_info .text_info .price>view{
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
 }
 
-.order_info .commodity_info .text_info .price .damount{
-  font-weight: normal;
-  color: #ACACAC;
-  margin-left: 10px;
+.order_info .commodity_info .text_info .price>view:last-of-type{
+  color: #F97572;
+  /* margin-left: 10px; */
 }
 
 .order_info .trip{
