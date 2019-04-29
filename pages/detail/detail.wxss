@@ -115,6 +115,7 @@
 
 .detail .wx_parse image{
   max-width: 100%;
+  margin: 0 auto;
 }
 
 .detail .detail_interduce{

@@ -28,6 +28,10 @@
   box-sizing: border-box;
 }
 
+.classify>view{
+  margin-top: 20rpx;
+}
+
 .classify view{
   /* flex: 1; */
   width: 167.5rpx;
