@@ -87,6 +87,7 @@ Page({
     }, err => {
       console.error(err);
       wx.hideLoading();
+      wx.clearStorageSync('authority');
     })
   },
   changeNicknameAndPhone: function (nickname, phone) {
