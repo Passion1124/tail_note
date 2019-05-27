@@ -91,6 +91,14 @@
     </view>
     <view class='telephone'>
       <view>
+        <text>收货地址</text>
+      </view>
+      <view>
+        <input type='number' placeholder='请输入' value='{{address}}' bindinput='bindTelePhone'></input>
+      </view>
+    </view>
+    <view class='telephone'>
+      <view>
         <text>手机号</text>
       </view>
       <view>

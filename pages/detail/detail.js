@@ -17,6 +17,7 @@ Page({
     checkedArray: [],
     num: 1,
     telephone: '',
+    address: '',
     checkedDate: '',
     price: '',
     disPrice: '',
@@ -278,7 +279,7 @@ Page({
   changeNextButtonStatus: function () {
     let data = this.data;
     let disabled = true;
-    if (data.checkDate && data.num && data.telephone) {
+    if (data.checkDate && data.num && data.telephone && data.address) {
       disabled = false;
     };
     this.setData({
@@ -324,6 +325,12 @@ Page({
   bindTelePhone: function (e) {
     this.setData({
       telephone: e.detail.value
+    });
+    this.changeNextButtonStatus();
+  },
+  bindAddress: function (e) {
+    this.setData({
+      address: e.detail.value
     });
     this.changeNextButtonStatus();
   }
