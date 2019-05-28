@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    address: '',
     phone: '',
     nickname: ''
   },
@@ -18,7 +19,8 @@ Page({
     wx.hideShareMenu();
     this.setData({
       nickname: options.nickname,
-      phone: options.phone
+      phone: options.phone,
+      address: options.address
     })
   },
 
@@ -73,7 +75,7 @@ Page({
   handleUserUpdate: function () {
     let data = this.data;
     let query = app.query('com.zenith.api.apis.UserUpdateApiService');
-    let body = Object.assign(app.commonBody(), { nickname: data.nickname, phone: data.phone });
+    let body = Object.assign(app.commonBody(), { nickname: data.nickname, phone: data.phone, address: data.address });
     app.request(query, body, res => {
       console.log(res);
       this.handleSureChangeUserInfo();
@@ -97,6 +99,11 @@ Page({
   phoneInput: function (e) {
     this.setData({
       phone: e.detail.value
+    })
+  },
+  addressInput: function (e) {
+    this.setData({
+      address: e.detail.value
     })
   }
 })

@@ -16,6 +16,14 @@
       <input type='number' placeholder='请输入' value='{{phone}}' bindinput='phoneInput'></input>
     </view>
   </view>
+  <view class='list'>
+    <view class='title'>
+      <text>收货地址</text>
+    </view>
+    <view class='input'>
+      <input type='number' placeholder='请输入' value='{{address}}' bindinput='addressInput'></input>
+    </view>
+  </view>
   <view class='suer_change'>
     <button bindtap='handleUserUpdate'>确认修改</button>
   </view>

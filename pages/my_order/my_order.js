@@ -116,7 +116,7 @@ Page({
     let data = e.currentTarget.dataset;
     utils.userIsLogin().then(_ => {
       wx.navigateTo({
-        url: '../user_info/user_info?nickname=' + data.nickname + '&phone=' + data.phone,
+        url: '../user_info/user_info?nickname=' + data.nickname + '&phone=' + data.phone + '&address=' + (data.address || ''),
       })
     });
   }

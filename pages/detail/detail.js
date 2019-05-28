@@ -42,6 +42,10 @@ Page({
     if (options.fUid) {
       app.globalData.fUid = options.fUid;
     };
+    let user = wx.getStorageSync('user') || '';
+    if (user) {
+      this.handleUserDetail();
+    }
     this.getGoodDetail();
   },
 
@@ -128,6 +132,24 @@ Page({
     }, function (res) {
       console.error(res);
       wx.hideLoading();
+    })
+  },
+  handleUserDetail: function () {
+    let query = app.query('com.zenith.api.apis.UserDetailApiService');
+    let body = app.commonBody();
+    app.request(query, body, res => {
+      console.log(res);
+      let user = res.user;
+      let obj = {};
+      if (user.phone) obj.telephone = user.phone;
+      if (user.address) obj.address = user.address;
+      let arr = Object.keys(obj);
+      if (arr.length) {
+        this.setData(obj);
+      }
+    }, err => {
+      console.error(err);
+      wx.clearStorageSync('authority');
     })
   },
   getFavorCheck: function () {
@@ -305,7 +327,7 @@ Page({
         title: '正在生成订单中',
       });
       let query = app.query('com.zenith.api.apis.OrderApiService');
-      let body = Object.assign(app.commonBody(), { gid: data.gid, giid: data.checkDate, phone: data.telephone, num: data.num, sn: app.uuid() });
+      let body = Object.assign(app.commonBody(), { gid: data.gid, giid: data.checkDate, phone: data.telephone, num: data.num, sn: app.uuid(), address: data.address });
       app.request(query, body, (res) => {
         console.log(res);
         wx.navigateTo({
