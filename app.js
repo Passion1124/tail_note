@@ -13,7 +13,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseUrl: debug ? 'http://47.99.131.137:8080/gateway?' : 'https://api.zmstour.com/gateway?',
+    baseUrl: debug ? 'https://api.weixiaola.cn/gateway?' : 'https://api.weixiaola.cn/gateway?',
     auth: null,
     uid: null,
     openId: null,
