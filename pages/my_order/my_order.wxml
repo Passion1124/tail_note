@@ -1,7 +1,7 @@
 <!-- order.wxml -->
 
 <view class='container'>
-  <view class='user_info' data-nickname='{{userInfo.nickname}}' data-phone='{{userInfo.phone}}' bindtap='goToTheUserInfo'>
+  <view class='user_info' data-nickname='{{userInfo.nickname}}' data-phone='{{userInfo.phone}}' data-address='{{userInfo.address}}' bindtap='goToTheUserInfo'>
     <view class='avatar'>
       <!-- <image src='../../img/avatar.png'></image> -->
       <image src='{{ userInfo.avatar || "../../img/avatar.png" }}'></image>
