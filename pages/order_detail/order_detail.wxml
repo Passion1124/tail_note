@@ -78,7 +78,8 @@
       </view>
     </view>
   </view>
-  <view class='list single' bindtap='goToTheInvoice' wx:if="{{detail.orderStatus === 5 && !orderInvoice}}">
+  <!-- detail.orderStatus === 5 && !orderInvoice -->
+  <view class='list single' bindtap='goToTheInvoice' wx:if="{{false}}">
     <view>
       <text>发票：</text><text>未申请开票</text>
     </view>
