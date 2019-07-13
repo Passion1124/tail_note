@@ -4,7 +4,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}" wx:key="{{index}}">
         <swiper-item>
-          <image mode='aspectFill' data-link='{{item.url}}' src="{{item.poster}}" class="slide-image swiper_img" bindtap='goThTheDetailPage'/>
+          <image mode='aspectFill' data-link='{{item.url}}' src="{{item.poster}}" class="slide-image swiper_img" bindtap='goThTheDetailPage' />
         </swiper-item>
       </block>
     </swiper>
@@ -23,22 +23,24 @@
     <text>爆款</text>
   </view>
   <view class='recommend'>
-    <view class='list' wx:for="{{foodsList}}" wx:key="{{index}}" data-gid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
-      <view class='img'>
-        <image mode='aspectFill' src='{{item.poster}}'></image>
-        <view>
-          <text>{{item.subInfo}}</text>
+    <view class='list_row' wx:for="{{foodsList}}" wx:key="{{index}}">
+      <view class='list' data-gid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
+        <view class='img'>
+          <image mode='aspectFill' src='{{item.poster}}'></image>
+          <view>
+            <text>{{item.subInfo}}</text>
+          </view>
         </view>
-      </view>
-      <view class='title_price'>
-        <view class='title'>
-          <text>{{item.name}}</text>
-        </view>
-        <view class='tags'>
-          <view class='tag' wx:for='{{item.tags}}' wx:for-item="tag" wx:key='{{index}}'>{{ tag }}</view>
-        </view>
-        <view class='price'>
-          <text>{{item.priceDesc}}</text>
+        <view class='title_price'>
+          <view class='title'>
+            <text>{{item.name}}</text>
+          </view>
+          <view class='tags'>
+            <view class='tag' wx:for='{{item.tags}}' wx:for-item="tag" wx:key='{{index}}'>{{ tag }}</view>
+          </view>
+          <view class='price'>
+            <text>{{item.priceDesc}}</text>
+          </view>
         </view>
       </view>
     </view>

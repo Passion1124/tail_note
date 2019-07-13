@@ -92,18 +92,23 @@
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  padding: 10rpx 40rpx;
+  padding: 10rpx;
   box-sizing: border-box;
   background-color: #F2F2F2;
 }
 
+.recommend .list_row {
+  width: 50%;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+
 .recommend .list{
-  /* display: flex; */
-  width: 48%;
-  margin: 20rpx 0;
+  width: 100%;
   background-color: #FFF;
   border-radius: 10rpx;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .recommend .list:last-of-type{

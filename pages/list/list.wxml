@@ -1,25 +1,44 @@
 <!-- list.wsml -->
 <view class='container'>
-  <view class='commodity' wx:for="{{goodsList}}" wx:key="{{index}}" data-gid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
-    <view class='image_text'>
-      <view>
-        <image mode='aspectFill' class='img' src='{{item.poster}}'></image>
-      </view>
-      <view>
-        <text class='explain'>{{item.subInfo}}</text>
-      </view>
-    </view>
-    <view class='introduce'>
-      <view class='name'>
-        <text>{{item.name}}</text>
-      </view>
-      <view>
-        <view class='money'>
-          <text>{{item.priceDesc}}</text>
+  <view class='commodity_row' wx:for="{{goodsList}}" wx:key="{{index}}">
+    <view class='commodity' data-gid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
+      <!-- <view class='image_text'>
+        <view>
+          <image mode='aspectFill' class='img' src='{{item.poster}}'></image>
         </view>
-        <view class='collect' wx:if="{{item.collect}}">
-          <image wx:if="{{item.collect === 'yes' }}" src='../../img/collect32.png' data-gid='{{item.uuid}}' data-index='{{index}}' catchtap='handleGoodUnFavor'></image>
-          <image wx:if="{{item.collect === 'no' }}" src='../../img/uncollect32.png' data-gid='{{item.uuid}}' data-index='{{index}}' catchtap='handleGoodFavor'></image>
+        <view>
+          <text class='explain'>{{item.subInfo}}</text>
+        </view>
+      </view>
+      <view class='introduce'>
+        <view class='name'>
+          <text>{{item.name}}</text>
+        </view>
+        <view>
+          <view class='money'>
+            <text>{{item.priceDesc}}</text>
+          </view>
+          <view class='collect' wx:if="{{item.collect}}">
+            <image wx:if="{{item.collect === 'yes' }}" src='../../img/collect32.png' data-gid='{{item.uuid}}' data-index='{{index}}' catchtap='handleGoodUnFavor'></image>
+            <image wx:if="{{item.collect === 'no' }}" src='../../img/uncollect32.png' data-gid='{{item.uuid}}' data-index='{{index}}' catchtap='handleGoodFavor'></image>
+          </view>
+        </view>
+      </view> -->
+      <view class='img'>
+        <image mode='aspectFill' src='{{item.poster}}'></image>
+        <view>
+          <text>{{item.subInfo}}</text>
+        </view>
+      </view>
+      <view class='title_price'>
+        <view class='title'>
+          <text>{{item.name}}</text>
+        </view>
+        <view class='tags'>
+          <view class='tag' wx:for='{{item.tags}}' wx:for-item="tag" wx:key='{{index}}'>{{ tag }}</view>
+        </view>
+        <view class='price'>
+          <text>{{item.priceDesc}}</text>
         </view>
       </view>
     </view>
@@ -36,4 +55,4 @@
     <text class='text'>没有更多商品了</text>
   </view>
 </view>
-<view class='tips' hidden='{{page !== 1}}'></view>
+<!-- <view class='tips' hidden='{{page !== 1}}'></view> -->
