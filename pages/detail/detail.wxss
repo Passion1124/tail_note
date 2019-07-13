@@ -150,9 +150,13 @@
 }
 
 .bottom_btn_group .custom{
-  display: none;
+  /* display: none; */
   flex: 1;
   text-align: center;
+}
+
+.bottom_btn_group .custom button{
+  background-color: #fff;
 }
 
 .bottom_btn_group .custom view{

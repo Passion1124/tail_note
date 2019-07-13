@@ -1,5 +1,5 @@
 <!-- detail.wxml -->
-<import src="../../wxParse/wxParse.wxml"/>
+<import src="../../wxParse/wxParse.wxml" />
 <view class='container'>
   <view class='banner'>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -32,17 +32,19 @@
       <text>商品详情</text>
     </view>
     <view class='wx_parse'>
-      <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
+      <template is="wxParse" data="{{wxParseData: article.nodes}}" />
     </view>
   </view>
   <view class='bottom_btn_group'>
     <view class='custom'>
-      <view>
-        <image src='../../img/custom.png'></image>
-      </view>
-      <view>
-        <text>客服</text>
-      </view>
+      <button open-type='contact'>
+        <view>
+          <image src='../../img/custom.png'></image>
+        </view>
+        <view>
+          <text>客服</text>
+        </view>
+      </button>
     </view>
     <view class='shoping'>
       <button bindtap='openMaskAndPopup'>立即购买</button>
