@@ -34,6 +34,9 @@
         <view class='title'>
           <text>{{item.name}}</text>
         </view>
+        <view class='tags'>
+          <view class='tag' wx:for='{{item.tags}}' wx:for-item="tag" wx:key='{{index}}'>{{ tag }}</view>
+        </view>
         <view class='price'>
           <text>{{item.priceDesc}}</text>
         </view>
