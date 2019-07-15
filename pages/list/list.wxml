@@ -43,6 +43,12 @@
       </view>
     </view>
   </view>
+  <view class='empty' wx:if='{{!goodsList.length && !loading}}'>
+    <view class='image_row'>
+      <image src='../../img/empty_data.png'></image>
+    </view>
+    <view class='text'>暂无数据哦，快去逛逛吧～</view>
+  </view>
 </view>
 <view hidden='{{page === 1}}'>
   <view class='tips' hidden='{{!loading && max}}'>

@@ -53,6 +53,12 @@
             <text class='text'>没有更多订单了</text>
           </view>
         </view>
+        <view class='empty' wx:if='{{!all_order.length && !loading.all_order}}'>
+          <view class='image_row'>
+            <image src='../../img/empty_data.png'></image>
+          </view>
+          <view class='text'>暂无数据哦，快去逛逛吧～</view>
+        </view>
       </scroll-view>
     </swiper-item>
     <swiper-item>
@@ -97,6 +103,12 @@
           <view class='tip' hidden="{{!max.pending_order}}">
             <text class='text'>没有更多订单了</text>
           </view>
+        </view>
+        <view class='empty' wx:if='{{!pending_order.length && !loading.pending_order}}'>
+          <view class='image_row'>
+            <image src='../../img/empty_data.png'></image>
+          </view>
+          <view class='text'>暂无数据哦，快去逛逛吧～</view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -143,6 +155,12 @@
             <text class='text'>没有更多订单了</text>
           </view>
         </view>
+        <view class='empty' wx:if='{{!paid_order.length && !loading.paid_order}}'>
+          <view class='image_row'>
+            <image src='../../img/empty_data.png'></image>
+          </view>
+          <view class='text'>暂无数据哦，快去逛逛吧～</view>
+        </view>
       </scroll-view>
     </swiper-item>
     <swiper-item>
@@ -187,6 +205,12 @@
           <view class='tip' hidden="{{!max.completed_order}}">
             <text class='text'>没有更多订单了</text>
           </view>
+        </view>
+        <view class='empty' wx:if='{{!completed_order.length && !loading.completed_order}}'>
+          <view class='image_row'>
+            <image src='../../img/empty_data.png'></image>
+          </view>
+          <view class='text'>暂无数据哦，快去逛逛吧～</view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -233,6 +257,12 @@
             <text class='text'>没有更多订单了</text>
           </view>
         </view>
+        <view class='empty' wx:if='{{!cancelled_order.length && !loading.cancelled_order}}'>
+          <view class='image_row'>
+            <image src='../../img/empty_data.png'></image>
+          </view>
+          <view class='text'>暂无数据哦，快去逛逛吧～</view>
+        </view>
       </scroll-view>
     </swiper-item>
     <swiper-item>
@@ -277,6 +307,12 @@
           <view class='tip' hidden="{{!max.refunded_order}}">
             <text class='text'>没有更多订单了</text>
           </view>
+        </view>
+        <view class='empty' wx:if='{{!refunded_order.length && !loading.refunded_order}}'>
+          <view class='image_row'>
+            <image src='../../img/empty_data.png'></image>
+          </view>
+          <view class='text'>暂无数据哦，快去逛逛吧～</view>
         </view>
       </scroll-view>
     </swiper-item>
