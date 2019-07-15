@@ -20,7 +20,9 @@ Page({
     category: [],
     page: 1,
     size: 10,
-    foodsList: []
+    foodsList: [],
+    loading: false,
+    max: false
   },
   onLoad: function () {
     wx.hideShareMenu();
@@ -36,6 +38,14 @@ Page({
       title: '首页呀',
       path: '/pages/index/index'
     }
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    if (this.data.loading || this.data.max) return false;
+    this.data.page++;
+    this.getGoodList();
   },
   /**
    * 拨打电话
@@ -86,15 +96,22 @@ Page({
     })
   },
   getGoodList: function () {
+    this.data.loading = true;
     let query = app.query('com.zenith.api.apis.GoodsListApiService');
     let body = Object.assign(app.commonBody(), { page: this.data.page, size: this.data.size });
     app.request(query, body, (res) => {
       console.log(res);
+      let max = res.goods.length === this.data.size ? false : true;
+      let foodsList = this.data.foodsList.concat(res.goods);
       this.setData({
-        foodsList: res.goods
-      })
+        foodsList: foodsList,
+        max: max
+      }, () => {
+        this.data.loading = false;
+      });
     }, function (res) {
       console.log(res);
+      this.data.loading = false;
     })
   },
   goThTheDetailPage (e) {

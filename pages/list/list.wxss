@@ -6,9 +6,9 @@ page {
 
 .container{
   /* padding: 0 32rpx; */
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   width: 100%;
   height: auto;
   min-height: 100%;
@@ -18,7 +18,10 @@ page {
 }
 
 .commodity_row {
+  display: inline-block;
+  vertical-align: top;
   width: 50%;
+  height: auto;
   padding: 10rpx;
   box-sizing: border-box;
 }
