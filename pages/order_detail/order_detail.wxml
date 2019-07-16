@@ -28,7 +28,7 @@
   </view>
   <view class='list single refund' wx:if="{{detail.orderStatus === 2 || detail.orderStatus === 3}}">
     <view>
-      <text>退款金额：￥{{detail.totalAmount / 100}}</text>    
+      <text>退款金额：￥{{detail.totalAmount / 100}}</text>
     </view>
     <view>
       <text class='{{detail.orderStatus === 2 ? "pending" : ""}}'>{{ detail.orderStatus === 2 ? '退款中' : '已退款'}}</text>
@@ -81,7 +81,8 @@
   <!-- detail.orderStatus === 5 && !orderInvoice -->
   <view class='list single' bindtap='goToTheInvoice' wx:if="{{false}}">
     <view>
-      <text>发票：</text><text>未申请开票</text>
+      <text>发票：</text>
+      <text>未申请开票</text>
     </view>
     <view>
       <image src='../../img/more.png'></image>
@@ -90,15 +91,7 @@
   <view class='list order_info' wx:if="{{ detail.orderStatus === 5 && orderInvoice }}">
     <view>
       <view>
-        <text>公司名称：</text>
-      </view>
-      <view>
-        <text>{{orderInvoice.body}}</text>
-      </view>
-    </view>
-    <view>
-      <view>
-        <text>税号：</text>
+        <text>物流公司：</text>
       </view>
       <view>
         <text>{{orderInvoice.header}}</text>
@@ -106,10 +99,10 @@
     </view>
     <view>
       <view>
-        <text>发票状态：</text>
+        <text>运单号：</text>
       </view>
       <view>
-        <text>{{orderInvoice.invoiceStatus === 0 ? '未开' : '已开'}}</text>
+        <text>{{orderInvoice.body}}</text>
       </view>
     </view>
   </view>
