@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -49,6 +49,13 @@
 					"name": "详情页面分享",
 					"pathName": "pages/detail/detail",
 					"query": "fUid=45859efb-6a3c-4ebf-8703-15b7cdc0d14a&gid=92352677-d408-42ab-87f3-57adefbb4963",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "fukuai",
+					"pathName": "pages/payment/payment",
+					"query": "orderId=150df6c8-7d0c-4d74-a21c-ffa589aa0f77",
 					"scene": null
 				}
 			]

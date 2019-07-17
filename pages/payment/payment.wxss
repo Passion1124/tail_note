@@ -122,3 +122,32 @@
   color: #fff;
 }
 
+.list{
+  display: flex;
+  width: 100%;
+  padding: 40rpx 0;
+  color: #3c3c3c;
+  border-bottom: 1rpx solid #E0E0E0;
+}
+
+.order_info{
+  flex-wrap: wrap;
+}
+
+.order_info>view{
+  display: flex;
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #3C3C3C;
+  margin-bottom: 24rpx;
+}
+
+.order_info>view:last-of-type{
+  margin-bottom: 0;
+}
+
+.order_info>view view:first-of-type{
+  margin-right: 8rpx;
+}
+

@@ -40,12 +40,12 @@
         <text>已完成</text>
       </view>
     </view>
-    <view class='refund' data-currentTab='5' bindtap='goToTheAllOrder'>
+    <view class='refund' data-currentTab='2' bindtap='goToTheAllOrder'>
       <view class='icons'>
         <image src='../../img/refund.png'></image>
       </view>
       <view class='text'>
-        <text>已退款</text>
+        <text>已付款</text>
       </view>
     </view>
   </view>

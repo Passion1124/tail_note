@@ -109,7 +109,7 @@ Page({
       }, () => {
         this.data.loading = false;
       });
-    }, function (res) {
+    }, (res) => {
       console.log(res);
       this.data.loading = false;
     })

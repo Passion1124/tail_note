@@ -7,7 +7,7 @@
     <view class='tab-item {{ currentTab === 2 ? "active" : ""}}' data-current='2' bindtap='swichNav'>已付款</view>
     <view class='tab-item {{ currentTab === 3 ? "active" : ""}}' data-current='3' bindtap='swichNav'>已完成</view>
     <view class='tab-item {{ currentTab === 4 ? "active" : ""}}' data-current='4' bindtap='swichNav'>已取消</view>
-    <view class='tab-item {{ currentTab === 5 ? "active" : ""}}' data-current='5' bindtap='swichNav'>已退款</view>
+    <!-- <view class='tab-item {{ currentTab === 5 ? "active" : ""}}' data-current='5' bindtap='swichNav'>已退款</view> -->
   </scroll-view>
   <swiper class='tab-content' current='{{ currentTab }}' duration='300' bindchange='switchTab' style='height:{{winHeight}}rpx'>
     <swiper-item>
@@ -265,7 +265,7 @@
         </view>
       </scroll-view>
     </swiper-item>
-    <swiper-item>
+    <!-- <swiper-item>
       <scroll-view scroll-y="true" class='scoll-h' data-current='5' bindscrolltolower="scrolltolower">
         <view class='list_row'>
           <block wx:for="{{refunded_order}}" wx:key="*this">
@@ -315,6 +315,6 @@
           <view class='text'>暂无数据哦，快去逛逛吧～</view>
         </view>
       </scroll-view>
-    </swiper-item>
+    </swiper-item> -->
   </swiper>
 </view>

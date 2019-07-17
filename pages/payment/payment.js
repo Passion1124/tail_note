@@ -1,4 +1,5 @@
 const app = getApp();
+const util = require('../../utils/util.js');
 
 Page({
 
@@ -7,7 +8,8 @@ Page({
    */
   data: {
     detail: {},
-    orderId: ''
+    orderId: '',
+    orderTime: '',
   },
 
   /**
@@ -79,7 +81,8 @@ Page({
     app.request(query, body, (res) => {
       console.log(res);
       this.setData({
-        detail: res.order
+        detail: res.order,
+        orderTime: util.formatTime(new Date(res.order.orderTime)),
       });
       wx.hideLoading();
     }, err => {
