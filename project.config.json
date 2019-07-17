@@ -59,9 +59,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "kefu",
-					"pathName": "pages/kefu/kefu",
+					"id": 3,
+					"name": "customer",
+					"pathName": "pages/customer/customer",
+					"query": "",
 					"scene": null
 				}
 			]

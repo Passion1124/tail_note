@@ -120,10 +120,10 @@ Page({
       })
     });
   },
-  goToTheKeFu: function () {
+  goToTheCustomer: function () {
     utils.userIsLogin().then(_ => {
       wx.navigateTo({
-        url: '../kefu/kefu',
+        url: '../customer/customer',
       })
     });
   }

@@ -64,7 +64,7 @@
       <image src='../../img/more.png'></image>
     </view>
   </view>
-  <view class='list' bindtap='goToTheKeFu'>
+  <view class='list' bindtap='goToTheCustomer'>
     <view>
       <text>微信客服</text>
     </view>

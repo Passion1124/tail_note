@@ -7,4 +7,12 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.text {
+  width: 100%;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  text-align: center;
 }

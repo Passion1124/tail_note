@@ -61,5 +61,14 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  previewImg: function (e) {
+    wx.previewImage({
+      current: '../../img/erweima.jpg',     //当前图片地址
+      urls: ['../../img/erweima.jpg'],               //所有要预览的图片的地址集合 数组形式
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   }
 })

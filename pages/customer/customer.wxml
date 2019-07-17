@@ -1,0 +1,6 @@
+<view class='container'>
+  <view>
+    <image mode='widthFix' src='../../img/erweima.jpg'></image>
+    <view class='text'>扫码或者加微信号(lianaichufang)</view>
+  </view>
+</view>

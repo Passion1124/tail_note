@@ -11,7 +11,7 @@
     "pages/invoice/invoice",
     "pages/user_info/user_info",
     "pages/login/login",
-    "pages/kefu/kefu"
+    "pages/customer/customer"
   ],
   "window": {
     "backgroundTextStyle": "dark",

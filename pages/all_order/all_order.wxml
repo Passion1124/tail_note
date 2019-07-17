@@ -57,7 +57,7 @@
           <view class='image_row'>
             <image src='../../img/empty_data.png'></image>
           </view>
-          <view class='text'>暂无数据哦，快去逛逛吧～</view>
+          <view class='text'>空空如也哦，快去逛逛吧~</view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -108,7 +108,7 @@
           <view class='image_row'>
             <image src='../../img/empty_data.png'></image>
           </view>
-          <view class='text'>暂无数据哦，快去逛逛吧～</view>
+          <view class='text'>空空如也哦，快去逛逛吧~</view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -159,7 +159,7 @@
           <view class='image_row'>
             <image src='../../img/empty_data.png'></image>
           </view>
-          <view class='text'>暂无数据哦，快去逛逛吧～</view>
+          <view class='text'>空空如也哦，快去逛逛吧~</view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -210,7 +210,7 @@
           <view class='image_row'>
             <image src='../../img/empty_data.png'></image>
           </view>
-          <view class='text'>暂无数据哦，快去逛逛吧～</view>
+          <view class='text'>空空如也哦，快去逛逛吧~</view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -261,7 +261,7 @@
           <view class='image_row'>
             <image src='../../img/empty_data.png'></image>
           </view>
-          <view class='text'>暂无数据哦，快去逛逛吧～</view>
+          <view class='text'>空空如也哦，快去逛逛吧~</view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -312,7 +312,7 @@
           <view class='image_row'>
             <image src='../../img/empty_data.png'></image>
           </view>
-          <view class='text'>暂无数据哦，快去逛逛吧～</view>
+          <view class='text'>空空如也哦，快去逛逛吧~</view>
         </view>
       </scroll-view>
     </swiper-item> -->
