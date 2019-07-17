@@ -1,0 +1,3 @@
+<view class='container'>
+  <image mode='aspectFill' src='../../img/erweima.jpg'></image>
+</view>

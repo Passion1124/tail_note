@@ -1,5 +1,4 @@
 <!-- order.wxml -->
-
 <view class='container'>
   <view class='user_info' data-nickname='{{userInfo.nickname}}' data-phone='{{userInfo.phone}}' data-address='{{userInfo.address}}' bindtap='goToTheUserInfo'>
     <view class='avatar'>
@@ -60,6 +59,14 @@
   <view class='list' bindtap='goToTheCollect'>
     <view>
       <text>我的收藏</text>
+    </view>
+    <view>
+      <image src='../../img/more.png'></image>
+    </view>
+  </view>
+  <view class='list' bindtap='goToTheKeFu'>
+    <view>
+      <text>微信客服</text>
     </view>
     <view>
       <image src='../../img/more.png'></image>

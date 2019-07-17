@@ -119,5 +119,12 @@ Page({
         url: '../user_info/user_info?nickname=' + data.nickname + '&phone=' + data.phone + '&address=' + (data.address || ''),
       })
     });
+  },
+  goToTheKeFu: function () {
+    utils.userIsLogin().then(_ => {
+      wx.navigateTo({
+        url: '../kefu/kefu',
+      })
+    });
   }
 })

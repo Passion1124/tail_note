@@ -10,7 +10,8 @@
     "pages/order_detail/order_detail",
     "pages/invoice/invoice",
     "pages/user_info/user_info",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/kefu/kefu"
   ],
   "window": {
     "backgroundTextStyle": "dark",

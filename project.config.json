@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -56,6 +56,12 @@
 					"name": "fukuai",
 					"pathName": "pages/payment/payment",
 					"query": "orderId=150df6c8-7d0c-4d74-a21c-ffa589aa0f77",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "kefu",
+					"pathName": "pages/kefu/kefu",
 					"scene": null
 				}
 			]
