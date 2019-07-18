@@ -1,0 +1,38 @@
+<!-- search.wxml -->
+<view class='container'>
+  <view class="search_wrap">
+    <view class='search_input'>
+      <image class="search-img" src="../../img/cart_icon_search.png"></image>
+      <input value='{{input}}' placeholder-class='phcolor' placeholder='搜索商品名称' bindconfirm='goToTheSearchList' bindinput='handleInput' bindfocus='handleInputFocus' bindblur='handleInputBlur'></input>
+    </view>
+    <view class='canclesearch' data-name='{{input}}' bindtap='goToTheSearchList'>搜索</view>
+  </view>
+  <view class='history_search' wx:if='{{!goods.length || !loading}}'>
+    <view class='title'>
+      <view class='text'>历史搜索</view>
+      <view class='remove' bindtap='handleClearHistory'>
+        <image src='../../img/history_remove.png'></image>
+      </view>
+    </view>
+    <view class='list'>
+      <block wx:for='{{history}}' wx:key='{{index}}'>
+        <view class="hislist">
+          <view data-name='{{item}}' bindtap='goToTheSearchList' class="txt">
+            {{item}}
+          </view>
+          <view data-index="{{index}}" bindtap="delSingle">
+            <image class="delsingle" src="../../img/product_icon_search_delsingle.png"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='hot_recommend'>
+    <view class='title'>推荐</view>
+    <view class='list'>
+      <block wx:for='{{hotWord}}' wx:key='{{index}}'>
+        <view data-name='{{item.name}}' bindtap='goToTheSearchList'>{{item.name}}</view>
+      </block>
+    </view>
+  </view>
+</view>

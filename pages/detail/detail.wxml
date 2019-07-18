@@ -108,7 +108,13 @@
       </view>
     </view>
     <view class='next'>
-      <button class='{{ nextDisabled ? "disabled" : ""}}' bindtap='goToThePayMent' disabled='{{nextDisabled}}'>下一步</button>
+      <!-- <button class='{{ nextDisabled ? "disabled" : ""}}' bindtap='goToThePayMent' disabled='{{nextDisabled}}'>下一步</button> -->
+      <view class='add_cart {{ nextDisabled ? "disabled" : ""}}' bindtap='addTheCart'>
+        <text>加入购物车</text>
+      </view>
+      <view class='buy_immediately {{ nextDisabled ? "disabled" : ""}}' bindtap='goToThePayMent'>
+        <text>立即购买</text>
+      </view>
     </view>
     <view class='close' bindtap='closeMaskAndPopup'>
       <image src='../../img/close.png'></image>

@@ -1,4 +1,34 @@
 /**index.wxss**/
+.search {
+  width: 100%;
+  margin: 20rpx 0;
+  padding: 0 36rpx;
+  box-sizing: border-box;
+}
+
+.search .search_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 60rpx;
+  border-radius: 30rpx;
+  background-color: #F5F5F5;
+}
+
+.search .search_row image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 20rpx;
+}
+
+.search .search_row text {
+  font-size: 24rpx;
+  color: #B7B7B7;
+  margin-left: 12rpx;
+}
+
+
 .banner{
   width: 100%;
   height: 280rpx;

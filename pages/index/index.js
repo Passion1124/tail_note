@@ -122,5 +122,10 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     });
+  },
+  goToTheSearch () {
+    wx.navigateTo({
+      url: '/pages/search/search'
+    })
   }
 })

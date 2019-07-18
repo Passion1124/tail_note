@@ -397,6 +397,10 @@
 }
 
 .order_info .next{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 560rpx;
   height: 80rpx;
   margin: 87rpx auto 64rpx;
@@ -413,6 +417,30 @@
 
 .order_info .next button.disabled{
   background-color: #E0E0E0;
+}
+
+.order_info .next .add_cart, .order_info .next .buy_immediately{
+  width: 280rpx;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #FCB742;
+  border-radius: 40rpx 0px 0px 40rpx;
+}
+
+.order_info .next .buy_immediately {
+  background-color: #F97572;
+  border-radius: 0px 40rpx 40rpx 0px;
+}
+
+.order_info .next view.disabled {
+  background-color: #E0E0E0;
+}
+
+.order_info .next .add_cart.disabled {
+  border-right: 1rpx solid #fff;
 }
 
 .order_info .close{

@@ -321,6 +321,9 @@ Page({
     }
   },
   goToThePayMent: function () {
+    if (this.data.nextDisabled) {
+      return false;
+    }
     utils.userIsLogin().then(_ => {
       let data = this.data;
       wx.showLoading({
@@ -355,5 +358,30 @@ Page({
       address: e.detail.value
     });
     this.changeNextButtonStatus();
+  },
+  addTheCart () {
+    if (this.data.nextDisabled) {
+      return false;
+    }
+    let data = this.data;
+    let arr = wx.getStorageSync('cart') || [];
+    let cart_has = arr.findIndex(item => item.giid === data.checkDate && item.gid === data.gid);
+    if (cart_has !== -1) {
+      arr[cart_has].num += 1;
+    } else {
+      let item = data.goodsItems.find(item => item.checked);
+      let cart = {
+        gid: data.gid,
+        gName: data.goods.name,
+        poster: data.goods.poster,
+        giid: data.checkDate,
+        itemName: item.name,
+        amount: item.amount,
+        num: data.num
+      };
+      arr.push(cart);
+    }
+    wx.setStorageSync('cart', arr);
+    utils.showMessage('已加入购物车');
   }
 })

@@ -11,7 +11,8 @@
     "pages/invoice/invoice",
     "pages/user_info/user_info",
     "pages/login/login",
-    "pages/customer/customer"
+    "pages/customer/customer",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "dark",
