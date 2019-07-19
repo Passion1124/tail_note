@@ -1,4 +1,5 @@
 <!-- order_detail.wxml -->
+<navbar page-name='微信客服'></navbar>
 <view class='container'>
   <view class='list commodity'>
     <view class='img_row'>

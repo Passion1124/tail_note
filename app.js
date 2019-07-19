@@ -10,6 +10,14 @@ App({
       this.globalData.uid = authority.uid;
       this.globalData.openId = authority.openId;
     }
+    wx.getSystemInfo({
+      success: res => {
+        //导航高度
+        this.globalData.navHeight = res.platform == 'android' ? res.statusBarHeight + 48 : res.statusBarHeight + 44;
+      }, fail(err) {
+        console.log(err);
+      }
+    })
   },
   globalData: {
     userInfo: null,
@@ -20,7 +28,8 @@ App({
     sessionKey: null,
     pollingNum: 5,
     fUid: '',
-    cartStatus: 'init'
+    cartStatus: 'init',
+    navHeight: ''
   },
   request: function(query, data, success, fail) {
     if (this.globalData.fUid) data.fUid = this.globalData.fUid;

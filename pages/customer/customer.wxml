@@ -1,4 +1,5 @@
 <view class='container'>
+  <navbar page-name='微信客服'></navbar>
   <view>
     <image mode='widthFix' src='../../img/erweima.jpg'></image>
     <view class='text'>扫码或者加微信号(lianaichufang)</view>

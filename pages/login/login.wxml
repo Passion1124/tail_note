@@ -1,4 +1,5 @@
 <!-- login.wxml -->
+<navbar page-name='微信客服'></navbar>
 <view class='container'>
   <view class='img_row'>
     <image src='../../img/logo.png'></image>

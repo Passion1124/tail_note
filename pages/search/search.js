@@ -6,8 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hotWord: [],
+    winHeight: "", //窗口高度
+    hotWord: ['推荐1', '推荐2', '推荐3'],
     history: [],
+    foodsList: [],
     goods: [],
     loading: false,
     input: '',
@@ -24,6 +26,7 @@ Page({
         history: history
       });
     }
+    this.handleHeightAuto();
   },
 
   /**
@@ -74,6 +77,41 @@ Page({
   onShareAppMessage: function () {
     
   },
+  handleHeightAuto() {
+    var that = this;
+    //  高度自适应
+    wx.getSystemInfo({
+      success: function (res) {
+        var clientHeight = res.windowHeight,
+          clientWidth = res.windowWidth,
+          rpxR = 750 / clientWidth;
+        var calc = clientHeight * rpxR - 112;
+        that.setData({
+          winHeight: calc
+        });
+      }
+    });
+  },
+  // 搜索
+  getSearchResult: function () {
+    this.data.loading = true;
+    let query = app.query('com.zenith.api.apis.GoodsListApiService');
+    let body = Object.assign(app.commonBody(), { page: 1, size: 50 });
+    app.request(query, body, (res) => {
+      console.log(res);
+      let max = res.goods.length === 50 ? false : true;
+      let foodsList = this.data.foodsList.concat(res.goods);
+      this.setData({
+        foodsList: foodsList,
+        max: max
+      }, () => {
+        this.data.loading = false;
+      });
+    }, (res) => {
+      console.log(res);
+      this.data.loading = false;
+    })
+  },
   // 清除历史记录
   handleClearHistory() {
     let _that = this;
@@ -94,6 +132,8 @@ Page({
   goToTheSearchList(e) {
     let type = e.type;
     let search = type === 'tap' ? e.currentTarget.dataset.name : e.detail.value;
+    let obj = {};
+    obj.input = search;
     if (this.data.history.indexOf(search) === -1 && search) {
       let history = this.data.history;
       history.push(search);
@@ -101,10 +141,10 @@ Page({
         history.pop();
       }
       wx.setStorageSync('historySearchList', history);
-      this.setData({
-        history
-      })
+      obj.history = history;
     }
+    this.setData(obj);
+    this.getSearchResult();
   },
   //删除一个信息
   delSingle(event) {
@@ -133,6 +173,12 @@ Page({
   handleInputBlur () {
     this.setData({
       inputFocus: false
+    })
+  },
+  // 跳转到商品详情页面
+  goToTheOrderDetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/detail/detail?gid=' + e.currentTarget.dataset.gid,
     })
   }
 })

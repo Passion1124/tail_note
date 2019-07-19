@@ -86,7 +86,6 @@ Page({
   },
   // 修改商品是否选中
   handleUpdateGoodsSelected(e) {
-    console.log(e);
     let index = e.currentTarget.dataset.index;
     let goods = e.currentTarget.dataset.goods;
     let type = e.currentTarget.dataset.type;
@@ -100,4 +99,72 @@ Page({
       [str]: goods
     });
   },
+  // 点击全选
+  handleCliclAllSelected(e) {
+    let all = e.currentTarget.dataset.all;
+    let cart = this.data.cart.map(item => {
+      item.selected = !all;
+      return item;
+    });
+    this.setData({
+      cart
+    })
+  },
+  handleUpdateDeleting() {
+    this.setData({
+      deleting: !this.data.deleting
+    })
+  },
+  // 删除选中的商品
+  handleDeleteSelectedGoods() {
+    let selected_shop = this.data.cart.filter(item => item.selected);
+    if (selected_shop.length) {
+      let cart = this.data.cart.filter(item => !item.selected);
+      this.setData({
+        cart,
+        deleting: false
+      }, function () {
+        let storage = cart.map(item => {
+          delete item.selected;
+          return item;
+        })
+        wx.setStorageSync('cart', storage);
+        utils.setCartTabbarBadge();
+      });
+    } else {
+      util.showMessage('请选择商品');
+    }
+  },
+  // 购物车添加(购)
+  handleShoppingCartAdd(e) {
+    let item = e.currentTarget.dataset.item;
+    let type = Number(e.currentTarget.dataset.type);
+    let index = e.currentTarget.dataset.index;
+    if (type === -1 && item.num <= 1) {
+      utils.showMessage('最少购买一件哦');
+    } else {
+      type === -1 ? item.num -= 1 : item.num += 1;
+      let str = 'cart['+ index +']'
+      this.setData({
+        [str]: item
+      }, () => {
+        let cart = this.data.cart.map(item => {
+          delete item.selected;
+          return item;
+        });
+        wx.setStorageSync('cart', cart);
+        utils.setCartTabbarBadge();
+      });
+    }
+  },
+  // 点击去付款按钮
+  handleClickPayButton() {
+    let selected_shop = this.data.cart.filter(item => item.selected);
+    if (selected_shop.length) {
+      utils.navigateTo('/pages/pay_cart/pay_cart');
+      wx.setStorageSync('pay_cart', selected_shop);
+    } else {
+      utils.showMessage('请选择商品');
+    }
+  }
 })

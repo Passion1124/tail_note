@@ -1,5 +1,6 @@
 <!-- pay_result.wxml -->
 <view class='container'>
+  <navbar page-name='付款结果'></navbar>
   <view class='success' wx:if="{{result === 'success'}}">
     <view class='title'>
       <view class='img_row'>

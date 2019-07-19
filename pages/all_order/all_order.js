@@ -67,7 +67,8 @@ Page({
       completed_order: false,
       cancelled_order: false,
       refunded_order: false
-    }
+    },
+    navHeight: ''
   },
 
   /**
@@ -77,7 +78,8 @@ Page({
     wx.hideShareMenu();
     var that = this;
     this.setData({
-      currentTab: Number(options.currentTab)
+      currentTab: Number(options.currentTab),
+      navHeight: app.globalData.navHeight
     });
     if (Number(options.currentTab) === 0) {
       this.handleAllOrderList();
@@ -98,7 +100,7 @@ Page({
         var clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR - 80;
+        var calc = clientHeight * rpxR - 80 - (app.globalData.navHeight * rpxR);
         that.setData({
           winHeight: calc
         });

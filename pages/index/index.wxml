@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+  <navbar page-name='' show-nav='{{false}}'></navbar>
   <view class='search' bindtap='goToTheSearch'>
     <view class='search_row'>
       <image mode='aspectFill' src='../../img/cart_icon_search.png'></image>

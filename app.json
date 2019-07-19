@@ -13,13 +13,15 @@
     "pages/login/login",
     "pages/customer/customer",
     "pages/search/search",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/pay_cart/pay_cart"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "list": [
@@ -46,5 +48,8 @@
     "selectedColor": "#23C2F7",
     "backgroundColor": "#fff"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "navbar": "/components/navbar/index"
+  }
 }

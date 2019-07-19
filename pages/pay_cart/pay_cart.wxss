@@ -1,0 +1,403 @@
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.container{
+  height: auto;
+  padding-bottom: 121rpx;
+  padding-top: 13rpx;
+  background-color: #F9F9F9;
+}
+
+.shop {
+  width: 100%;
+  padding: 0 30rpx;
+  margin-bottom: 13rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.shop .shop_name{
+  width: 100%;
+  height: 86rpx;
+  font-size: 26rpx;
+  line-height: 86rpx;
+  color: #3C3C3C;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.shop .goods_row .goods {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 210rpx;
+  padding: 20rpx 0;
+}
+
+.shop .goods_row .goods .goods_poster{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin-right: 24rpx;
+}
+
+.shop .goods_row .goods .goods_poster image{
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.shop .goods_row .goods .goods_info {
+  flex: 1;
+  max-width: 500rpx;
+}
+
+.shop .goods .goods_info .goods_name {
+  width: 100%;
+  height: 66rpx;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #3C3C3C;
+  margin-bottom: 8rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.shop .goods .goods_info .goods_specs {
+  width: 100%;
+  height: 60rpx;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  color: #8C8C8C;
+  margin-bottom: 14rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.shop .goods .goods_info .goods_prcie_num {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shop .goods .goods_info .goods_prcie_num .goods_price {
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #F97572;
+}
+
+.shop .goods .goods_info .goods_prcie_num .goods_num {
+  width: 160rpx;
+  height: 43rpx;
+  border: 1rpx solid #23C2F7;
+  line-height: 36rpx;
+  color: #23C2F7;
+  border-radius: 21rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.shop .goods .goods_info .goods_prcie_num .goods_num .minus {
+  width: 44rpx;
+  height: 100%;
+  line-height: 34rpx;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+.shop .goods .goods_info .goods_prcie_num .goods_num .num {
+  flex: 1;
+  height: 100%;
+  font-size: 24rpx;
+  text-align: center;
+  border-right: 1rpx solid #23C2F7;
+  border-left: 1rpx solid #23C2F7;
+}
+
+.shop .goods .goods_info .goods_prcie_num .goods_num .plus {
+  width: 44rpx;
+  height: 100%;
+  line-height: 34rpx;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+.shop .goods .goods_info .goods_prcie_num .goods_down, .shop .goods .goods_info .goods_prcie_num .goods_sell_out {
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #B7B7B7;
+}
+
+.shop .items .disab .goods_name, .shop .items .disab .goods_specs, .shop .items .disab .goods_prcie_num .goods_price {
+  color: #B7B7B7;
+}
+
+.shop .goods .goods_info .goods_prcie_num .goods_num_text {
+  font-size: 22rpx;
+  line-height: 30rpx;
+  color: #8C8C8C;
+}
+
+.shop .single_row .single:not(:last-of-type){
+  border-bottom: 1rpx solid #E9E9E9;
+}
+
+.single{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 110rpx;
+}
+
+.single .label {
+  font-size: 26rpx;
+  line-height: 37rpx;
+  color: #8C8C8C;
+}
+
+.single .freight {
+  font-size: 26rpx;
+  line-height: 37rpx;
+  color: #3C3C3C;
+}
+
+.single .select_coupon{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.single .select_coupon .coupon_text {
+  max-width: 400rpx;
+  font-size: 26rpx;
+  line-height: 37rpx;
+  color: #3C3C3C;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.single .select_coupon .coupon_text .t_text {
+  font-size: 22rpx;
+  line-height: 30rpx;
+  color: #ff5848;
+}
+
+.single .arrow_row {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 14rpx;
+}
+
+.single .arrow_row image{
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.single .input_row {
+  flex: 1;
+}
+
+.single .input_row input{
+  width: 100%;
+  height: 33rpx;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #3C3C3C;
+}
+
+.single .name_row {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.single .name_row input{
+  flex: 1;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #3C3C3C;
+}
+
+.single .name_row button{
+  width: 170rpx;
+  height: 50rpx;
+  font-size: 22rpx;
+  color: #3C3C3C;
+  line-height: 48rpx;
+  border: 1rpx solid #CACACA;
+  border-radius: 50rpx;
+  padding: 0;
+  background-color: #fff;
+}
+
+.single .select_date{
+  flex: 1;
+}
+
+.single .date_text{
+  flex: 1;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #3C3C3C;
+  text-align: right;
+}
+
+.delivery_info {
+  width: 100%;
+  padding: 0 30rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin-bottom: 13rpx;
+}
+
+.delivery_info .delivery_title, .contacts .contacts_title{
+  width: 100%;
+  height: 86rpx;
+  font-size: 26rpx;
+  line-height: 86rpx;
+  color: #3C3C3C;
+}
+
+.delivery_info .receive_date{
+  border-bottom: 1rpx solid #E9E9E9;
+}
+
+.delivery_info .address .recevie_type{
+  display: flex;
+  align-items: center;
+  width: 240rpx;
+  height: 50rpx;
+}
+
+.delivery_info .address .recevie_type view{
+  flex: 1;
+  font-size: 22rpx;
+  line-height: 48rpx;
+  color: #B7B7B7;
+  text-align: center;
+  border: 1rpx solid #CACACA;
+  box-sizing: border-box;
+}
+
+.delivery_info .address .recevie_type view.active{
+  background-color: #23C2F7;
+  color: #fff;
+  border-color: #23C2F7;
+}
+
+.delivery_info .address .recevie_type .left {
+  border-top-left-radius: 25rpx;
+  border-bottom-left-radius: 25rpx;
+}
+
+.delivery_info .address .recevie_type .right {
+  border-top-right-radius: 25rpx;
+  border-bottom-right-radius: 25rpx;
+}
+
+.delivery_info .address .self_taking, .delivery_info .address .give{
+  flex: 1;
+}
+
+.delivery_info .address .give picker{
+  width: 100%;
+}
+
+.delivery_info .address .self_taking input{
+  width: 100%;
+  height: 33rpx;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #3C3C3C;
+}
+
+.delivery_info .address .give{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delivery_info .address .give .address_text{
+  flex: 1;
+  max-width: 530rpx;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #3C3C3C;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.contacts {
+  width: 100%;
+  padding: 0 30rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
+}
+
+.contacts>.single:not(:last-of-type) {
+  border-bottom: 1rpx solid #E9E9E9;
+}
+
+.contacts>.single .label {
+  width: 150rpx;
+  color: #3C3C3C;
+}
+
+.bottom_content {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 121rpx;
+  padding: 0 30rpx;
+  border-top: 1rpx solid #E0E0E0;
+  box-sizing: border-box;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.bottom_content .left_c{
+  font-size: 32rpx;
+  line-height: 45rpx;
+}
+
+.bottom_content .left_c text:first-of-type{
+  color: #8C8C8C;
+  margin-right: 18rpx;
+}
+
+.bottom_content .left_c text:last-of-type{
+  color: #FF5848;
+  font-weight: bold;
+}
+
+.bottom_content .right_b button{
+  width: 300rpx;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #fff;
+  letter-spacing: 3rpx;
+  border-radius: 40rpx;
+  background-color: #F97572;
+}

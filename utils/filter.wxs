@@ -41,11 +41,27 @@ var getShopCartPageTotalPrice = function (cart) {
   return '￥' + (result / 100);
 }
 
+var getShopCartIsAllSelected = function (cart) {
+  var result = cart.filter(function (item) {
+    return !item.selected;
+  });
+  return !result.length;
+}
+
+var getPayShopCartTotalPrice = function (cart) {
+  var result = cart.reduce(function (cur, pre) {
+    return cur + (pre.num * pre.amount)
+  }, 0);
+  return '￥' + (result / 100);
+}
+
 /**
  * 导出
  */
 
 module.exports = {
   orderStatusFormat: orderStatusFormat,
-  getShopCartPageTotalPrice: getShopCartPageTotalPrice
+  getShopCartPageTotalPrice: getShopCartPageTotalPrice,
+  getShopCartIsAllSelected: getShopCartIsAllSelected,
+  getPayShopCartTotalPrice: getPayShopCartTotalPrice
 }

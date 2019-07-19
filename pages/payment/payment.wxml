@@ -1,5 +1,6 @@
 <!-- payment.wxml -->
 <view class='container'>
+  <navbar page-name='付款'></navbar>
   <view class='commodity_info'>
     <view class='info'>
       <view class='img_row'>

@@ -1,5 +1,6 @@
 <!-- order.wxml -->
 <view class='container'>
+  <navbar page-name='我的订单' show-nav='{{false}}'></navbar>
   <view class='user_info' data-nickname='{{userInfo.nickname}}' data-phone='{{userInfo.phone}}' data-address='{{userInfo.address}}' bindtap='goToTheUserInfo'>
     <view class='avatar'>
       <!-- <image src='../../img/avatar.png'></image> -->

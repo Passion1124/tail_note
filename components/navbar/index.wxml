@@ -1,0 +1,21 @@
+<!-- components/navbar/index.wxml -->
+<view class='navbar-occupy' style='height: {{navH}}px'></view>
+<view class='navbar' style='height: {{navH}}px'>
+  <view class='navbar-action-wrap {{ showHome ? "navbar-action-group" : ""}} row item-center' wx:if='{{showNav}}'>
+    <block wx:if='{{showHome}}'>
+      <view class='back' bindtap='navBack'>
+        <image src='../../img/back_icon.png'></image>
+      </view>
+      <view class='line'></view>
+      <view class='home' bindtap='toIndex'>
+        <image src='../../img/home_icon.png'></image>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='back' bindtap='navBack'>
+        <image src='../../img/back_icon.png'></image>
+      </view>
+    </block>
+  </view>
+  <view class='navbar-title'>{{pageName}}</view>
+</view>

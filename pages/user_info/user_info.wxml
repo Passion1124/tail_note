@@ -1,5 +1,6 @@
 <!-- user_info.wxml -->
 <view class='container'>
+  <navbar page-name='信息修改'></navbar>
   <view class='list'>
     <view class='title'>
       <text>昵称</text>

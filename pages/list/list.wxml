@@ -1,5 +1,6 @@
 <!-- list.wsml -->
 <view class='container'>
+  <navbar page-name='{{category}}'></navbar>
   <view class='commodity_row' wx:for="{{goodsList}}" wx:key="{{index}}">
     <view class='commodity' data-gid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
       <!-- <view class='image_text'>

@@ -1,6 +1,6 @@
 .tab-h {
   position: fixed;
-  top: 0;
+  /* top: 0; */
   left: 0;
   display: -webkit-box;
   display: -webkit-flex;

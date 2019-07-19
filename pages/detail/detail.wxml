@@ -1,6 +1,7 @@
 <!-- detail.wxml -->
 <import src="../../wxParse/wxParse.wxml" />
 <view class='container'>
+  <navbar page-name='{{goods.name}}'></navbar>
   <view class='banner'>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{goods.pics}}" wx:key="{{index}}">

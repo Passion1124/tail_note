@@ -57,10 +57,16 @@ const setCartTabbarBadge = (index = 1) => {
   }
 }
 
+const validatePhone = phone => {
+  let reg = new RegExp('^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$');
+  return reg.test(phone);
+}
+
 module.exports = {
   formatTime: formatTime,
   userIsLogin: userIsLogin,
   navigateTo: navigateTo,
   showMessage: showMessage,
-  setCartTabbarBadge: setCartTabbarBadge
+  setCartTabbarBadge: setCartTabbarBadge,
+  validatePhone: validatePhone
 }

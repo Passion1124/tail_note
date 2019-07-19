@@ -1,38 +1,66 @@
 <!-- search.wxml -->
 <view class='container'>
-  <view class="search_wrap">
-    <view class='search_input'>
-      <image class="search-img" src="../../img/cart_icon_search.png"></image>
-      <input value='{{input}}' placeholder-class='phcolor' placeholder='搜索商品名称' bindconfirm='goToTheSearchList' bindinput='handleInput' bindfocus='handleInputFocus' bindblur='handleInputBlur'></input>
+  <navbar page-name='搜索'></navbar>
+  <view class='search_correlation'>
+    <view class="search_wrap">
+      <view class='search_input'>
+        <image class="search-img" src="../../img/cart_icon_search.png"></image>
+        <input value='{{input}}' placeholder-class='phcolor' placeholder='搜索商品名称' bindconfirm='goToTheSearchList' bindinput='handleInput' bindfocus='handleInputFocus' bindblur='handleInputBlur'></input>
+      </view>
+      <view class='canclesearch' data-name='{{input}}' bindtap='goToTheSearchList' wx:if='{{inputFocus}}'>搜索</view>
     </view>
-    <view class='canclesearch' data-name='{{input}}' bindtap='goToTheSearchList'>搜索</view>
-  </view>
-  <view class='history_search' wx:if='{{!goods.length || !loading}}'>
-    <view class='title'>
-      <view class='text'>历史搜索</view>
-      <view class='remove' bindtap='handleClearHistory'>
-        <image src='../../img/history_remove.png'></image>
+    <view class='history_search' wx:if='{{!foodsList.length && !loading}}'>
+      <view class='title'>
+        <view class='text'>历史搜索</view>
+        <view class='remove' bindtap='handleClearHistory'>
+          <image src='../../img/history_remove.png'></image>
+        </view>
+      </view>
+      <view class='list'>
+        <block wx:for='{{history}}' wx:key='{{index}}'>
+          <view class="hislist">
+            <view data-name='{{item}}' bindtap='goToTheSearchList' class="txt">
+              {{item}}
+            </view>
+            <view data-index="{{index}}" bindtap="delSingle">
+              <image class="delsingle" src="../../img/product_icon_search_delsingle.png"></image>
+            </view>
+          </view>
+        </block>
       </view>
     </view>
-    <view class='list'>
-      <block wx:for='{{history}}' wx:key='{{index}}'>
-        <view class="hislist">
-          <view data-name='{{item}}' bindtap='goToTheSearchList' class="txt">
-            {{item}}
+    <view class='hot_recommend' wx:if='{{!foodsList.length && !loading}}'>
+      <view class='title'>推荐</view>
+      <view class='list'>
+        <block wx:for='{{hotWord}}' wx:key='{{index}}'>
+          <view data-name='{{item}}' bindtap='goToTheSearchList'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <scroll-view scroll-y='true' style='height:{{winHeight}}rpx' wx:if='{{!inputFocus && foodsList.length}}'>
+    <view class='search_result'>
+      <view class='list_row' wx:for="{{foodsList}}" wx:key="{{index}}">
+        <view class='list' data-gid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
+          <view class='img'>
+            <image mode='aspectFill' src='{{item.poster}}'></image>
+            <view>
+              <text>{{item.subInfo}}</text>
+            </view>
           </view>
-          <view data-index="{{index}}" bindtap="delSingle">
-            <image class="delsingle" src="../../img/product_icon_search_delsingle.png"></image>
+          <view class='title_price'>
+            <view class='title'>
+              <text>{{item.name}}</text>
+            </view>
+            <view class='tags'>
+              <view class='tag' wx:for='{{item.tags}}' wx:for-item="tag" wx:key='{{index}}'>{{ tag }}</view>
+            </view>
+            <view class='price'>
+              <text>{{item.priceDesc}}</text>
+            </view>
           </view>
         </view>
-      </block>
+      </view>
     </view>
-  </view>
-  <view class='hot_recommend'>
-    <view class='title'>推荐</view>
-    <view class='list'>
-      <block wx:for='{{hotWord}}' wx:key='{{index}}'>
-        <view data-name='{{item.name}}' bindtap='goToTheSearchList'>{{item.name}}</view>
-      </block>
-    </view>
-  </view>
+  </scroll-view>
 </view>

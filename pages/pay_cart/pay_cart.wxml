@@ -1,0 +1,50 @@
+<!-- pay_cart.wxml -->
+<wxs module="filter" src='../../utils/filter.wxs'></wxs>
+<view class='container'>
+  <navbar page-name='确认订单'></navbar>
+  <view class='shop_row'>
+    <block wx:for='{{cart}}' wx:key='{{index}}'>
+      <view class='shop'>
+        <view class='goods_row'>
+          <view class='goods'>
+            <view class='goods_poster'>
+              <image mode='aspectFill' src='{{item.poster}}'></image>
+            </view>
+            <view class='goods_info'>
+              <view class='goods_name'>{{ item.gName }}</view>
+              <view class='goods_specs'>{{ item.itemName }}</view>
+              <view class='goods_prcie_num'>
+                <view class='goods_price'>￥{{ (item.amount * item.num) / 100 }}</view>
+                <view class='goods_num_text'>x{{item.num}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='contacts'>
+    <view class='contacts_title'>收货信息</view>
+    <view class='single'>
+      <view class='label'>手机号</view>
+      <view class='input_row'>
+        <input value='{{contact.phone}}' placeholder='手机号' data-parameter='contact.phone' bindchange='handleParameterUpdate'></input>
+      </view>
+    </view>
+    <view class='single'>
+      <view class='label'>收货地址</view>
+      <view class='input_row'>
+        <input value='{{contact.address}}' placeholder='收货地址' data-parameter='contact.address' bindchange='handleParameterUpdate'></input>
+      </view>
+    </view>
+  </view>
+  <view class='bottom_content'>
+    <view class='left_c'>
+      <text>合计</text>
+      <text>{{ filter.getPayShopCartTotalPrice(cart) }}</text>
+    </view>
+    <view class='right_b'>
+      <button bindtap='handleClickPayButton'>去付款</button>
+    </view>
+  </view>
+</view>
