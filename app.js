@@ -19,7 +19,8 @@ App({
     openId: null,
     sessionKey: null,
     pollingNum: 5,
-    fUid: ''
+    fUid: '',
+    cartStatus: 'init'
   },
   request: function(query, data, success, fail) {
     if (this.globalData.fUid) data.fUid = this.globalData.fUid;

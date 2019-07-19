@@ -1,0 +1,343 @@
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  height: auto;
+  min-height: 100%;
+  padding: 30rpx 30rpx 150rpx;
+  background-color: #F9F9F9;
+}
+
+.shop {
+  width: 100%;
+  padding: 0 24rpx;
+  border-radius: 16rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
+}
+
+.shop .shop_info {
+  width: 100%;
+  height: 86rpx;
+  display: flex;
+  align-items: center;
+}
+
+.shop .shop_info .shop_name {
+  flex: 1;
+  max-width: 520rpx;
+  font-size: 26rpx;
+  line-height: 37rpx;
+  color: #3C3C3C;
+  margin-left: 27rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.shop .shop_info .coupon_text{
+  font-size: 26rpx;
+  line-height: 37rpx;
+  color: #8C8C8C;
+}
+
+.shop .items {
+  width: 100%;
+  height: 244rpx;
+  display: flex;
+  align-items: center;
+}
+
+.shop .items .goods_poster {
+  width: 180rpx;
+  height: 180rpx;
+  margin: 0 24rpx 0 27rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.shop .items .goods_poster image{
+  width: 100%;
+  height: 100%;
+}
+
+.shop .items .goods_info{
+  flex: 1;
+  max-width: 363rpx;
+}
+
+.shop .items .goods_info .goods_name {
+  width: 100%;
+  height: 66rpx;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #3C3C3C;
+  margin-bottom: 8rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.shop .items .goods_info .goods_specs {
+  width: 100%;
+  height: 60rpx;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  color: #8C8C8C;
+  margin-bottom: 14rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.shop .items .goods_info .goods_prcie_num {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shop .items .goods_info .goods_prcie_num .goods_price {
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #F97572;
+}
+
+.shop .items .goods_info .goods_prcie_num .goods_num {
+  width: 160rpx;
+  height: 43rpx;
+  border: 1rpx solid #23C2F7;
+  line-height: 36rpx;
+  color: #23C2F7;
+  border-radius: 21rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.shop .items .goods_info .goods_prcie_num .goods_num .minus {
+  width: 44rpx;
+  height: 100%;
+  line-height: 34rpx;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+.shop .items .goods_info .goods_prcie_num .goods_num .num {
+  flex: 1;
+  height: 100%;
+  font-size: 24rpx;
+  text-align: center;
+  border-right: 1rpx solid #23C2F7;
+  border-left: 1rpx solid #23C2F7;
+}
+
+.shop .items .goods_info .goods_prcie_num .goods_num .plus {
+  width: 44rpx;
+  height: 100%;
+  line-height: 34rpx;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+.shop .items .goods_info .goods_prcie_num .goods_down, .shop .items .goods_info .goods_prcie_num .goods_sell_out {
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #B7B7B7;
+}
+
+.shop .items .disab .goods_name, .shop .items .disab .goods_specs, .shop .items .disab .goods_prcie_num .goods_price {
+  color: #B7B7B7;
+}
+
+.delete_row{
+  position: fixed;
+  left: 30rpx;
+  bottom: 150rpx;
+  width: 90rpx;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow:0px 5px 10px 0px rgba(0,0,0,0.06);
+  border: 1rpx solid #E6E6E6;
+  background-color: #fff;
+  z-index: 9;
+}
+
+.delete_row image{
+  width: 38rpx;
+  height: 40rpx;
+}
+
+.empty{
+  margin-top: 80rpx;
+}
+
+.empty .image_row{
+  width: 614rpx;
+  height: 380rpx;
+  margin: 0 auto 30rpx;
+}
+
+.empty .image_row image{
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.empty .text{
+  width: 270rpx;
+  font-size: 30rpx;
+  line-height: 45rpx;
+  color: #8C8C8C;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.bottom_content {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 121rpx;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1rpx solid #E0E0E0;
+  box-sizing: border-box;
+  z-index: 8;
+}
+
+.bottom_content .btm_select {
+  display: flex;
+  align-items: center;
+}
+
+.bottom_content .btm_select .select_text {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #8C8C8C;
+  margin-left: 20rpx;
+}
+
+.bottom_content .btn_price {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bottom_content .btn_price .price {
+  line-height: 42rpx;
+}
+
+.bottom_content .btn_price .price .total_text {
+  font-size: 24rpx;
+  color: #8C8C8C;
+}
+
+.bottom_content .btn_price .price .price_value {
+  font-size: 30rpx;
+  color: #F97572;
+  font-weight: bold;
+}
+
+.bottom_content .btn_price .tips {
+  font-size: 24rpx;
+  line-height: 33rpx;
+  color: #8C8C8C;
+}
+
+.bottom_content .btn_pay_btn{
+  margin-left: 30rpx;
+}
+
+.bottom_content .btn_pay_btn button {
+  width: 190rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background-color: #F97572;
+  padding: 0;
+  font-size: 32rpx;
+  color: #FFFFFF;
+}
+
+.delete_bottom_content{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 201rpx;
+  padding: 0 37rpx;
+  background-color: #fff;
+  box-shadow: 0px 1rpx 0px 0px rgba(236,236,236,1);
+  box-sizing: border-box;
+  z-index: 9;
+}
+
+.delete_bottom_content .all_selecct{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80rpx;
+}
+
+.delete_bottom_content .all_selecct .btm_select {
+  display: flex;
+  align-items: center;
+}
+
+.delete_bottom_content .all_selecct .btm_select .select_text {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #8C8C8C;
+  margin-left: 20rpx;
+}
+
+.delete_bottom_content .two_confirm{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 121rpx;
+}
+
+.delete_bottom_content .two_confirm .cancel {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #8C8C8C;
+}
+
+.delete_bottom_content .two_confirm .sure {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #23C2F7;
+}
+
+.not-select {
+  width: 38rpx;
+  height: 38rpx;
+  border: 2rpx solid #D9D9D9;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.select_row {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.select_row image{
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}

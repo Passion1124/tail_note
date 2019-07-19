@@ -1,4 +1,6 @@
 //index.js
+import utils from '../../utils/util.js'
+
 //获取应用实例
 const app = getApp()
 
@@ -29,6 +31,15 @@ Page({
     this.getBanner();
     this.getCategoryList();
     this.getGoodList();
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    if (app.globalData.cartStatus !== 'over') {
+      utils.setCartTabbarBadge();
+      app.globalData.cartStatus = 'over';
+    }
   },
   /**
    * 用户点击右上角分享

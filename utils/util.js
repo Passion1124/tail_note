@@ -40,9 +40,27 @@ const showMessage = (message, icon) => {
   })
 }
 
+const setCartTabbarBadge = (index = 1) => {
+  let cart = wx.getStorageSync('cart') || [];
+  if (cart.length) {
+    let num = cart.reduce((cur, pre) => {
+      return cur + pre.num
+    }, 0)
+    wx.setTabBarBadge({
+      index,
+      text: num.toString(),
+    })
+  } else {
+    wx.removeTabBarBadge({
+      index
+    })
+  }
+}
+
 module.exports = {
   formatTime: formatTime,
   userIsLogin: userIsLogin,
   navigateTo: navigateTo,
-  showMessage: showMessage
+  showMessage: showMessage,
+  setCartTabbarBadge: setCartTabbarBadge
 }

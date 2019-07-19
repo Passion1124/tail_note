@@ -8,7 +8,7 @@ var orderStatusFormat = function (status) {
   //   { value: 4, text: '已取消' },
   //   { value: 5, text: '已完成' },
   // ];
-  let text = '';
+  var text = '';
   switch (status) {
     case 0:
       text = '待付款';
@@ -32,10 +32,20 @@ var orderStatusFormat = function (status) {
   return text;
 }
 
+var getShopCartPageTotalPrice = function (cart) {
+  var result = cart.filter(function(item) {
+    return item.selected;
+  }).reduce(function (cur, pre) {
+    return cur + (pre.num * pre.amount)
+  }, 0);
+  return '￥' + (result / 100);
+}
+
 /**
  * 导出
  */
 
 module.exports = {
-  orderStatusFormat: orderStatusFormat
+  orderStatusFormat: orderStatusFormat,
+  getShopCartPageTotalPrice: getShopCartPageTotalPrice
 }

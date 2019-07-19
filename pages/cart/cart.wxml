@@ -1,0 +1,78 @@
+<!-- cart.wxml -->
+<wxs module="filter" src='../../utils/filter.wxs'></wxs>
+<view class='container'>
+  <view class='has_cart' wx:if='{{cart.length}}'>
+    <view class='shop_row'>
+      <block wx:for='{{cart}}' wx:key='{{index}}'>
+        <view class='shop'>
+          <view class='items_row'>
+            <view class='items'>
+              <view class='goods_select select_row'>
+                <view class='not-select' data-index='{{index}}' data-goods='{{item}}' data-type='1' bindtap='handleUpdateGoodsSelected' wx:if='{{!item.selected}}'></view>
+                <image src='../../img/hello_check_circel.png' data-index='{{index}}' data-goods='{{item}}' data-type='-1' bindtap='handleUpdateGoodsSelected' wx:else></image>
+              </view>
+              <view class='goods_poster'>
+                <image mode='aspectFill' src='{{item.poster}}'></image>
+              </view>
+              <view class='goods_info'>
+                <view class='goods_name'>{{ item.gName }}</view>
+                <view class='goods_specs'>{{ item.itemName }}</view>
+                <view class='goods_prcie_num'>
+                  <view class='goods_price'>￥{{ (item.amount * item.num) / 100 }}</view>
+                  <view class='goods_num'>
+                    <view class='minus' data-index='{{index}}' data-item='{{item}}' data-count='-1' bindtap='handleShoppingCartAdd'>-</view>
+                    <view class='num'>{{ item.num }}</view>
+                    <view class='plus' data-index='{{index}}' data-item='{{item}}' data-count='1' bindtap='handleShoppingCartAdd'>+</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class='delete_row' bindtap='handleUpdateDeleting' wx:if='{{!deleting}}'>
+      <image src='../../img/pro-del.png'></image>
+    </view>
+    <view class='bottom_content' wx:if='{{!deleting}}'>
+      <view class='btm_select' data-all='{{carts.getShopCartIsAllSelected(cart)}}' bindtap='handleCliclAllSelected'>
+        <view class='select_row'>
+          <view class='not-select' wx:if='{{!carts.getShopCartIsAllSelected(cart)}}'></view>
+          <image src='../../img/hello_check_circel.png' wx:else></image>
+        </view>
+        <view class='select_text'>全选</view>
+      </view>
+      <view class='btn_price'>
+        <view class='price'>
+          <text class='total_text'>合计：</text>
+          <text class='price_value'>{{ filter.getShopCartPageTotalPrice(cart) }}</text>
+        </view>
+        <view class='tips'>不含配送费</view>
+      </view>
+      <view class='btn_pay_btn'>
+        <button bindtap='handleClickPayButton'>去付款</button>
+      </view>
+    </view>
+    <view class='delete_bottom_content' wx:if='{{deleting}}'>
+      <view class='all_selecct'>
+        <view class='btm_select' data-all='{{carts.getShopCartIsAllSelected(cart)}}' bindtap='handleCliclAllSelected'>
+          <view class='select_row'>
+            <view class='not-select' wx:if='{{!carts.getShopCartIsAllSelected(cart)}}'></view>
+            <image src='../../img/hello_check_circel.png' wx:else></image>
+          </view>
+          <view class='select_text'>全选</view>
+        </view>
+      </view>
+      <view class='two_confirm'>
+        <view class='cancel' bindtap='handleUpdateDeleting'>取消</view>
+        <view class='sure' bindtap='handleDeleteSelectedGoods'>确定</view>
+      </view>
+    </view>
+  </view>
+  <view class='empty' wx:if='{{!cart.length}}'>
+    <view class='image_row'>
+      <image src='../../img/empty_data.png'></image>
+    </view>
+    <view class='text'>购物车没有任何商品 赶紧去添加</view>
+  </view>
+</view>

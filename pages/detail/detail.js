@@ -383,5 +383,6 @@ Page({
     }
     wx.setStorageSync('cart', arr);
     utils.showMessage('已加入购物车');
+    app.globalData.cartStatus = 'change';
   }
 })

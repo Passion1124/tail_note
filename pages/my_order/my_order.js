@@ -39,6 +39,10 @@ Page({
   onShow: function () {
     let user = wx.getStorageSync('user') || '';
     if (user) this.handleUserDetail();
+    if (app.globalData.cartStatus !== 'over') {
+      utils.setCartTabbarBadge();
+      app.globalData.cartStatus = 'over';
+    }
   },
 
   /**

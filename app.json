@@ -12,7 +12,8 @@
     "pages/user_info/user_info",
     "pages/login/login",
     "pages/customer/customer",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/cart/cart"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -27,6 +28,12 @@
         "text": "首页",
         "iconPath": "img/index.png",
         "selectedIconPath": "img/index_select.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "img/shopping_cart.png",
+        "selectedIconPath": "img/shopping_cart_select.png"
       },
       {
         "pagePath": "pages/my_order/my_order",
