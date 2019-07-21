@@ -19,6 +19,7 @@
   width: 160rpx;
   height: 160rpx;
   border-radius: 8rpx;
+  vertical-align: top;
 }
 
 .info .info_text{

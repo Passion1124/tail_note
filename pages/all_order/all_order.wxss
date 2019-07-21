@@ -152,7 +152,7 @@
 }
 
 .tab-content {
-  margin-top: 80rpx;
+  margin-top: 84rpx;
 }
 
 .tip{
@@ -183,7 +183,8 @@
 }
 
 .empty{
-  margin: 80rpx auto 0;
+  margin: 0 auto;
+  padding-top: 80rpx;
 }
 
 .empty .image_row{

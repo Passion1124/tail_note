@@ -377,12 +377,14 @@ Page({
         giid: data.checkDate,
         itemName: item.name,
         amount: item.amount,
-        num: data.num
+        num: data.num,
+        desc: data.goods.subInfo,
+        tags: data.goods.tags
       };
       arr.push(cart);
     }
     wx.setStorageSync('cart', arr);
-    utils.showMessage('已加入购物车');
+    utils.showMessage('加入购物车成功');
     app.globalData.cartStatus = 'change';
   }
 })

@@ -27,7 +27,7 @@
     </view>
   </view>
   <view class='tips'>
-    <text>爆款</text>
+    <text>恋爱厨房</text>
   </view>
   <view class='recommend'>
     <view class='list_row' wx:for="{{foodsList}}" wx:key="{{index}}">

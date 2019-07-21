@@ -10,6 +10,7 @@ Page({
     detail: {},
     orderId: '',
     orderTime: '',
+    orderItems: []
   },
 
   /**
@@ -83,6 +84,7 @@ Page({
       this.setData({
         detail: res.order,
         orderTime: util.formatTime(new Date(res.order.orderTime)),
+        orderItems: res.orderItems
       });
       wx.hideLoading();
     }, err => {

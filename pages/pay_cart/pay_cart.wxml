@@ -13,6 +13,9 @@
             <view class='goods_info'>
               <view class='goods_name'>{{ item.gName }}</view>
               <view class='goods_specs'>{{ item.itemName }}</view>
+              <view class='goods_tags'>
+                  <view class='tag' wx:for='{{item.tags}}' wx:for-item="tag" wx:key='{{index}}'>{{ tag }}</view>
+                </view>
               <view class='goods_prcie_num'>
                 <view class='goods_price'>￥{{ (item.amount * item.num) / 100 }}</view>
                 <view class='goods_num_text'>x{{item.num}}</view>

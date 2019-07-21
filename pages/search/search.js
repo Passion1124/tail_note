@@ -13,7 +13,10 @@ Page({
     goods: [],
     loading: false,
     input: '',
-    inputFocus: false
+    inputFocus: false,
+    page: 1,
+    size: 10,
+    isSearch: false
   },
 
   /**
@@ -85,7 +88,7 @@ Page({
         var clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR - 112;
+        var calc = clientHeight * rpxR - 112 - (res.platform == 'android' ? res.statusBarHeight + 48 : res.statusBarHeight + 44) * rpxR;
         that.setData({
           winHeight: calc
         });
@@ -95,15 +98,16 @@ Page({
   // 搜索
   getSearchResult: function () {
     this.data.loading = true;
-    let query = app.query('com.zenith.api.apis.GoodsListApiService');
-    let body = Object.assign(app.commonBody(), { page: 1, size: 50 });
+    let query = app.query('com.zenith.api.apis.GoodsSearchListApiService');
+    let body = Object.assign(app.commonBody(), { page: this.data.page, size: this.data.size, keyword: this.data.input });
     app.request(query, body, (res) => {
       console.log(res);
-      let max = res.goods.length === 50 ? false : true;
+      let max = res.goods.length === this.data.size ? false : true;
       let foodsList = this.data.foodsList.concat(res.goods);
       this.setData({
         foodsList: foodsList,
-        max: max
+        max: max,
+        isSearch: true
       }, () => {
         this.data.loading = false;
       });
@@ -111,6 +115,12 @@ Page({
       console.log(res);
       this.data.loading = false;
     })
+  },
+  // 滚动到底部触发
+  handleScrollToLower () {
+    if (this.data.loading || this.data.max) return false;
+    this.data.page++;
+    this.getSearchResult();
   },
   // 清除历史记录
   handleClearHistory() {

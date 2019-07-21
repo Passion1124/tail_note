@@ -122,14 +122,35 @@ Page({
   },
   // 生成订单
   handleShoppingOrderGen() {
-    // let query = app.query('com.zenith.api.apis.UserDetailApiService');
-    // let body = app.commonBody();
-    // app.request(query, body, res => {
-    //   console.log(res);
-    //   this.data.pay_loading = false;
-    // }, err => {
-    //   console.error(err);
-    //   this.data.pay_loading = false;
-    // })
+    utils.userIsLogin().then(_ => {
+      let data = this.data;
+      wx.showLoading({
+        title: '正在生成订单中',
+      });
+      let query = app.query('com.zenith.api.apis.OrdersApiService');
+      let orderInfos = this.data.cart.map(item => ({ gid: item.gid, giid: item.giid, num: item.num }));
+      let body = Object.assign(app.commonBody(), { sn: app.uuid(), orderInfos }, this.data.contact);
+      app.request(query, body, (res) => {
+        console.log(res);
+        let cart = wx.getStorageSync('cart');
+        cart = cart.filter(item => {
+          let fIndex = this.data.cart.findIndex(c => c.gid === item.gid && c.giid === item.giid);
+          return fIndex === -1
+        });
+        wx.setStorageSync('cart', cart);
+        app.globalData.cartStatus = 'change';
+        wx.navigateTo({
+          url: '../payment/payment?orderId=' + res.order.uuid,
+        })
+        wx.hideLoading();
+      }, (err) => {
+        console.error(err);
+        wx.hideLoading();
+        wx.showToast({
+          title: '订单生成失败！！',
+          icon: 'none'
+        })
+      })
+    })
   }
 })

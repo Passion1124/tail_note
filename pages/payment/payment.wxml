@@ -2,20 +2,22 @@
 <view class='container'>
   <navbar page-name='付款'></navbar>
   <view class='commodity_info'>
-    <view class='info'>
+    <view class='info' wx:for='{{orderItems}}' wx:key='{{index}}'>
       <view class='img_row'>
-        <image mode='aspectFill' src='{{detail.poster}}'></image>
+        <image mode='aspectFill' src='{{item.poster}}'></image>
       </view>
       <view class='info_text'>
         <view class='name'>
-          <text>{{detail.desc}}</text>
+          <text>{{item.name}}</text>
         </view>
         <view class='date_num'>
           <view class='date'>
-            <text>{{detail.itemName}}</text>
+            <text>{{item.desc}}</text>
+            <text>/</text>
+            <text>￥{{item.amount / 100}}</text>
           </view>
           <view class='num'>
-            <text>x{{detail.num}}</text>
+            <text>x{{item.num}}</text>
           </view>
         </view>
       </view>

@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -90,6 +90,21 @@
 					"id": -1,
 					"name": "购物车确认订单",
 					"pathName": "pages/pay_cart/pay_cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车付款",
+					"pathName": "pages/payment/payment",
+					"query": "orderId=7aba4a85-7984-40f2-9092-aa7af07f91e1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "单商品",
+					"pathName": "pages/payment/payment",
+					"query": "orderId=43fc5ed9-1386-48d8-8b63-0287eec9ffb6",
 					"scene": null
 				}
 			]
