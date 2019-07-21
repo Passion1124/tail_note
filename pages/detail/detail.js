@@ -387,5 +387,10 @@ Page({
     utils.showMessage('加入购物车成功');
     app.globalData.cartStatus = 'change';
     this.closeMaskAndPopup();
+  },
+  goToTheCart () {
+    wx.switchTab({
+      url: '/pages/cart/cart',
+    })
   }
 })

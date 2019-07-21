@@ -115,6 +115,7 @@
 .delsingle {
   width: 34rpx;
   height: 34rpx;
+  vertical-align: top;
 }
 
 .hot_recommend {
@@ -144,6 +145,10 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.txt + view {
+  line-height: 0;
 }
 
 scroll-view {

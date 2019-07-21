@@ -7,7 +7,7 @@ Page({
    */
   data: {
     winHeight: "", //窗口高度
-    hotWord: ['推荐1', '推荐2', '推荐3'],
+    hotWord: [],
     history: [],
     foodsList: [],
     goods: [],
@@ -22,7 +22,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let history = wx.getStorageSync('historySearchList') || [];
     if (history.length) {
       this.setData({
@@ -30,61 +30,62 @@ Page({
       });
     }
     this.handleHeightAuto();
+    this.getHotWordList();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-    
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-    
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function() {
+
   },
   handleHeightAuto() {
     var that = this;
     //  高度自适应
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         var clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
@@ -96,14 +97,18 @@ Page({
     });
   },
   // 搜索
-  getSearchResult: function () {
+  getSearchResult: function(type) {
     this.data.loading = true;
     let query = app.query('com.zenith.api.apis.GoodsSearchListApiService');
-    let body = Object.assign(app.commonBody(), { page: this.data.page, size: this.data.size, keyword: this.data.input });
+    let body = Object.assign(app.commonBody(), {
+      page: this.data.page,
+      size: this.data.size,
+      keyword: this.data.input
+    });
     app.request(query, body, (res) => {
       console.log(res);
       let max = res.goods.length === this.data.size ? false : true;
-      let foodsList = this.data.foodsList.concat(res.goods);
+      let foodsList = type === 'scorll' ? this.data.foodsList.concat(res.goods) : res.goods;
       this.setData({
         foodsList: foodsList,
         max: max,
@@ -116,11 +121,24 @@ Page({
       this.data.loading = false;
     })
   },
+  // 推荐
+  getHotWordList() {
+    let query = app.query('com.zenith.api.apis.KeysApiService');
+    let body = Object.assign(app.commonBody());
+    app.request(query, body, (res) => {
+      console.log(res);
+      this.setData({
+        hotWord: res.keys
+      });
+    }, (res) => {
+      console.log(res);
+    })
+  },
   // 滚动到底部触发
-  handleScrollToLower () {
+  handleScrollToLower() {
     if (this.data.loading || this.data.max) return false;
     this.data.page++;
-    this.getSearchResult();
+    this.getSearchResult('scorll');
   },
   // 清除历史记录
   handleClearHistory() {
@@ -154,7 +172,7 @@ Page({
       obj.history = history;
     }
     this.setData(obj);
-    this.getSearchResult();
+    this.getSearchResult('search');
   },
   //删除一个信息
   delSingle(event) {
@@ -168,25 +186,27 @@ Page({
     })
   },
   // 输入框输入事件
-  handleInput (e) {
+  handleInput(e) {
     this.setData({
       input: e.detail.value
     })
   },
   // 输入框获取焦点事件
-  handleInputFocus () {
+  handleInputFocus() {
     this.setData({
       inputFocus: true
     })
   },
   // 输入框失去焦点事件
-  handleInputBlur () {
-    this.setData({
-      inputFocus: false
-    })
+  handleInputBlur() {
+    setTimeout(() => {
+      this.setData({
+        inputFocus: false
+      })
+    }, 300);
   },
   // 跳转到商品详情页面
-  goToTheOrderDetail: function (e) {
+  goToTheOrderDetail: function(e) {
     wx.navigateTo({
       url: '/pages/detail/detail?gid=' + e.currentTarget.dataset.gid,
     })

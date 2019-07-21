@@ -52,7 +52,8 @@
           <text class='total_text'>合计：</text>
           <text class='price_value'>{{ filter.getShopCartPageTotalPrice(cart) }}</text>
         </view>
-        <view class='tips'>不含配送费</view>
+        <!-- 不含配送费 -->
+        <view class='tips'></view>
       </view>
       <view class='btn_pay_btn'>
         <button bindtap='handleClickPayButton'>去付款</button>
@@ -78,6 +79,6 @@
     <view class='image_row'>
       <image src='../../img/empty_data.png'></image>
     </view>
-    <view class='text'>购物车没有任何商品 赶紧去添加</view>
+    <view class='text'>购物车没有任何商品 赶紧去逛逛</view>
   </view>
 </view>

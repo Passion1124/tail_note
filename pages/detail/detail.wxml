@@ -50,6 +50,16 @@
     <view class='shoping'>
       <button bindtap='openMaskAndPopup'>立即购买</button>
     </view>
+    <view class='cart'>
+      <button bindtap='goToTheCart'>
+        <view>
+          <image src='../../img/shopping_cart.png'></image>
+        </view>
+        <view>
+          <text>购物车</text>
+        </view>
+      </button>
+    </view>
   </view>
   <view class='mask {{ mask ? "open_mask" : "close_mask"}}' catchtouchmove='return'></view>
   <view class='order_info {{ popup ? "open_popup" : "close_popup"}}' catchtouchmove='return'>

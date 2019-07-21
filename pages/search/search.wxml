@@ -18,11 +18,11 @@
       </view>
       <view class='list'>
         <block wx:for='{{history}}' wx:key='{{index}}'>
-          <view class="hislist">
-            <view data-name='{{item}}' bindtap='goToTheSearchList' class="txt">
+          <view class="hislist" data-name='{{item}}' bindtap='goToTheSearchList'>
+            <view class="txt">
               {{item}}
             </view>
-            <view data-index="{{index}}" bindtap="delSingle">
+            <view data-index="{{index}}" catchtap='delSingle'>
               <image class="delsingle" src="../../img/product_icon_search_delsingle.png"></image>
             </view>
           </view>
@@ -33,7 +33,7 @@
       <view class='title'>推荐</view>
       <view class='list'>
         <block wx:for='{{hotWord}}' wx:key='{{index}}'>
-          <view data-name='{{item}}' bindtap='goToTheSearchList'>{{item}}</view>
+          <view data-name='{{item.key}}' bindtap='goToTheSearchList'>{{item.key}}</view>
         </block>
       </view>
     </view>
