@@ -13,7 +13,7 @@
                 <view class='not-select' data-index='{{index}}' data-goods='{{item}}' data-type='1' bindtap='handleUpdateGoodsSelected' wx:if='{{!item.selected}}'></view>
                 <image src='../../img/hello_check_circel.png' data-index='{{index}}' data-goods='{{item}}' data-type='-1' bindtap='handleUpdateGoodsSelected' wx:else></image>
               </view>
-              <view class='goods_poster'>
+              <view class='goods_poster' data-gid='{{item.gid}}' bindtap='goToTheOrderDetail'>
                 <image mode='aspectFill' src='{{item.poster}}'></image>
               </view>
               <view class='goods_info'>

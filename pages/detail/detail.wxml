@@ -51,8 +51,8 @@
       <button bindtap='openMaskAndPopup'>立即购买</button>
     </view>
   </view>
-  <view class='mask {{ mask ? "open_mask" : "close_mask"}}'></view>
-  <view class='order_info {{ popup ? "open_popup" : "close_popup"}}'>
+  <view class='mask {{ mask ? "open_mask" : "close_mask"}}' catchtouchmove='return'></view>
+  <view class='order_info {{ popup ? "open_popup" : "close_popup"}}' catchtouchmove='return'>
     <view class='commodity_info'>
       <view class='img_row'>
         <image mode='aspectFill' src='{{goods.poster}}'></image>

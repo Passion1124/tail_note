@@ -134,7 +134,7 @@
 .btn_group{
   position: fixed;
   left: 0;
-  bottom: 48rpx;
+  bottom: 24rpx;
   display: flex;
   width: 100%;
   padding: 0 40rpx;

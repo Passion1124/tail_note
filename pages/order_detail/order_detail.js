@@ -13,7 +13,8 @@ Page({
     orderTime: '',
     payTime: '',
     detail: {},
-    orderInvoice: null
+    orderInvoice: null,
+    orderItems: []
   },
   /**
    * 生命周期函数--监听页面加载
@@ -93,7 +94,8 @@ Page({
         detail: res.order,
         orderInvoice: res.orderInvoice,
         orderTime: util.formatTime(new Date(res.order.orderTime)),
-        payTime: util.formatTime(new Date(res.order.payTime))
+        payTime: util.formatTime(new Date(res.order.payTime)),
+        orderItems: res.orderItems
       });
       wx.hideLoading();
     }, (err) => {

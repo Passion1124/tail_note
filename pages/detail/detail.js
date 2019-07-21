@@ -367,7 +367,7 @@ Page({
     let arr = wx.getStorageSync('cart') || [];
     let cart_has = arr.findIndex(item => item.giid === data.checkDate && item.gid === data.gid);
     if (cart_has !== -1) {
-      arr[cart_has].num += 1;
+      arr[cart_has].num += this.data.num;
     } else {
       let item = data.goodsItems.find(item => item.checked);
       let cart = {
@@ -386,5 +386,6 @@ Page({
     wx.setStorageSync('cart', arr);
     utils.showMessage('加入购物车成功');
     app.globalData.cartStatus = 'change';
+    this.closeMaskAndPopup();
   }
 })

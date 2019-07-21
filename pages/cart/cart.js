@@ -166,5 +166,10 @@ Page({
     } else {
       utils.showMessage('请选择商品');
     }
+  },
+  goToTheOrderDetail: function (e) {
+    wx.navigateTo({
+      url: '../detail/detail?gid=' + e.currentTarget.dataset.gid,
+    })
   }
 })
