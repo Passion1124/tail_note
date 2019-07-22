@@ -68,7 +68,7 @@
   <view class='price_pay'>
     <view class='price'>
       <text>合计</text>
-      <text>￥{{detail.totalAmount / 100}}</text>
+      <text>￥{{detail.totalAmount ? detail.totalAmount / 100 : '0' }}</text>
     </view>
     <view class='pay'>
       <button bindtap='handlePrePay'>去付款</button>
