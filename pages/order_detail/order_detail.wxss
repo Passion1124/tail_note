@@ -1,5 +1,5 @@
 .container{
-  padding: 0 40rpx;
+  padding: 0 40rpx 120rpx;
 }
 
 .list{
@@ -114,6 +114,11 @@
 
 .order_info>view view:first-of-type{
   margin-right: 8rpx;
+}
+
+.order_info>view text.copy {
+  color: #23D2EB;
+  margin-left: 20rpx;
 }
 
 .single{

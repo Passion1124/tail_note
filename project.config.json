@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -49,20 +49,6 @@
 					"name": "详情页面分享",
 					"pathName": "pages/detail/detail",
 					"query": "fUid=45859efb-6a3c-4ebf-8703-15b7cdc0d14a&gid=92352677-d408-42ab-87f3-57adefbb4963",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "fukuai",
-					"pathName": "pages/payment/payment",
-					"query": "orderId=150df6c8-7d0c-4d74-a21c-ffa589aa0f77",
-					"scene": null
-				},
-				{
-					"id": 3,
-					"name": "customer",
-					"pathName": "pages/customer/customer",
-					"query": "",
 					"scene": null
 				},
 				{
@@ -84,27 +70,6 @@
 					"name": "购物车",
 					"pathName": "pages/cart/cart",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "购物车确认订单",
-					"pathName": "pages/pay_cart/pay_cart",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "购物车付款",
-					"pathName": "pages/payment/payment",
-					"query": "orderId=7aba4a85-7984-40f2-9092-aa7af07f91e1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "单商品",
-					"pathName": "pages/payment/payment",
-					"query": "orderId=43fc5ed9-1386-48d8-8b63-0287eec9ffb6",
 					"scene": null
 				},
 				{

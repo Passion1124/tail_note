@@ -236,5 +236,10 @@ Page({
     wx.navigateTo({
       url: '../detail/detail?gid=' + e.currentTarget.dataset.gid,
     })
+  },
+  handleCopyFreightBillNo () {
+    wx.setClipboardData({
+      data: this.data.orderInvoice.body,
+    })
   }
 })

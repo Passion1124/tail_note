@@ -1,5 +1,5 @@
 <!-- order_detail.wxml -->
-<navbar page-name='微信客服'></navbar>
+<navbar page-name='订单详情'></navbar>
 <view class='container'>
   <view class='list commodity' wx:for='{{orderItems}}' wx:key='{{index}}'>
     <view class='img_row' data-gid='{{item.gid}}' bindtap='goToTheOrderDetail'>
@@ -120,6 +120,7 @@
       </view>
       <view>
         <text>{{orderInvoice.body}}</text>
+        <text class='copy' bindtap='handleCopyFreightBillNo'>复制</text>
       </view>
     </view>
   </view>
