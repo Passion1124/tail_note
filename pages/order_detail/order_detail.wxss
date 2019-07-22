@@ -1,5 +1,5 @@
 .container{
-  padding: 0 40rpx 120rpx;
+  padding: 0 40rpx 140rpx;
 }
 
 .list{
@@ -116,9 +116,13 @@
   margin-right: 8rpx;
 }
 
+.order_info>view view:last-of-type{
+  flex: 1;
+}
+
 .order_info>view text.copy {
+  float: right;
   color: #23D2EB;
-  margin-left: 20rpx;
 }
 
 .single{

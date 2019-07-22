@@ -238,8 +238,10 @@ Page({
     })
   },
   handleCopyFreightBillNo () {
+    // this.data.orderInvoice.body
     wx.setClipboardData({
-      data: this.data.orderInvoice.body,
+      data: 'test',
+      success: function () {}
     })
   }
 })
