@@ -56,7 +56,7 @@
       <button bindtap='goToTheCart'>
         <view>
           <image src='../../img/cart_icon_right.png'></image>
-          <text class='c_num'>{{ filter.getCartGoodsNum(cart) }}</text>
+          <text class='c_num' wx:if='{{filter.getCartGoodsNum(cart)}}'>{{ filter.getCartGoodsNum(cart) }}</text>
         </view>
         <view>
           <text>购物车</text>

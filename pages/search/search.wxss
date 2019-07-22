@@ -239,6 +239,12 @@ scroll-view {
   margin-bottom: 16rpx;
 }
 
+.search_result .list .title_price .title text:last-of-type{
+  float: right;
+  font-size: 22rpx;
+  color: #8C8C8C;
+}
+
 .search_result .list .title_price .tags{
   display: flex;
   flex-wrap: wrap;
@@ -262,11 +268,25 @@ scroll-view {
 }
 
 .search_result .list .title_price .price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   color: #F97572;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+}
+
+.search_result .list .title_price .price .img_row {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.search_result .list .title_price .price .img_row image{
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
 }
 
 .empty{

@@ -1,4 +1,5 @@
 <!-- list.wsml -->
+<wxs module="filter" src='../../utils/filter.wxs'></wxs>
 <view class='container'>
   <navbar page-name='{{category}}'></navbar>
   <view class='commodity_row' wx:for="{{goodsList}}" wx:key="{{index}}">
@@ -34,12 +35,16 @@
       <view class='title_price'>
         <view class='title'>
           <text>{{item.name}}</text>
+          <text>{{ filter.getGoodsSaleQuantity(item.sell) }}</text>
         </view>
         <view class='tags'>
           <view class='tag' wx:for='{{item.tags}}' wx:for-item="tag" wx:key='{{index}}'>{{ tag }}</view>
         </view>
         <view class='price'>
-          <text>{{item.priceDesc}}</text>
+          <view>{{item.priceDesc}}</view>
+          <view class='img_row' wx:if='{{item.hot === 1}}'>
+            <image mode='aspectFill' src='../../img/fire.png'></image>
+          </view>
         </view>
       </view>
     </view>

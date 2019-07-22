@@ -105,13 +105,13 @@
       <image src='../../img/more.png'></image>
     </view>
   </view>
-  <view class='list order_info' wx:if="{{ detail.orderStatus === 5 && orderInvoice }}">
+  <view class='list order_info' wx:if="{{ detail.orderStatus === 5 && detail.expressCompany && detail.expressNo }}">
     <view>
       <view>
         <text>物流公司：</text>
       </view>
       <view>
-        <text>{{orderInvoice.header}}</text>
+        <text>{{detail.expressCompany}}</text>
       </view>
     </view>
     <view>
@@ -119,7 +119,7 @@
         <text>运单号：</text>
       </view>
       <view>
-        <text>{{orderInvoice.body}}</text>
+        <text>{{detail.expressNo}}</text>
         <text class='copy' bindtap='handleCopyFreightBillNo'>复制</text>
       </view>
     </view>

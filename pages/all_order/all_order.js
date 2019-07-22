@@ -83,17 +83,18 @@ Page({
     });
     if (Number(options.currentTab) === 0) {
       this.handleAllOrderList();
-    } else if (Number(options.currentTab) === 1) {
-      this.handlePendingOrderList();
-    } else if (Number(options.currentTab) === 2) {
-      this.handlePaidOrderList();
-    } else if (Number(options.currentTab) === 3) {
-      this.handleCompletedOrderList();
-    } else if (Number(options.currentTab) === 4) {
-      this.handleCancelledOrderList();
-    } else if (Number(options.currentTab) === 5) {
-      this.handleRefundedOrderList();
-    }
+    } 
+    // else if (Number(options.currentTab) === 1) {
+    //   this.handlePendingOrderList();
+    // } else if (Number(options.currentTab) === 2) {
+    //   this.handlePaidOrderList();
+    // } else if (Number(options.currentTab) === 3) {
+    //   this.handleCompletedOrderList();
+    // } else if (Number(options.currentTab) === 4) {
+    //   this.handleCancelledOrderList();
+    // } else if (Number(options.currentTab) === 5) {
+    //   this.handleRefundedOrderList();
+    // }
     //  高度自适应
     wx.getSystemInfo({
       success: function(res) {
@@ -160,12 +161,12 @@ Page({
   },
   // 获取全部订单
   handleAllOrderList: function () {
+    this.changeLoadingData('all_order', true);
     wx.showLoading({
       title: '拼命加载中'
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.all_order_body);
-    this.changeLoadingData('all_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.all_order ? [] : this.data.all_order;
@@ -191,12 +192,12 @@ Page({
   },
   // 获取待付款订单
   handlePendingOrderList: function () {
+    this.changeLoadingData('pending_order', true);
     wx.showLoading({
       title: '拼命加载中'
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.pending_order_body);
-    this.changeLoadingData('pending_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.pending_order ? [] : this.data.pending_order;
@@ -222,12 +223,12 @@ Page({
   },
   // 获取已付款订单
   handlePaidOrderList: function () {
+    this.changeLoadingData('paid_order', true);
     wx.showLoading({
       title: '拼命加载中'
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.paid_order_body);
-    this.changeLoadingData('paid_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.paid_order ? [] : this.data.paid_order;
@@ -253,12 +254,12 @@ Page({
   },
   // 获取已完成订单
   handleCompletedOrderList: function () {
+    this.changeLoadingData('completed_order', true);
     wx.showLoading({
       title: '拼命加载中'
-    })
+    });
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.completed_order_body);
-    this.changeLoadingData('completed_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.completed_order ? [] : this.data.completed_order;
@@ -284,12 +285,12 @@ Page({
   },
   // 获取已取消订单
   handleCancelledOrderList: function () {
+    this.changeLoadingData('cancelled_order', true);
     wx.showLoading({
       title: '拼命加载中'
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.cancelled_order_body);
-    this.changeLoadingData('cancelled_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.cancelled_order ? [] : this.data.cancelled_order;
@@ -315,12 +316,12 @@ Page({
   },
   // 获取已退款订单
   handleRefundedOrderList: function () {
+    this.changeLoadingData('refunded_order', true);
     wx.showLoading({
       title: '拼命加载中'
     })
     let query = app.query('com.zenith.api.apis.OrderListApiService');
     let body = Object.assign(app.commonBody(), this.data.refunded_order_body);
-    this.changeLoadingData('refunded_order', true);
     app.request(query, body, (res) => {
       console.log(res);
       let arr = this.data.update.refunded_order ? [] : this.data.refunded_order;
@@ -349,22 +350,22 @@ Page({
   handleGetOrderList: function () {
     if (this.data.currentTab === 0 && (!this.data.all_order.length || this.data.update.all_order)) {
       if (this.data.update.all_order) this.data.all_order_body.page = 1;
-      this.handleAllOrderList();
+      if (!this.data.loading.all_order) this.handleAllOrderList();
     } else if (this.data.currentTab === 1 && (!this.data.pending_order.length || this.data.update.pending_order)) {
       if (this.data.update.pending_order) this.data.pending_order_body.page = 1;
-      this.handlePendingOrderList();
+      if (!this.data.loading.pending_order) this.handlePendingOrderList();
     } else if (this.data.currentTab === 2 && (!this.data.paid_order.length || this.data.update.paid_order)) {
       if (this.data.update.paid_order) this.data.paid_order_body.page = 1;
-      this.handlePaidOrderList();
+      if (!this.data.loading.paid_order) this.handlePaidOrderList();
     } else if (this.data.currentTab === 3 && (!this.data.completed_order.length || this.data.update.completed_order)) {
       if (this.data.update.completed_order) this.data.completed_order_body.page = 1;
-      this.handleCompletedOrderList();
+      if (!this.data.loading.completed_order) this.handleCompletedOrderList();
     } else if (this.data.currentTab === 4 && (!this.data.cancelled_order.length || this.data.update.cancelled_order)) {
       if (this.data.update.cancelled_order) this.data.cancelled_order_body.page = 1;
-      this.handleCancelledOrderList();
+      if (!this.data.loading.cancelled_order) this.handleCancelledOrderList();
     } else if (this.data.currentTab === 5 && (!this.data.refunded_order.length || this.data.update.refunded_order)) {
       if (this.data.update.refunded_order) this.data.refunded_order_body.page = 1;
-      this.handleRefundedOrderList();
+      if (!this.data.loading.refunded_order) this.handleRefundedOrderList();
     }
   },
   orderStatusFormat: function (status) {
@@ -468,6 +469,7 @@ Page({
     }
   },
   changeLoadingData (files, value) {
+    this.data.loading[files] = value;
     let loading = this.data.loading;
     loading[files] = value;
     this.setData({

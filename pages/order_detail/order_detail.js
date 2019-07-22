@@ -92,7 +92,7 @@ Page({
       this.orderStatusFormat(res.order.orderStatus);
       this.setData({
         detail: res.order,
-        orderInvoice: res.orderInvoice,
+        // orderInvoice: res.orderInvoice,
         orderTime: util.formatTime(new Date(res.order.orderTime)),
         payTime: util.formatTime(new Date(res.order.payTime)),
         orderItems: res.orderItems
@@ -220,18 +220,6 @@ Page({
       url: '../invoice/invoice?oid='+ this.data.orderId +'&body=' + e.currentTarget.dataset.title + '&header=' + e.currentTarget.dataset.taxnumber,
     })
   },
-  changeCompany: function (body, header) {
-    let orderInvoice = this.data.orderInvoice || {};
-    orderInvoice.body = body;
-    orderInvoice.header = header;
-    this.setData({
-      orderInvoice: orderInvoice
-    });
-    this.handleOrderDetail();
-  },
-  changeAllOrderList: function () {
-
-  },
   goToTheOrderDetail (e) {
     wx.navigateTo({
       url: '../detail/detail?gid=' + e.currentTarget.dataset.gid,
@@ -240,7 +228,7 @@ Page({
   handleCopyFreightBillNo () {
     // this.data.orderInvoice.body
     wx.setClipboardData({
-      data: 'test',
+      data: this.data.detail.expressNo,
       success: function () {}
     })
   }

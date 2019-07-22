@@ -68,7 +68,7 @@ var getCartGoodsNum = function (cart) {
 
 // 获取商品的销售数量
 var getGoodsSaleQuantity = function (sale) {
-  return '已售' + (sale >= 10000 ? '1W+' : sale) + '件';
+  return '售' + (sale >= 10000 ? '1W+' : sale) + '件';
 }
 
 /**
