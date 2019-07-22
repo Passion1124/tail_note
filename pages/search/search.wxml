@@ -9,7 +9,7 @@
       </view>
       <view class='canclesearch' data-name='{{input}}' bindtap='goToTheSearchList' wx:if='{{inputFocus}}'>搜索</view>
     </view>
-    <view class='history_search' wx:if='{{(inputFocus || !isSearch) && !loading}}'>
+    <view class='history_search' wx:if='{{(inputFocus || !isSearch) && !loading && history.length}}'>
       <view class='title'>
         <view class='text'>历史搜索</view>
         <view class='remove' bindtap='handleClearHistory'>
@@ -29,8 +29,8 @@
         </block>
       </view>
     </view>
-    <view class='hot_recommend' wx:if='{{(inputFocus || !isSearch) && !loading}}'>
-      <view class='title'>推荐</view>
+    <view class='hot_recommend' wx:if='{{(inputFocus || !isSearch) && !loading && hotWord.length}}'>
+      <view class='title'>大家都在搜</view>
       <view class='list'>
         <block wx:for='{{hotWord}}' wx:key='{{index}}'>
           <view data-name='{{item.key}}' bindtap='goToTheSearchList'>{{item.key}}</view>

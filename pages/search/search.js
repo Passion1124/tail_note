@@ -112,7 +112,8 @@ Page({
       this.setData({
         foodsList: foodsList,
         max: max,
-        isSearch: true
+        isSearch: true,
+        input: body.keyword
       }, () => {
         this.data.loading = false;
       });
@@ -160,8 +161,8 @@ Page({
   goToTheSearchList(e) {
     let type = e.type;
     let search = type === 'tap' ? e.currentTarget.dataset.name : e.detail.value;
+    this.data.page = 1;
     let obj = {};
-    obj.input = search;
     if (this.data.history.indexOf(search) === -1 && search) {
       let history = this.data.history;
       history.push(search);
@@ -171,8 +172,10 @@ Page({
       wx.setStorageSync('historySearchList', history);
       obj.history = history;
     }
-    this.setData(obj);
-    this.getSearchResult('search');
+    obj.input = search;
+    this.setData(obj, _ => {
+      this.getSearchResult('search');
+    });
   },
   //删除一个信息
   delSingle(event) {
@@ -203,7 +206,7 @@ Page({
       this.setData({
         inputFocus: false
       })
-    }, 300);
+    }, 400);
   },
   // 跳转到商品详情页面
   goToTheOrderDetail: function(e) {

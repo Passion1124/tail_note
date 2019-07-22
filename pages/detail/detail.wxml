@@ -1,5 +1,6 @@
 <!-- detail.wxml -->
 <import src="../../wxParse/wxParse.wxml" />
+<wxs module="filter" src='../../utils/filter.wxs'></wxs>
 <view class='container'>
   <navbar page-name='{{goods.name}}'></navbar>
   <view class='banner'>
@@ -14,6 +15,7 @@
   <view class='info'>
     <view class='info_title'>
       <text>{{goods.name}}</text>
+      <text>{{ filter.getGoodsSaleQuantity(goods.sell) }}</text>
     </view>
     <view class='info_tags'>
       <view class='tag' wx:for="{{goods.tags}}" wx:key="{{index}}">{{item}}</view>
@@ -53,7 +55,8 @@
     <view class='cart'>
       <button bindtap='goToTheCart'>
         <view>
-          <image src='../../img/shopping_cart.png'></image>
+          <image src='../../img/cart_icon_right.png'></image>
+          <text class='c_num'>{{ filter.getCartGoodsNum(cart) }}</text>
         </view>
         <view>
           <text>购物车</text>

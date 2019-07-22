@@ -231,5 +231,10 @@ Page({
   },
   changeAllOrderList: function () {
 
+  },
+  goToTheOrderDetail (e) {
+    wx.navigateTo({
+      url: '../detail/detail?gid=' + e.currentTarget.dataset.gid,
+    })
   }
 })

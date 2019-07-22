@@ -93,7 +93,7 @@ Page({
       }
     }, err => {
       console.error(err);
-      wx.clearStorageSync('authority');
+      wx.removeStorageSync('authority');
     })
   },
   // 输入框，选择框等改变时间

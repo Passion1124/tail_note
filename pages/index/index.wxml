@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<wxs module="filter" src='../../utils/filter.wxs'></wxs>
 <view class="container">
   <navbar page-name='' show-nav='{{false}}'></navbar>
   <view class='search' bindtap='goToTheSearch'>
@@ -27,7 +28,7 @@
     </view>
   </view>
   <view class='tips'>
-    <text>恋爱厨房</text>
+    <text>恋爱的味道</text>
   </view>
   <view class='recommend'>
     <view class='list_row' wx:for="{{foodsList}}" wx:key="{{index}}">
@@ -41,12 +42,17 @@
         <view class='title_price'>
           <view class='title'>
             <text>{{item.name}}</text>
+            <text>{{ filter.getGoodsSaleQuantity(item.sell) }}</text>
           </view>
           <view class='tags'>
             <view class='tag' wx:for='{{item.tags}}' wx:for-item="tag" wx:key='{{index}}'>{{ tag }}</view>
           </view>
           <view class='price'>
-            <text>{{item.priceDesc}}</text>
+            <view>{{item.priceDesc}}</view>
+            <view class='img_row' wx:if='{{item.hot === 1}}'>
+              <image mode='aspectFill' src='../../img/fire.png'></image>
+            </view>
+            <!-- <text>{{item.priceDesc}}</text> -->
           </view>
         </view>
       </view>

@@ -38,11 +38,11 @@ Page({
     let cart = storageCart.map(item => {
       let index = this.data.cart.findIndex(c => c.gid === item.gid && c.giid === item.giid);
       if (index !== -1) {
-        return this.data.cart[index];
+        item.selected = this.data.cart[index].selected;
       } else {
         item.selected = false;
-        return item;
       }
+      return item;
     })
     this.setData({
       cart
@@ -159,13 +159,15 @@ Page({
   },
   // 点击去付款按钮
   handleClickPayButton() {
-    let selected_shop = this.data.cart.filter(item => item.selected);
-    if (selected_shop.length) {
-      utils.navigateTo('/pages/pay_cart/pay_cart');
-      wx.setStorageSync('pay_cart', selected_shop);
-    } else {
-      utils.showMessage('请选择商品');
-    }
+    utils.userIsLogin().then(_ => {
+      let selected_shop = this.data.cart.filter(item => item.selected);
+      if (selected_shop.length) {
+        utils.navigateTo('/pages/pay_cart/pay_cart');
+        wx.setStorageSync('pay_cart', selected_shop);
+      } else {
+        utils.showMessage('请选择商品');
+      }
+    })
   },
   goToTheOrderDetail: function (e) {
     wx.navigateTo({

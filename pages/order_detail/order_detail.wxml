@@ -2,7 +2,7 @@
 <navbar page-name='微信客服'></navbar>
 <view class='container'>
   <view class='list commodity' wx:for='{{orderItems}}' wx:key='{{index}}'>
-    <view class='img_row'>
+    <view class='img_row' data-gid='{{item.gid}}' bindtap='goToTheOrderDetail'>
       <image mode='aspectFill' src='{{item.poster}}'></image>
     </view>
     <view class='commodity_content'>
@@ -12,6 +12,14 @@
       <view class='date_num'>
         <view class='date'>
           <text>{{item.desc}}</text>
+        </view>
+        <view class='num' wx:if='{{false}}'>
+          <text>x{{item.num}}</text>
+        </view>
+      </view>
+      <view class='price_num'>
+        <view class='price'>
+          <text>￥{{item.amount / 100}}</text>
         </view>
         <view class='num'>
           <text>x{{item.num}}</text>

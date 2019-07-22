@@ -42,10 +42,6 @@ Page({
     if (options.fUid) {
       app.globalData.fUid = options.fUid;
     };
-    let user = wx.getStorageSync('user') || '';
-    if (user) {
-      this.handleUserDetail();
-    }
     this.getGoodDetail();
   },
 
@@ -60,7 +56,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    let user = wx.getStorageSync('user') || '';
+    let data = this.data;
+    if (user && !data.telephone && !data.address) {
+      this.handleUserDetail();
+    }
+    this.getCartNum();
   },
 
   /**
@@ -149,7 +150,7 @@ Page({
       }
     }, err => {
       console.error(err);
-      wx.clearStorageSync('authority');
+      wx.removeStorageSync('authority');
     })
   },
   getFavorCheck: function () {
@@ -288,13 +289,16 @@ Page({
     this.setData({
       mask: false,
       popup: false
-    })
+    });
+    this.getCartNum();
   },
   // 打开弹窗事件
   openMaskAndPopup: function () {
-    this.setData({
-      mask: true,
-      popup: true
+    utils.userIsLogin().then(_ => {
+      this.setData({
+        mask: true,
+        popup: true
+      })
     })
   },
   // 修改按钮是否禁用状态
@@ -391,6 +395,12 @@ Page({
   goToTheCart () {
     wx.switchTab({
       url: '/pages/cart/cart',
+    })
+  },
+  getCartNum () {
+    let cart = wx.getStorageSync('cart') || [];
+    this.setData({
+      cart
     })
   }
 })

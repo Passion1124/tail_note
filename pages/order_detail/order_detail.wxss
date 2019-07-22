@@ -34,7 +34,7 @@
   font-size: 32rpx;
   line-height: 45rpx;
   letter-spacing: 1px;
-  margin-bottom: 32rpx;
+  margin-bottom: 26rpx;
   overflow: hidden;
   text-overflow:ellipsis;
   display: -webkit-box;
@@ -50,6 +50,7 @@
   letter-spacing: 1px;
   color: #8C8C8C;
   overflow: hidden;
+  margin-bottom: 26rpx;
 }
 
 .commodity .commodity_content .date_num .date{
@@ -63,6 +64,21 @@
 
 .commodity .commodity_content .date_num .num{
   padding-left: 45rpx;
+}
+
+.commodity .commodity_content .price_num{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  letter-spacing: 1px;
+  color: #8C8C8C;
+  overflow: hidden;
+}
+
+.commodity .commodity_content .price {
+  color: #F97572;
 }
 
 .total{
@@ -134,16 +150,18 @@
 .btn_group{
   position: fixed;
   left: 0;
-  bottom: 24rpx;
+  bottom: 0;
   display: flex;
   width: 100%;
-  padding: 0 40rpx;
+  padding: 20rpx 40rpx;
   justify-content: space-between;
+  background-color: #FFFFFF;
+  box-shadow:0px -3px 14px 0px rgba(0,0,0,0.1);
   box-sizing: border-box;
 }
 
 .apply{
-  padding: 0 95rpx;
+  /* padding: 0 95rpx; */
 }
 
 .btn_group button{

@@ -32,6 +32,7 @@ var orderStatusFormat = function (status) {
   return text;
 }
 
+// 购物车页面获取购物车选中商品的总价
 var getShopCartPageTotalPrice = function (cart) {
   var result = cart.filter(function(item) {
     return item.selected;
@@ -41,6 +42,7 @@ var getShopCartPageTotalPrice = function (cart) {
   return '￥' + (result / 100);
 }
 
+// 获取购物车是否全选
 var getShopCartIsAllSelected = function (cart) {
   var result = cart.filter(function (item) {
     return !item.selected;
@@ -48,11 +50,25 @@ var getShopCartIsAllSelected = function (cart) {
   return !result.length;
 }
 
+// 购物车支付页面总价
 var getPayShopCartTotalPrice = function (cart) {
   var result = cart.reduce(function (cur, pre) {
     return cur + (pre.num * pre.amount)
   }, 0);
   return '￥' + (result / 100);
+}
+
+// 获取购物车的商品总数
+var getCartGoodsNum = function (cart) {
+  var result = cart.reduce(function (cur, pre) {
+    return cur + pre.num;
+  }, 0);
+  return result;
+}
+
+// 获取商品的销售数量
+var getGoodsSaleQuantity = function (sale) {
+  return '销售数：' + (sale >= 10000 ? '1W+' : sale);
 }
 
 /**
@@ -63,5 +79,7 @@ module.exports = {
   orderStatusFormat: orderStatusFormat,
   getShopCartPageTotalPrice: getShopCartPageTotalPrice,
   getShopCartIsAllSelected: getShopCartIsAllSelected,
-  getPayShopCartTotalPrice: getPayShopCartTotalPrice
+  getPayShopCartTotalPrice: getPayShopCartTotalPrice,
+  getGoodsSaleQuantity: getGoodsSaleQuantity,
+  getCartGoodsNum: getCartGoodsNum
 }

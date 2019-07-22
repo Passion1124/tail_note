@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -105,6 +105,13 @@
 					"name": "单商品",
 					"pathName": "pages/payment/payment",
 					"query": "orderId=43fc5ed9-1386-48d8-8b63-0287eec9ffb6",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "大满贯商品详情",
+					"pathName": "pages/detail/detail",
+					"query": "gid=c00d95a1-560a-443f-8b17-e8362ade1c2c",
 					"scene": null
 				}
 			]
