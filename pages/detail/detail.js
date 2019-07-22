@@ -29,7 +29,8 @@ Page({
     popup: false,
     gid: '',
     goods: {},
-    goodsItems: []
+    goodsItems: [],
+    cart: []
   },
 
   /**
