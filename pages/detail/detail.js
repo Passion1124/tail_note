@@ -220,8 +220,9 @@ Page({
     s_data.maxNum = maxNum;
     s_data.checkDate = checkDate;
     s_data.goodsItems = goodsItems;
-    s_data.price = damount > 0 ? '参考价：￥' + (amount * this.data.num / 100) : '￥' + (amount * this.data.num / 100);
-    s_data.disPrice = damount > 0 ? '同行价：￥' + (damount * this.data.num / 100) : 0;
+    // s_data.price = damount > 0 ? '参考价：￥' + (amount * this.data.num / 100) : '￥' + (amount * this.data.num / 100);
+    // s_data.disPrice = damount > 0 ? '同行价：￥' + (damount * this.data.num / 100) : 0;
+    s_data.price = '￥' + (amount * this.data.num / 100);
     this.setData(s_data);
     this.changeNextButtonStatus();
     this.bindManual({ detail: { value: this.data.num } })

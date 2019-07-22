@@ -76,7 +76,7 @@
         </view>
         <view class='price'>
           <view>{{price}}</view>
-          <view class='damount' wx:if='{{disPrice}}'>{{disPrice}}</view>
+          <!-- <view class='damount' wx:if='{{disPrice}}'>{{disPrice}}</view> -->
         </view>
       </view>
     </view>
