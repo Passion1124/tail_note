@@ -72,13 +72,8 @@ Page({
       this.data.userInfo = e.detail.userInfo;
       this.getWeChatOpenId();
     } else {
-      wx.showModal({
-        title: '用户未授权',
-        content: '如需正常使用小程序功能，请按确定并且在登录页面中点击登录按钮，同意授权。',
-        showCancel: false,
-        success: function (res) {
-          console.log(res);
-        }
+      wx.switchTab({
+        url: '/pages/index/index',
       })
     }
   },
