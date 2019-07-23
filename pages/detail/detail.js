@@ -120,14 +120,17 @@ Page({
       wx.setNavigationBarTitle({
         title: res.goods.name,
       });
-      let goodsItems = res.goodsItems.map(item => {
-        item.checked = false;
+      let goodsItems = res.goodsItems.map((item, index) => {
+        item.checked = index ? false : true;
         return item;
       })
       this.setData({
-        price: res.goods.priceDesc,
         goods: res.goods,
-        goodsItems: goodsItems
+        goodsItems: goodsItems,
+        nextDisabled: !goodsItems.length,
+        checkDate: goodsItems.length ? goodsItems[0].uuid : '',
+        price: goodsItems.length ? '￥' + (goodsItems[0].amount * this.data.num / 100) : res.goods.priceDesc,
+        maxNum: goodsItems.length ? goodsItems[0].num : 1
       });
       this.getFavorCheck();
       wx.hideLoading();
