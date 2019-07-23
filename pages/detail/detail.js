@@ -324,36 +324,43 @@ Page({
       let amount = good.amount;
       let damount = good.damount;
       let s_data = {};
-      s_data.price = damount > 0 ? '参考价：￥' + (amount * this.data.num / 100) : '￥' + (amount * this.data.num / 100);
-      s_data.disPrice = damount > 0 ? '同行价：￥' + (damount * this.data.num / 100) : 0;
+      // s_data.price = damount > 0 ? '参考价：￥' + (amount * this.data.num / 100) : '￥' + (amount * this.data.num / 100);
+      // s_data.disPrice = damount > 0 ? '同行价：￥' + (damount * this.data.num / 100) : 0;
+      s_data.price = '￥' + (amount * this.data.num / 100);
       this.setData(s_data)
     }
   },
   goToThePayMent: function () {
-    if (this.data.nextDisabled) {
-      return false;
-    }
     utils.userIsLogin().then(_ => {
-      let data = this.data;
-      wx.showLoading({
-        title: '正在生成订单中',
-      });
-      let query = app.query('com.zenith.api.apis.OrderApiService');
-      let body = Object.assign(app.commonBody(), { gid: data.gid, giid: data.checkDate, phone: data.telephone, num: data.num, sn: app.uuid(), address: data.address });
-      app.request(query, body, (res) => {
-        console.log(res);
-        wx.navigateTo({
-          url: '../payment/payment?orderId=' + res.order.uuid,
-        })
-        wx.hideLoading();
-      }, (err) => {
-        console.error(err);
-        wx.hideLoading();
-        wx.showToast({
-          title: '订单生成失败！！',
-          icon: 'none'
-        })
-      })
+      let contact = this.data;
+      if (!contact.telephone) {
+        utils.showMessage('请输入手机号');
+      } else if (!utils.validatePhone(contact.telephone)) {
+        utils.showMessage('请输入正确的手机号');
+      } else if (!contact.address) {
+        utils.showMessage('请输入收货地址');
+      } else {
+        let data = this.data;
+        wx.showLoading({
+          title: '正在生成订单中',
+        });
+        let query = app.query('com.zenith.api.apis.OrderApiService');
+        let body = Object.assign(app.commonBody(), { gid: data.gid, giid: data.checkDate, phone: data.telephone, num: data.num, sn: app.uuid(), address: data.address });
+        app.request(query, body, (res) => {
+          console.log(res);
+          wx.navigateTo({
+            url: '../payment/payment?orderId=' + res.order.uuid,
+          })
+          wx.hideLoading();
+        }, (err) => {
+          console.error(err);
+          wx.hideLoading();
+          wx.showToast({
+            title: '订单生成失败！！',
+            icon: 'none'
+          })
+        }) 
+      }
     })
   },
   bindTelePhone: function (e) {
@@ -369,9 +376,6 @@ Page({
     this.changeNextButtonStatus();
   },
   addTheCart () {
-    if (this.data.nextDisabled) {
-      return false;
-    }
     let data = this.data;
     let arr = wx.getStorageSync('cart') || [];
     let cart_has = arr.findIndex(item => item.giid === data.checkDate && item.gid === data.gid);
