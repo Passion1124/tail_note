@@ -19,7 +19,7 @@
       </view>
       <view class='price_num'>
         <view class='price'>
-          <text>￥{{item.amount / 100}}</text>
+          <text>￥{{(item.amount || 0) / 100}}</text>
         </view>
         <view class='num'>
           <text>x{{item.num}}</text>
@@ -32,7 +32,7 @@
       <text>合计：</text>
     </view>
     <view>
-      <text>￥{{detail.totalAmount / 100}}</text>
+      <text>￥{{(detail.totalAmount || 0) / 100}}</text>
     </view>
   </view>
   <view class='list single refund' wx:if="{{detail.orderStatus === 2 || detail.orderStatus === 3}}">
