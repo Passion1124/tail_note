@@ -81,7 +81,7 @@ Page({
     let obj = {
       title: '恋爱厨房',
       path: '/pages/index/index',
-      imageUrl: '../../img/share_img.jpg'
+      imageUrl: '../../img/share_img.png'
     };
     return obj;
   },
