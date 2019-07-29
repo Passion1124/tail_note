@@ -65,6 +65,16 @@
       <image src='../../img/more.png'></image>
     </view>
   </view>
+  <view class='list'>
+    <button open-type='share'>
+      <view>
+        <text>分享给好友</text>
+      </view>
+      <view>
+        <image src='../../img/more.png'></image>
+      </view>
+    </button>
+  </view>
   <view class='list' bindtap='goToTheCustomer'>
     <view>
       <text>微信客服</text>

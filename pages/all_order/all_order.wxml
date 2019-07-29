@@ -16,7 +16,7 @@
         <view class='list_row'>
           <block wx:for="{{all_order}}" wx:key="*this">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
-              <view class='item_info'>
+              <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
                   <text>{{item.desc}}</text>
                 </view>
@@ -37,7 +37,12 @@
                   </view>
                 </view>
                 <view class='main_num'>
-                  <text>x{{item.num}}</text>
+                  <view>
+                    <text>x{{item.num}}</text>
+                  </view>
+                  <view class='{{ item.orderStatus === 0 ? "pengding" : ""}}'>
+                    <text>{{item.statusText}}</text>
+                  </view>
                 </view>
               </view>
             </view>
@@ -67,7 +72,7 @@
         <view class='list_row'>
           <block wx:for="{{pending_order}}" wx:key="*this">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
-              <view class='item_info'>
+              <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
                   <text>{{item.desc}}</text>
                 </view>
@@ -88,7 +93,12 @@
                   </view>
                 </view>
                 <view class='main_num'>
-                  <text>x{{item.num}}</text>
+                  <view>
+                    <text>x{{item.num}}</text>
+                  </view>
+                  <view class='{{ item.orderStatus === 0 ? "pengding" : ""}}'>
+                    <text>{{item.statusText}}</text>
+                  </view>
                 </view>
               </view>
             </view>
@@ -118,11 +128,11 @@
         <view class='list_row'>
           <block wx:for="{{paid_order}}" wx:key="*this">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
-              <view class='item_info'>
+              <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
                   <text>{{item.desc}}</text>
                 </view>
-                <view class='info_status {{ item <= 2 ? "pengding" : ""}}'>
+                <view class='info_status {{ item.orderStatus === 0 ? "pengding" : ""}}'>
                   <text>{{item.statusText}}</text>
                 </view>
               </view>
@@ -139,7 +149,12 @@
                   </view>
                 </view>
                 <view class='main_num'>
-                  <text>x{{item.num}}</text>
+                  <view>
+                    <text>x{{item.num}}</text>
+                  </view>
+                  <view class='{{ item.orderStatus === 0 ? "pengding" : ""}}'>
+                    <text>{{item.statusText}}</text>
+                  </view>
                 </view>
               </view>
             </view>
@@ -169,7 +184,7 @@
         <view class='list_row'>
           <block wx:for="{{completed_order}}" wx:key="*this">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
-              <view class='item_info'>
+              <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
                   <text>{{item.desc}}</text>
                 </view>
@@ -190,7 +205,12 @@
                   </view>
                 </view>
                 <view class='main_num'>
-                  <text>x{{item.num}}</text>
+                  <view>
+                    <text>x{{item.num}}</text>
+                  </view>
+                  <view class='{{ item.orderStatus === 0 ? "pengding" : ""}}'>
+                    <text>{{item.statusText}}</text>
+                  </view>
                 </view>
               </view>
             </view>
@@ -220,7 +240,7 @@
         <view class='list_row'>
           <block wx:for="{{cancelled_order}}" wx:key="*this">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
-              <view class='item_info'>
+              <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
                   <text>{{item.desc}}</text>
                 </view>
@@ -241,7 +261,12 @@
                   </view>
                 </view>
                 <view class='main_num'>
-                  <text>x{{item.num}}</text>
+                  <view>
+                    <text>x{{item.num}}</text>
+                  </view>
+                  <view class='{{ item.orderStatus === 0 ? "pengding" : ""}}'>
+                    <text>{{item.statusText}}</text>
+                  </view>
                 </view>
               </view>
             </view>

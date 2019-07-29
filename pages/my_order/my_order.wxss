@@ -65,12 +65,21 @@
 
 .list{
   display: flex;
+  align-items: center;
   width: 670rpx;
   margin: 0 auto;
   padding: 40rpx 0;
-  align-items: center;
   box-sizing: border-box;
   border-bottom: 1rpx solid #E0E0E0;
+}
+
+.list button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  line-height: 0;
+  background-color: #fff;
+  padding: 0;
 }
 
 .list view{
@@ -80,13 +89,16 @@
 .list view:first-of-type{
   font-size: 32rpx;
   line-height: 45rpx;
+  text-align: left;
 }
 
 .list view:last-of-type{
   text-align: right;
+  line-height: 0;
 }
 
 .list view image{
   width: 28rpx;
   height: 28rpx;
+  vertical-align: top;
 }

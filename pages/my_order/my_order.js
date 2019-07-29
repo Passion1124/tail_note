@@ -76,8 +76,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function (params) {
+    console.log(params);
+    let obj = {
+      title: '恋爱厨房',
+      path: '/pages/index/index',
+      imageUrl: '../../img/share_img.jpg'
+    };
+    return obj;
   },
   handleUserDetail: function () {
     let query = app.query('com.zenith.api.apis.UserDetailApiService');

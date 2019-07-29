@@ -149,6 +149,21 @@
   line-height: 33rpx;
   letter-spacing: 1px;
   color: #8C8C8C;
+  text-align: right;
+}
+
+.item-ans .item_main .main_num view:first-of-type{
+  margin-bottom: 16rpx;
+}
+
+.item-ans .item_main .main_num view:last-of-type{
+  font-size: 28rpx;
+  line-height: 45rpx;
+  color: #000;
+}
+
+.item-ans .item_main .main_num view:last-of-type.pengding{
+  color: #F97572;
 }
 
 .tab-content {
