@@ -485,9 +485,10 @@ Page({
       cancelled_order: true,
       refunded_order: true
     };
-    this.setData({
-      update: update
-    });
+    this.data.update = update;
+    // this.setData({
+    //   update: update
+    // });
     this.handleGetOrderList();
   },
   goToTheOrderDetail: function (e) {

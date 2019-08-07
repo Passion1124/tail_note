@@ -114,9 +114,9 @@ Page({
       console.log(res);
       let max = res.goods.length === this.data.size ? false : true;
       let foodsList = this.data.foodsList.concat(res.goods);
+      this.data.max = max;
       this.setData({
-        foodsList: foodsList,
-        max: max
+        foodsList: foodsList
       }, () => {
         this.data.loading = false;
       });

@@ -127,11 +127,11 @@ Page({
       this.setData({
         goods: res.goods,
         goodsItems: goodsItems,
-        nextDisabled: !goodsItems.length,
-        checkDate: goodsItems.length ? goodsItems[0].uuid : '',
-        price: goodsItems.length ? '￥' + (goodsItems[0].amount * this.data.num / 100) : res.goods.priceDesc,
-        maxNum: goodsItems.length ? goodsItems[0].num : 1
+        price: goodsItems.length ? '￥' + (goodsItems[0].amount * this.data.num / 100) : res.goods.priceDesc
       });
+      this.data.maxNum = goodsItems.length ? goodsItems[0].num : 1;
+      this.data.checkDate = goodsItems.length ? goodsItems[0].uuid : '';
+      this.data.nextDisabled = !goodsItems.length;
       this.getFavorCheck();
       wx.hideLoading();
     }, function (res) {
@@ -218,10 +218,12 @@ Page({
     let good = this.data.goodsItems.find(item => item.uuid === checkDate);
     let amount = good.amount;
     let damount = good.damount;
-    let maxNum = good.num;
+    // let maxNum = good.num;
+    this.data.maxNum = good.num;
+    this.data.checkDate = checkDate;
     let s_data = {};
-    s_data.maxNum = maxNum;
-    s_data.checkDate = checkDate;
+    // s_data.maxNum = maxNum;
+    // s_data.checkDate = checkDate;
     s_data.goodsItems = goodsItems;
     // s_data.price = damount > 0 ? '参考价：￥' + (amount * this.data.num / 100) : '￥' + (amount * this.data.num / 100);
     // s_data.disPrice = damount > 0 ? '同行价：￥' + (damount * this.data.num / 100) : 0;
@@ -313,9 +315,10 @@ Page({
     if (data.checkDate && data.num && data.telephone && data.address) {
       disabled = false;
     };
-    this.setData({
-      nextDisabled: disabled
-    })
+    this.data.nextDisabled = disabled;
+    // this.setData({
+    //   nextDisabled: disabled
+    // })
   },
   // 修改商品价格
   changeGoodItemPrice: function () {

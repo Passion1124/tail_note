@@ -12,3 +12,7 @@ button{
 button::after{
   border: none;
 }
+
+page, .container, scroll-view {
+  -webkit-overflow-scrolling: touch;
+}

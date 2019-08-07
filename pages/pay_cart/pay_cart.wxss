@@ -280,99 +280,20 @@ page {
   text-align: right;
 }
 
-.delivery_info {
-  width: 100%;
-  padding: 0 30rpx;
-  background-color: #fff;
-  box-sizing: border-box;
-  margin-bottom: 13rpx;
-}
-
-.delivery_info .delivery_title, .contacts .contacts_title{
-  width: 100%;
-  height: 86rpx;
-  font-size: 26rpx;
-  line-height: 86rpx;
-  color: #3C3C3C;
-}
-
-.delivery_info .receive_date{
-  border-bottom: 1rpx solid #E9E9E9;
-}
-
-.delivery_info .address .recevie_type{
-  display: flex;
-  align-items: center;
-  width: 240rpx;
-  height: 50rpx;
-}
-
-.delivery_info .address .recevie_type view{
-  flex: 1;
-  font-size: 22rpx;
-  line-height: 48rpx;
-  color: #B7B7B7;
-  text-align: center;
-  border: 1rpx solid #CACACA;
-  box-sizing: border-box;
-}
-
-.delivery_info .address .recevie_type view.active{
-  background-color: #23C2F7;
-  color: #fff;
-  border-color: #23C2F7;
-}
-
-.delivery_info .address .recevie_type .left {
-  border-top-left-radius: 25rpx;
-  border-bottom-left-radius: 25rpx;
-}
-
-.delivery_info .address .recevie_type .right {
-  border-top-right-radius: 25rpx;
-  border-bottom-right-radius: 25rpx;
-}
-
-.delivery_info .address .self_taking, .delivery_info .address .give{
-  flex: 1;
-}
-
-.delivery_info .address .give picker{
-  width: 100%;
-}
-
-.delivery_info .address .self_taking input{
-  width: 100%;
-  height: 33rpx;
-  font-size: 24rpx;
-  line-height: 33rpx;
-  color: #3C3C3C;
-}
-
-.delivery_info .address .give{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.delivery_info .address .give .address_text{
-  flex: 1;
-  max-width: 530rpx;
-  font-size: 24rpx;
-  line-height: 33rpx;
-  color: #3C3C3C;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
 .contacts {
   width: 100%;
   padding: 0 30rpx;
   background-color: #fff;
   margin-bottom: 30rpx;
   box-sizing: border-box;
+}
+
+.contacts .contacts_title{
+  width: 100%;
+  height: 86rpx;
+  font-size: 26rpx;
+  line-height: 86rpx;
+  color: #3C3C3C;
 }
 
 .contacts>.single:not(:last-of-type) {
