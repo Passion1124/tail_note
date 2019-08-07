@@ -14,7 +14,7 @@
     <swiper-item>
       <scroll-view scroll-y="true" class='scoll-h' data-current='0' bindscrolltolower="scrolltolower">
         <view class='list_row'>
-          <block wx:for="{{all_order}}" wx:key="*this">
+          <block wx:for="{{all_order}}" wx:key="{{index}}">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
               <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
@@ -70,7 +70,7 @@
     <swiper-item>
       <scroll-view scroll-y="true" class='scoll-h' data-current='1' bindscrolltolower="scrolltolower">
         <view class='list_row'>
-          <block wx:for="{{pending_order}}" wx:key="*this">
+          <block wx:for="{{pending_order}}" wx:key="{{index}}">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
               <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
@@ -126,7 +126,7 @@
     <swiper-item>
       <scroll-view scroll-y="true" class='scoll-h' data-current='2' bindscrolltolower="scrolltolower">
         <view class='list_row'>
-          <block wx:for="{{paid_order}}" wx:key="*this">
+          <block wx:for="{{paid_order}}" wx:key="{{index}}">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
               <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
@@ -182,7 +182,7 @@
     <swiper-item>
       <scroll-view scroll-y="true" class='scoll-h' data-current='3' bindscrolltolower="scrolltolower">
         <view class='list_row'>
-          <block wx:for="{{completed_order}}" wx:key="*this">
+          <block wx:for="{{completed_order}}" wx:key="{{index}}">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
               <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
@@ -238,7 +238,7 @@
     <swiper-item>
       <scroll-view scroll-y="true" class='scoll-h' data-current='4' bindscrolltolower="scrolltolower">
         <view class='list_row'>
-          <block wx:for="{{cancelled_order}}" wx:key="*this">
+          <block wx:for="{{cancelled_order}}" wx:key="{{index}}">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
               <view class='item_info' wx:if='{{false}}'>
                 <view class='info_name'>
@@ -294,7 +294,7 @@
     <!-- <swiper-item>
       <scroll-view scroll-y="true" class='scoll-h' data-current='5' bindscrolltolower="scrolltolower">
         <view class='list_row'>
-          <block wx:for="{{refunded_order}}" wx:key="*this">
+          <block wx:for="{{refunded_order}}" wx:key="{{index}}">
             <view class='item-ans' data-orderid='{{item.uuid}}' bindtap='goToTheOrderDetail'>
               <view class='item_info'>
                 <view class='info_name'>
